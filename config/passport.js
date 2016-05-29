@@ -2,7 +2,7 @@
 //Sgetting passport strategy we will use
 var LocalStrategy = require("passport-local").Strategy
 //Getting user model
-var User = require("../models/User.js")
+var User = require("../models/user.js")
 
 
 
