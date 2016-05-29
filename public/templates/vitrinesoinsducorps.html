@@ -1,0 +1,22 @@
+</br>
+<a class="navbar-brand" href="#" style="font-size:30px;color:Black;text-align:center">Soins du Corps - Vitrine</a> </br> </br> 
+<div style="width:50%" style="margin-left:100px">
+
+         <img src="images/b1.jpg" alt="carousel's Place" width="100%" style="margin-left:100px;margin-right:100px">
+    </div>
+
+<div class="row"> 
+            </br> 
+            <div ng-repeat="produit in produits">
+                 <div class="col-md-4" class="well"> 
+                    <a href="/produit"><strong style="font-size:30px">{{produit.nom}}</strong></a></br>
+                    Vendu par: {{produit.vendeur}}</br>
+                    Type: {{produit.type}}</br>
+                    Prix: {{produit.prix}}</br>
+                    Livraison inclus dans ce prix?: {{produit.livraison}}
+                    <button class="btn btn-default" ng-click="ajouterAuPanier($index)">Ajouter au panier </button> 
+                 </div> 
+
+            </div> 
+
+        </div>

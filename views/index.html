@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bintou App</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="stylesheets/shop-homepage.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<base href="/">
+<style>
+.frontLinks
+{
+    text-decoration: none;
+    color:black;
+    font-size:20px;
+}
+
+.frontLinks:hover{
+    color:black;
+    background-color :pink;
+}
+
+</style>
+</head>
+
+<body ng-app="Bintou" ng-controller="AcceuilleController" style="background-color:">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:black">
+        <div class="container">
+            
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               
+                
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                       <a  href="/">Acceuille</a>
+                    </li>
+                   
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                
+                    <li>
+                        <a href="/panier">Panier({{panier.length}})</a>
+                    </li>
+                     <li ng-show="isAuthen">
+                        <a href="/profile">Profile</a>
+                    </li>
+                    
+                     <li ng-hide="isAuthen">
+                       <a  href="/authen">S'inscrire /Se connecter</a>
+                    </li>
+                    <li ng-show="isAuthen">
+                        <a ng-click="logout()">Se déconnecter</a>
+                    </li>
+                    <li ng-show="isAuthen">
+                        <a style="font-size:20px">Bienvenue {{user.moreInfo.prenom}}</a> 
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+</br>
+    <!-- Page Content -->
+    <div class="container" >
+
+        <div class="row"> 
+
+
+            <div class="col-md-12" class="nav navbar-nav"> 
+                <ol class="nav navbar-nav" style="background-color:#ff284b">
+                    <a class="navbar-brand" href="#" style="font-size:65px;color:Black;background-color:#ff284b">
+                        Bintou
+                    </a>
+                    <li>
+                        <a href="vitrinesoinsducorps" class="frontLinks">Soins du corps</a>
+                    </li>
+                    <li>
+                        <a href="#" class="frontLinks">Soins des Cheuveux</a>
+                    </li>
+                    <li><a href="#" class="frontLinks">Visage et Maquillage</a>
+                    </li>
+                    <li><a href="#" class="frontLinks">Parfums</a>
+                    </li>
+                    <li><a href="#" class="frontLinks">Accessoires divers</a>
+                    </li>
+                </ol>
+            </div></br>
+{{hi}}
+            
+            <div class="col-md-12" ng-view></div>
+
+            
+        
+        </div>
+            
+        
+     
+ 
+
+
+    </div>
+    
+
+    <!-- /.container -->
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer style="background-color:black">
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p style="color:white">Copyright &copy; Bintou App 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="javascripts/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="javascripts/bootstrap.min.js"></script>
+
+<script  src="javascripts/angular.min.js"></script>
+<script  src="javascripts/angular-ui-router.min.js"></script>
+<script src="javascripts/angular-route.min.js"></script>
+<script  src="javascripts/bootstrap.js"></script>
+<script  src="javascripts/modules/Bintou.js"></script>
+<script  src="javascripts/controllers/LogSign.js"></script>
+<script  src="javascripts/controllers/AcceuilleController.js"></script>
+<script  src="javascripts/controllers/panier.js"></script>
+<script  src="javascripts/controllers/vitrinesoinsducorps.js"></script>
+<script  src="javascripts/controllers/produit.js"></script>
+<script  src="javascripts/controllers/profile.js"></script>
+<script  src="javascripts/controllers/sellerProduits.js"></script>
+<script  src="javascripts/controllers/userInfo.js"></script>
+</body>
+
+</html>
