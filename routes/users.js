@@ -1,7 +1,7 @@
 module.exports = function(app,passport){
 
  
-var User = require("../models/User.js")
+var User = require("../models/user.js")
 var mongoose = require("mongoose")
 
 
