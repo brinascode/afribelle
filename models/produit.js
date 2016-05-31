@@ -4,13 +4,17 @@ var Schema = mongoose.Schema
 var produit = new Schema({
 nom:String,
 type:String,
+//soins_du_corps
+
+
 details:String,
 prix:Number,
 livraison:Boolean,
 date:Date,
 image:[String],
 vendeur:String,
-vendeurPseudo:String
+vendeurId:String,
+imageUrls:[String]
 })
 
 

@@ -7,29 +7,38 @@ app.controller("AcceuilleController",["$scope","$location","$window","$http",
 $scope.panier = []
 
 //****************User Data**************************
-$scope.user
+$scope.user={}
+$scope.child={}
 
+/* You can try this:
 
+$scope.child = {} //declare it in parent controller (scope)
+then in child controller (scope) add:
 
+var parentScope = $scope.$parent;
+parentScope.child = $scope;
+Now the parent has access to the child's scope.
+*/
 
+//To logout of user session
+$scope.logout =function(){
+	$http.get("/logout").success(function(){
+		$scope.isAuthen = false
+		$window.location.href="/"
+		console.log($scope.isAuthen)
+	})
+}
 
-			$http.get("/userinfo_serv").success(function(data){
-				$scope.user = data
-				console.log(data)
-			//Make sure user extra info is complete
-			if(data.moreInfo === null)
-			{   //This is not great, fix itt!!!!
-				$scope.completedInfo = false
-				$scope.message1  = "Tu dois remplir ces informations avant de commencer à vendre et faire des achats"
-			}	
-			else
-			{
-				$scope.completedInfo = true
-				
-			}
-			})
-
-
+//Making function
+$scope.getUserInfo = function(){
+		//To get the logged in user's info
+		$http.get("/userinfo_serv").success(function(data){
+			$scope.user = data
+		})
+		return $scope.user
+}
+//Calling function
+$scope.getUserInfo()
 
 
 
@@ -39,18 +48,8 @@ $scope.isAuthen
 //Checking if user is authenticated To hide/show buttons:))
 $http.get("/isAuthen").success(function(data){
 	$scope.isAuthen = data
-	console.log(data)
+	
 })
-
-$scope.logout =function(){
-	$http.get("/logout").success(function(){
-		$scope.isAuthen = false
-		$window.location.href="/"
-		console.log($scope.isAuthen)
-	})
-}
-
-
 
 
 }])

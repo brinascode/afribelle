@@ -1,16 +1,17 @@
-</br>
+</br></br>
 
-
-<div class="container well" style="width:40vw">
-	<h1 style="text-align:center">Se connecter</h1>
-{{message}}
-<label>Email</label>
-<input type="text" class="form-control" ng-model="logg.email" name="email" /></br>
-<label>Mot de passe</label>
-<input type="password" class="form-control" ng-model="logg.password" name="password"/>
-</br>
-<button ng-click="login()" class="btn btn-danger btn-lg btn-block" style="background-color:#f62e46" >Se connecter
-</button>
-
+<div class="row container" >
+	<div class="well col-md-12" >
+		<h1 style="text-align:center">Se connecter</h1>
+		{{message}}
+		<label>Nom d'utilisateur</label>
+		<input type="text" class="form-control" ng-model="logg.username" name="username" /></br>
+		<label>Mot de passe</label>
+		<input type="password" class="form-control" ng-model="logg.password" name="password"/>
+		</br>
+		
+		<button ng-click="login()" class="btn btn-danger btn-lg btn-block pinkButton"  >Se connecter
+		</button>
+	</div>
 
 </div>

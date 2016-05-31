@@ -4,6 +4,24 @@ module.exports = function(app,passport){
 var User = require("../models/user.js")
 var mongoose = require("mongoose")
 
+// =====================================
+    // FACEBOOK ROUTES =====================
+    // =====================================
+    // route for facebook authentication and login
+    app.get('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
+
+    // handle the callback after facebook has authenticated the user
+    app.get('/auth/facebook/callback',  //Change the callback b4 deploy
+        passport.authenticate('facebook', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
+
+
+
+
+
+
 
  //Next:
  //Limit the amt of info sent as user info! we dont want username or password stuffs
@@ -48,25 +66,6 @@ var mongoose = require("mongoose")
 
       res.json(ans)   
     });
-
-
-    //Adding moreInfo! :))
-
-    app.post("/addMoreInfo",function(req,res){
-        
-        User.find(req.user._id,function(err,dataIn){
-           //Remember that mongoose-model find() method gives stuff out as array
-           dataIn[0].moreInfo = req.body
-           dataIn[0].save(function(err){if(err) throw err})
-           dataOut = dataIn[0].moreInfo
-        
-          res.json(dataIn[0].moreInfo)
-        })
-
-
-        })
-
-
 
 
 

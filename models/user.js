@@ -4,7 +4,7 @@ var Schema = mongoose.Schema
 //Make distinction btw email and usernam
 var userSchema = new Schema({
     local            : {
-        email        : String,
+        username      : String,
         password     : String,
     },
     facebook         : {

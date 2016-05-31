@@ -1,12 +1,14 @@
 </br>
-<h1 style="text-align:" class="h1">Panier</H1>
+<h1 style="text-align:" class="h1">Panier</H1><img src="images/shopIcon.png" width="10%"/>
 </br>
 <strong>{{message}}</strong>
 </br>
 <div ng-repeat="produit in panier" class="well col-sm-4" >
 {{produit.nom}}</br> 
+<img ng-src="{{produit.imageUrls[0]}}" width="50%"></br>
 {{produit.type}}</br> 
 {{produit.vendeur}}</br> 
+
 
 </div>       
 </br>       
