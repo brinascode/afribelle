@@ -30,12 +30,15 @@ var mongoose = require("mongoose")
 
     // // process the signup form (all passport stuff)
    app.post('/signup', passport.authenticate('local-signup'),function(req,res){
+    res.writeHead(200);
     res.json("Success")
    })
 
     // process the login form
  // process the login form
     app.post('/login', passport.authenticate('local-login'),function(req,res){
+        res.writeHead(200);
+  
      res.json("Success")   
     });
 
