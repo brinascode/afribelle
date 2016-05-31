@@ -38,9 +38,11 @@ $scope.login = function(){
 }
 
 
-$scope.facebookAuthen=function(
-  $window.location.href="/auth/facebook"
-	)
+$scope.facebookAuthen=function(){
+	 $window.location.href="/auth/facebook"
+}
+ 
+	
 
 
 
