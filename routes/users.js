@@ -29,8 +29,8 @@ var mongoose = require("mongoose")
 
 
     // // process the signup form (all passport stuff)
-   app.post('/signup', passport.authenticate('local-signup',{failureFlash:true}),function(req,res){
-    res.send(req.flash("signupMessage"))
+   app.post('/signup', passport.authenticate('local-signup'),function(req,res){
+    res.json("Success")
    })
 
     // process the login form

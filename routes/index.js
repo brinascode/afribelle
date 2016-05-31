@@ -48,7 +48,7 @@ app.post("/effacerProduit",function(req,res){
 })
 
 
-//Getting all the products for the front page
+/*Getting all the products for the front page
 app.get("/tousProduits",function(req,res){
 	Produit.find({},function(err,data){
 		if (err) throw err
@@ -56,7 +56,7 @@ app.get("/tousProduits",function(req,res){
 	})
 
 })
-
+*/
 //Getting the soins du corps produits
 app.get("/soinsDuCorpsProduits",function(req,res){
 	Produit.find({type:"Soins_du_corps"},function(err,data){
