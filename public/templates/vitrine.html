@@ -1,0 +1,47 @@
+</br>
+<a class="navbar-brand" href="#" style="font-size:30px;color:Black;text-align:center">
+    Soins du Corps - Vitrine
+</a> 
+
+</br> </br> 
+<div class="row" style="background-image:url('images/pretty.jpeg')">
+     <div  class="col-lg-12">
+         <center><img src="images/pretty.jpeg" alt="carousel's Place" width="50%"></center>
+     </div>
+ </div>
+
+<div class="row"> 
+            </br> 
+            <div ng-repeat="produit in produits track by $index">
+                 
+                 <div class="col-md-4" class="well"> 
+                    <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                        <span style="font-size:30px">
+                            {{produit.nom}}
+                        </span>
+                    
+                     </br>
+                     <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
+
+                     </a>
+                         <strong>Vendu par: </strong> {{produit.vendeur}}</br>
+                         <strong>Prix: </strong>{{produit.prix}} FCFA</br>
+                        Livraison inclus dans ce prix?: {{produit.livraison}}</br>
+
+                        
+
+                     <button class="jaime btn" ng-click="newVote($index)" > 
+                        <span class="glyphicon glyphicon-heart" style="30vw"></span>
+                        {{produit.votes.length}}
+                    </button>     
+                    <button class="btn btn-md" ng-click="ajouterAuPanier($index)" ><span class="glyphicon glyphicon-shopping-cart" style="30vw">
+                    </span>
+                     Ajouter au panier 
+                    </button> 
+
+                    
+                 </div> 
+
+            </div> 
+
+        </div>

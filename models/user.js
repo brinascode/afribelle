@@ -4,7 +4,7 @@ var Schema = mongoose.Schema
 //Make distinction btw email and usernam
 var userSchema = new Schema({
     local            : {
-        username      : String,
+        username     : String,
         password     : String,
     },
     facebook         : {
@@ -26,12 +26,9 @@ var userSchema = new Schema({
         name         : String
     },
     moreInfo         : { 
-        prenom:        String,
-        nomDeFamille:  String,
-        age:           Number,
-        pseudo:        String,
-        numeroDeTelephones:[Number]
-    }
+        numerosDeTelephone:[Number]
+    },
+    votedFor:           [String]
 
 })
 

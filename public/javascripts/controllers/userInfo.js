@@ -1,45 +1,36 @@
-app.controller("userInfo",["$scope","$http","$location","$window",
-	function($scope,$http,$location,$window){
+app.controller("userInfo",["$scope","$http","$location","$window","userModifs",
+	function($scope,$http,$location,$window,userModifs){
 
-//User info
 
 $scope.user = $scope.$parent.user
+
 $scope.completedInfo = false
 $scope.moreInfoNew = {}
-
-			//iFno extra info available
-			if($scope.user.moreInfo === null)
-			{   //This is not great, fix itt!!!!
-				$scope.completedInfo = false
-				$scope.message1  = "Tu dois remplir ces informations avant de commencer à vendre et faire des achats"
-			}	
-			else
-			{
-				$scope.completedInfo = true
-			}
+$scope.message
 
 
 
-$scope.updateMoreInfo = function(){
-//Validate before sending!
-$http.post("/addMoreInfo",$scope.moreInfoNew).success(function(data){
-	//Here the data is served as an object
-	$scope.user.moreInfo = data
-	console.log(data)
+//Not A number + Doesnt update parent!
+$scope.newUserTelephone= function(){ //Validated
+	if($scope.moreInfoNew){ 
+		userModifs.newUserTelephone($scope)
+		console.log($scope.moreInfoNew)
 
-	//Make sure user extra info is complete
-			if(data = null)
-			{   //This is not great, fix itt!!!!
-				$scope.completedInfo = false
-				$scope.message1  = "Tu dois remplir ces informations avant de commencer à vendre et faire des achats"
-			}	
-			else
-			{
-				$scope.completedInfo = true
-				
-			}
-})
+	}else{
+		$scope.message = "Veuillez entrez un numéro de telephone valide s'il vous plait"
+		console.log(parse($scope.moreInfoNew))
+	}
+
+	$window.location.href = "/userInfo"
 }
+
+$scope.removeUserTelephone = function($index){
+	userModifs.removeUserTelephone($scope,$index)
+	$window.location.href = "/userInfo"
+} 
 
 
 }])
+
+//When you pass parameters to service function, you wrap it up with a native scope 
+//function cause from the DOM you cant send params to service function

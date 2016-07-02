@@ -4,9 +4,10 @@ module.exports = {
     'facebookAuth' : {
         'clientID'      : '136188760121154', // your App ID
         'clientSecret'  : '6264f3a074cd13488e7ebb09610173e0', // your App Secret
-        'callbackURL'   : 'http://bintou.herokuapp.com/auth/facebook/callback',
+        'callbackURL'   : 'http://localhost:3000/auth/facebook/callback',
          "profileFields": ['id', 'emails', 'name'] //This
     }, //http://localhost:3000/auth/facebook/callback
+    //'http://bintou.herokuapp.com/auth/facebook/callback'
 
     'twitterAuth' : {
         'consumerKey'       : 'your-consumer-key-here',

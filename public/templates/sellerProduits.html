@@ -1,21 +1,38 @@
 </br></br></br>
 
 <div class="container">
-	<a href="/profile">Profile</a> / <a href="/sellerProduits">Mes Produits</a>
 
-	<div class="container" >
-		<h1>Mes produits déja en ligne ({{mesProduits.length}})</h1>
+	Retour au <a href="/profile">Profile</a> 
+							<!--- Mes produits  -->
+
+	<div class="container">
+		<h1>Mes produits déja en ligne ({{mesProduits.length}}) </h1>
 		<div class="row">
 			<div id="MesProduits" class="well col-sm-3" ng-repeat="produit in mesProduits"
 			style="width:">
-				<strong>{{produit.nom}}</strong></br>
-				Ajouté le: {{produit.date}}</br>
-				<img ng-src="{{produit.imageUrls[0]}}" width="50%"></br>
-				Type: {{produit.type}}</br>
-				Prix: {{produit.prix}}</br>
+				
+				<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black"><strong>
+					{{produit.nom}}
+				</strong>
+				</a>
+			</br> 
+				
+
+				Ajouté le: {{ date|| produit.date }}</br>
+				<img ng-src="{{produit.mainImageUrl}}" width="50%"></br>
+				<strong>Type: </strong> {{produit.type}}</br>
+				<strong>Prix: </strong>{{produit.prix}}</br>
 				Livraison inclus dans ce prix: {{produit.livraison}}</br>
-				<button class="btn btn-danger btn-sm" ng-click="effacerProduit($index)">Retirer
+
+				<button class="jaime btn"> 
+                    <span class="glyphicon glyphicon-heart" style="30vw"></span>
+                    {{produit.votes.length}}
+                </button> </br>
+                <button class="btn btn-default" ng-click="modifyProduit($index)"> Modifier </button> 
+				<button class="btn btn-danger btn-sm" ng-click="effacerProduit($index)">Supprimer ce produit
 				</button>
+
+				 
 				
 
 			</div>
@@ -26,65 +43,143 @@
 
 		
 
-	<br>
+	</br>
+                             <!--- Pour les modifs  -->
 
-	<button class="btn btn-info btn-sm" ng-click="doAddImage()">
-					Ajouter une image à un de mes produits
-	</button>
 
-	<div ng-show="addImageSection">
-		<label>Ajouter un image à :</label>
-		<select class="form-control" ng-model="addImageToName">
-			<option ng-repeat="produit in mesProduits">{{produit.nom}}</option>
-		</select>			
-		 <form id="up-form">
-  			<input type="file"  />
-  			<button type="submit" class="btn btn-info"
-  			 ng-click="addImage()">Ajouter! </button>
+      <!--- Modifier le produit (sans images)-->
+    <div class="row">
+	    <div class="well col-lg-6" ng-show="modifSection">
+
+			<center>
+	    	<h2>Modifier</h2>
+	    	<button class="btn btn-danger" 
+			ng-click="hideModifSection()">
+			Fermer</button></center>
+			
+			<h3>
+			<strong>Nom:</strong>
+			<input type="text" class="form-control" ng-model="modifying.nom"/>
+			</h3>
+
+			<h3>
+			<strong>Type:</strong>
+			<input type="text" class="form-control" ng-model="modifying.type"/>
+			</h3>
+			
+			
+			<h3>
+			<strong>Prix</strong>
+			<input type="number" class="form-control" ng-model="modifying.prix"/>
+			</br>
+			</h3>
+			
+
+
+			<h3>
+			<strong>Déscription</strong>
+			<textarea type="number" class="form-control" ng-model="modifying.description"></textarea></br>
+			</h3>
+			
+			
+			Livraison inclus dans ce prix:{{modifying.livraison}}</br>
+
+			<button class="btn btn-danger btn-block" 
+			ng-click="modifyProduitPost()">
+			Enregistrer</button></br>
+			
+
+			 <!--- Les images mtn-->	
+			 <h3 class="">
+			 <center>
+			 <span class="glyphicon glyphicon-camera"></span>
+			 Les images</h3>
+			</center>
+			</br>
+
+			 Voici les images de cet article </br></br>
+			 La photo principale est: 
+			 <img ng-src="{{modifying.mainImageUrl}}" width="20%"></br>
+			  
+			  <h3> Clique sur une image pour la mettre en photo principale</H3>
+			 
+			 <span ng-repeat="imgUrl in modifying.imageUrls">
+				 <img ng-src="{{imgUrl}}" width="20%" 
+				  ng-click="newMainImage($index)" />
+				
+				<button class="btn btn-xs btn-danger" ng-click="effacerImage($index)"> Effacer </button>
+				</br></br>
+			</span>
+
+			
+
+
+			
+			 
+
+			 <form id="ajouterImage">
+	  			<input type="file"  /></br>
+	  			<button type="submit" class="btn btn-info"
+	  			 ng-click="ajouterImage()" ng-hide="imageDone">Ajouter! </button>
 			</form>  
-		{{loadingMessage}}
+			{{imageMessage}}
+
+
+
+
+
+	    
 	    </div>
-	
+	</div>
 
 
 
 
 
-	<div class="well" class="row">
-		<div class="col-lg-6">
+      
+
+
+
+
+ 	<!--- Ajouter produit -->
+	<div  class="row">
+		<div class="col-lg-6 well">
 			<h1>Ajouter un nouveau produit</h1>
-			<h1>{{message}}</h1>
+			<h3 class="alert alert-warning">{{message}}</h3>
 
 			<form>
 				<label>Nom du produit
-					<input type="text" placeholder="Nom" class="form-control" ng-model="nouveauProduit.nom"/>
+					<input type="text" placeholder="Nom" class="form-control" ng-model="nouveauProduit.nom" required/>
 				</label>
 				
 				<label>Type
-					<select  class="form-control" ng-model="nouveauProduit.type" placeholder='Type'>
+					<select class="form-control" ng-model="nouveauProduit.type" placeholder='Type' required>
 					<option>Soins_du_corps</option>
-					<option>Toilette</option>
+					<option>Soins_des_cheuveux</option>
+					<option>Visage_et_maquillage</option>
+					<option>Parfum</option>
 					</select>
 				</label>
 
 				<label>
-					<input type="number" class="form-control" placeholder="prix" ng-model="nouveauProduit.prix"/>
-				</label>
+					<input type="number" class="form-control" placeholder="prix" ng-model="nouveauProduit.prix"  required/>
+				</label></br>
 
 				<label>Le prix de la livraison inclus dans ce prix?</label>
+				</br>
 				<label>
-					<input type="radio" name="livraison" value="true" class="form-control" ng-model="nouveauProduit.livraison"/>Oui
+					<input type="radio" name="livraison" value="true" class="form-control" ng-model="nouveauProduit.livraison"  required/>Oui
 				</label>
 				<label>
-					<input type="radio" name="livraison" value="false" class="form-control"ng-model="nouveauProduit.livraison"/>Non
+					<input type="radio" name="livraison" value="false" class="form-control"ng-model="nouveauProduit.livraison"  required/>Non
 				</label>
-				<textarea type="text" placeholder="Déscription" class="form-control"ng-model="nouveauProduit.details"/>
+				<textarea type="text" placeholder="Déscription" class="form-control"ng-model="nouveauProduit.details"  required/>
 				</textarea>
 				</br>
 				
 				
-				
-				<button class="btn btn-primary" type="submit" ng-click="ajouterProduit(nouveauProduit)">Mettre en ligne
+				<p>Une fois votre produit ajouté, vous pourrez y ajouter des photos.</p>
+				<button class="btn btn-info" type="submit" ng-click="ajouterProduit(nouveauProduit)" ng-disabled>Mettre en ligne
 				</button> 
 				
 				</br>
@@ -93,7 +188,7 @@
 	    </div>
 	</div>
 
-	
+
 
 
 </div>

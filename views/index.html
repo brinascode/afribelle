@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bintou App</title>
+    <title>AfriBelle</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -28,14 +28,16 @@
 <style>
 .frontLinks
 {
-    text-decoration: none;
+    text-decoration:;
     color:black;
     font-size:20px;
+
 }
 
 .frontLinks:hover{
     color:black;
-    background-color :pink;
+    background-color:pink;
+
 }
 
 .pinkButton{
@@ -43,23 +45,28 @@
     color:black;
 }
 
-
+.jaime{
+    border-radius:100px;
+    background-color:;
+}
 
 
 
 </style>
 </head>
 
-<body ng-app="Bintou" ng-controller="AcceuilleController" style="background-color:">
+<body ng-app="AfriBelle" ng-controller="AcceuilleController"
+ style="background:url('imaes/hey.jpg') no-repeat right">
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:black">
         <div class="container">
             
             <a class="navbar-brand" href="/" 
-            style="font-size:65px;color:Black;background-color:#ff284b">
-                Bintou
+            style="font-size:65px;color:Black;background-color:white;margin-top:3px">
+                AfriBelle
             </a>
+            
             
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -82,17 +89,11 @@
                     </li>
                    
                     <li>
-                        <a href="#">About</a>
+                        <a href="http://afribelle-promo.herokuapp.com">A propos</a>
                     </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
+                    
                     <li>
                         <a href="#">Contact</a>
-                    </li>
-                
-                    <li>
-                        <a href="/panier">Panier({{panier.length}})</a>
                     </li>
                      <li ng-show="isAuthen">
                         <a href="/profile">Profile</a>
@@ -122,18 +123,27 @@
         <div class="row"> 
 
             <div class="col-md-12" class="nav navbar-nav"> 
-                <ol class="nav navbar-nav" style="background-color:#ff284b">
+                <ol class="nav navbar-nav" style="background-color:#f62e46;width:100%">
                     <li>
-                        <a href="vitrinesoinsducorps" class="frontLinks">Soins du corps</a>
+                        <a href="/" class="frontLinks"> A la une</a>
                     </li>
                     <li>
-                        <a href="#" class="frontLinks">Soins des Cheuveux</a>
+                        <a href="soinsducorps" class="frontLinks">Soins du corps</a>
                     </li>
-                    <li><a href="#" class="frontLinks">Visage et Maquillage</a>
+                    <li>
+                        <a href="soinsdescheuveux" class="frontLinks">Soins des Cheuveux</a>
                     </li>
-                    <li><a href="#" class="frontLinks">Parfums</a>
+                    <li><a href="visageetmaquillage" class="frontLinks">Visage et           Maquillage</a>
                     </li>
-                    <li><a href="#" class="frontLinks">Accessoires divers</a>
+                    <li><a href="parfums" class="frontLinks">Parfums</a>
+                    </li>
+                    
+                    <li>
+                         <a href="/panier" class="frontLinks">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                            Panier
+                            <sup class="">{{panier.length}}</sup>
+                        </a>
                     </li>
                 </ol>
             </div></br>
@@ -146,11 +156,6 @@
         
         </div>
             
-        
-     
- 
-
-
     </div>
     
 
@@ -164,14 +169,14 @@
             <br>
             <div class="row">
                 <div class="col-lg-12">
-                    <p style="color:white">Copyright &copy; Bintou App 2016</p>
+                    <p style="color:white">Copyright &copy; AfriBelle 2016</p>
                 </div>
             </div>
         </footer>
 
     </div>
     <!-- /.container -->
-   
+ 
 
 
     <!-- jQuery -->
@@ -184,19 +189,35 @@
 <script  src="javascripts/angular-ui-router.min.js"></script>
 <script src="javascripts/angular-route.min.js"></script>
 <script  src="javascripts/bootstrap.js"></script>
-<script  src="javascripts/modules/Bintou.js"></script>
-<script  src="javascripts/controllers/LogSign.js"></script>
+
+<script  src="javascripts/modules/AfriBelle.js"></script>
 <script  src="javascripts/controllers/AcceuilleController.js"></script>
+<script  src="javascripts/controllers/decouverte.js"></script>
 <script  src="javascripts/controllers/panier.js"></script>
-<script  src="javascripts/controllers/vitrinesoinsducorps.js"></script>
+<script  src="javascripts/controllers/LogSign.js"></script>
+
+
+<script  src="javascripts/controllers/vitrine.js"></script>
 <script  src="javascripts/controllers/produit.js"></script>
 <script  src="javascripts/controllers/profile.js"></script>
-<script  src="javascripts/controllers/sellerProduits.js"></script>
+
 <script  src="javascripts/controllers/userInfo.js"></script>
-  <script src="javascripts/ospry.js"></script>
+<script  src="javascripts/controllers/userCommandes.js"></script>
+<script  src="javascripts/controllers/sellerProduits.js"></script>
+<script  src="javascripts/controllers/sellerVentes.js"></script>
+
+
+<script  src="javascripts/services/authen.js"></script>
+<script  src="javascripts/services/userModifs.js"></script>
+<script  src="javascripts/services/sellerFunctions.js"></script>
+<script  src="javascripts/services/customerToProduct.js"></script>
+<script  src="javascripts/services/panierAndCheckout.js"></script>
+
+<script src="javascripts/ospry.js"></script>
 
 <script src='javascripts/cloudinary/jquery.ui.widget.js' type='text/javascript'></script>
-<script src='javascripts/cloudinary/jquery.iframe-transport.js' type='text/javascript'></script>
+<script src='javascripts/cloudinary/jquery.iframe-transport.js' type='text/javascript'>
+</script>
 <script src='javascripts/cloudinary/jquery.fileupload.js' type='text/javascript'></script>
 <script src='javascripts/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
 

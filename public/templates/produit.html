@@ -1,3 +1,83 @@
-</br>
+</br></br>
+<div class="row" ng-repeat="produit in produit"> 
 
-          HII
+	<div class="col-lg-6 well">
+		<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                        
+                    <h1>{{produit.nom}}</h1>
+                  
+                     </br></br>
+                     <center><img ng-src="{{produit.mainImageUrl}}" width="50%" /></center></br>
+                     </br></br>
+
+                     </a>
+
+
+                      <strong>  Vendu par: </strong> {{produit.vendeur}}</br>
+                      <strong>  Prix: </strong>   {{produit.prix}} FCFA </br>
+                      <strong>  Livraison inclus dans ce prix?: </strong> 
+                      {{produit.livraison}}</br></br>
+
+                     <strong> Description: </strong> {{produit.details}}</br></br></br>
+
+                     <div class="row"> 
+                     
+                         <div class="col-sm-6"> 
+                               <img ng-src="{{produit.imageUrls[0]}}" width="100%"></br>
+                         </div>
+                         <div class="col-sm-6"> 
+                               <img ng-src="{{produit.imageUrls[1]}}" width="100%"></br>
+                         </div>
+                         <div class="col-sm-6"> 
+                            <img ng-src="{{produit.imageUrls[2]}}" width="40%"></br>
+                         </div>
+                         <div class="col-sm-6"> 
+                            <img ng-src="{{produit.imageUrls[3]}}" width="40%"></br>
+                         </div>
+                         <div class="col-sm-6"> 
+                            <img ng-src="{{produit.imageUrls[4]}}" width="40%"></br>
+                         </div>
+                     </div>
+          
+             
+
+	</div>
+
+	<div class="col-lg-6 well">
+		<button class="jaime btn" ng-click="newVote($index)" > 
+            <span class="glyphicon glyphicon-heart" style="30vw"></span>
+                        {{produit.votes.length}}
+        </button>   
+
+        <button class="btn btn-md" ng-click="ajouterAuPanier($index)" >
+        	<span class="glyphicon glyphicon-shopping-cart" style="30vw">
+            </span>
+            Ajouter au panier 
+        </button>
+        </br>  </br>  </br> 
+
+
+	</div>
+    <div class="col-lg-12">
+        <span ng-show="isAuthen">            
+            <label> Tu as un quelque chose à dire sur cet article? </label> 
+            <textarea class="form-control" ng-model="newComment.body">
+            </textarea> 
+            </br> 
+
+            <button class="btn pinkButton" ng-click="postComment()"> 
+                Commenter
+            </button> 
+        </span>   </br> </br> 
+
+        <div ng-repeat="comment in comments track by $index" class="well"> 
+           
+            Date: {{comment.date}}  </br> 
+            De: {{comment.auteur}}  </br> 
+            {{comment.body}}        </br> 
+        </div>              
+    
+    </div>
+                    
+                    
+</div>

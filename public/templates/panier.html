@@ -1,16 +1,31 @@
 </br>
-<h1 style="text-align:" class="h1">Panier</H1><img src="images/shopIcon.png" width="10%"/>
+<h1 style="text-align:" class="h1">Panier</H1>
 </br>
+
+
 <strong>{{message}}</strong>
 </br>
-<div ng-repeat="produit in panier" class="well col-sm-4" >
-{{produit.nom}}</br> 
-<img ng-src="{{produit.imageUrls[0]}}" width="50%"></br>
-{{produit.type}}</br> 
-{{produit.vendeur}}</br> 
+<div class="row"> 
+	<div ng-repeat="produit in panier" class="well col-sm-4" >
 
+		<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+			<center><h3>{{produit.nom}}</h3>
+			</center></br>
+		</a> 
+ 
+		
+		<center><img ng-src="{{produit.imageUrls[0]}}" width="50%"></center></br>
+		<strong>{{produit.type}}</strong></br> 
+	 
+		<strong>Vendu par:</strong>{{produit.vendeur}}</br> 
+		<strong>Quantité: </strong>
+		<input type="number" class="form-control" ng-model="produit.quantite"/>
+		<strong>Prix :</strong>{{produit.prix * produit.quantite}}</br>
+		<button class="btn btn-danger" ng-click="retirerDuPanier($index)">Retirer</button>
 
-</div>       
+	</div>  
+</div>      
 </br>       
+</br>   
 
-<button class="btn btn-danger"> Confirmer la commande </button> 
+<button class="btn btn-danger" ng-click="checkout()"> Confirmer la commande </button> 

@@ -1,0 +1,29 @@
+<div class="container">
+	</br>
+	Retour au <a href="/profile">Profile</a> 
+	<h1>Mes commandes (Achats) en cours</h1>
+
+	<div class="row">
+
+		<div class="well col-lg-4" ng-repeat="commande in commandes">
+
+			Numéro de commande: {{commande._id}} </br>
+			Date de la commande: {{commande.date}} </br>
+			Nom de l'article: {{commande.produitNom}} </br>
+			Vendu par: {{commande.vendeur}} </br>
+			Contacts de la vendeuse:
+			{{commande.vendeurContacts[0]}},
+			{{commande.vendeurContacts[1]}}, 
+			{{commande.vendeurContacts[2]}}</br>
+			Quantité: {{commande.quantite}} </br>
+			Prix: {{commande.prix}} </br>
+
+		</div>
+	</div>
+
+
+
+
+
+
+</div>

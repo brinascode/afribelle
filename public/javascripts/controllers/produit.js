@@ -1,14 +1,47 @@
-app.controller("Produit",
-	["$scope","$http","$location","$window",function($scope,$http,$location,$window)
+app.controller("produit",
+	["$scope","$http","$location","$window","$routeParams","customerToProduct",
+	function($scope,$http,$location,$window,$routeParams,customerToProduct)
 {
 
+//Fix refresh, causedby angular giving :id
 
-$scope.yay ="Lovyyyy"
+//Maybe put this in service? To share common euhhh...
+$scope.user = $scope.$parent.user
+$scope.isAuthen = $scope.$parent.isAuthen
 
-$http.get("/userinfo").success(function(data){
-	$scope.user = data
-	console.log(data)
-})
+//Get produit of particular type (from route id)
+$scope.produit = [] //only one item in but still Array
+$scope.getProduit = customerToProduct.getProduit
+$scope.getProduit($scope,$routeParams)
+
+//Voting
+$scope.newVote = function(){
+	customerToProduct.newVote($scope,0)
+}
+
+//Panier
+$scope.ajouterAuPanier = function(){
+	customerToProduct.ajouterAuPanier($scope,0)
+} //Cant add same thing twice! 
+
+
+
+//Comments
+
+$scope.comments =[]
+
+$scope.getProduitComments = function(){
+	var id = $routeParams.id
+	customerToProduct.getProduitComments($scope,id)
+}
+$scope.getProduitComments()
+
+
+
+$scope.newComment = {}
+$scope.postComment = function(){
+	customerToProduct.postComment($scope,$scope.newComment)
+}
 
 
 }])

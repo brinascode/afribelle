@@ -3,11 +3,26 @@ module.exports = function(app,passport){
  
 var User = require("../models/user.js")
 var mongoose = require("mongoose")
+ //Limit the amt of info sent as user info! we dont want username or password stuffs
 
-// =====================================
-    // FACEBOOK ROUTES =====================
-    // =====================================
-    // route for facebook authentication and login
+//***************************Authentication*******************
+// Local Signup
+   app.post("/signup", passport.authenticate('local-signup'),function(req,res){
+
+                res.json({hi:"hi"})
+                console.log("working")
+            }
+    )
+
+// Local Signup
+    app.post("/login", passport.authenticate('local-login'),function(req,res){
+            console.log("did")
+            res.redirect("*");
+    }
+)
+// FACEBOOK ROUTES
+    
+    //facebook authentication and login
     app.get('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
 
     // handle the callback after facebook has authenticated the user
@@ -17,35 +32,18 @@ var mongoose = require("mongoose")
             failureRedirect : '/'
         }));
 
-
-
-
-
-
-
- //Next:
- //Limit the amt of info sent as user info! we dont want username or password stuffs
-
-
-
-    // // process the signup form (all passport stuff)
-   app.post('/signup', passport.authenticate('local-signup'),function(req,res){
-    res.writeHead(200);
-    
-   })
-
-    // process the login form
- // process the login form
-    app.post('/login', passport.authenticate('local-login'),function(req,res){
-        res.writeHead(200);
+// LOGOUT
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
     });
 
-
-    // PROFILE SECTION =====================
+//*******************************Sending to services***********
+// PROFILE SECTION
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
  
-    //Client Checking if user id authenticated
+//Checking if user id authenticated
     app.get("/isAuthen",function(req,res){
         var ans
         if(req.user){
@@ -59,7 +57,7 @@ var mongoose = require("mongoose")
     })
 
 
-    //Getting user data when you're sure that user is authenticated
+//Getting user data
     app.get('/userinfo_serv',isLoggedIn,function(req,res){
       //We copy the user databut take out password
       var ans = req.user
@@ -68,20 +66,47 @@ var mongoose = require("mongoose")
       res.json(ans)   
     });
 
+//********************************************Modyfing user*****************
+
+app.post("/newUserTelephone",function(req,res){
+    var user
+    User.find({_id:req.user._id},function(err,data){
+        if(err) throw err
+        user = data[0]
+        user.moreInfo.numerosDeTelephone.push(req.body.telephone)
+        user.save(function(err){
+            User.find({_id:req.user._id},function(err,data){
+                if (err) throw err
+                res.json(data[0])
+            })
+        })
+
+    })
+})
+
+app.post("/removeUserTelephone",function(req,res){
+    var user
+    User.find({_id:req.user._id},function(err,data){
+        if(err) throw err
+        user = data[0]
+      
+        user.moreInfo.numerosDeTelephone.splice(req.body.indice,1)
+       
+       
+        user.save(function(err){
+            User.find({_id:req.user._id},function(err,data){
+                if (err) throw err
+                res.json(data[0])
+            })
+        })
+
+    })
+})
 
 
 
 
 
-
-
-  
-    // LOGOUT ==============================
-    app.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/');
-    });
-}
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
@@ -92,4 +117,6 @@ function isLoggedIn(req, res, next) {
 
     // if they aren't redirect them to the home page
     res.redirect('/login');
+}
+
 }

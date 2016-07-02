@@ -1,39 +1,30 @@
 </br></br></br>
 <div class="container">
-	<a href="/profile">Profile</a> / <a href="/sellerProduits">Mes Informations</a>
+	Retour au <a href="/profile">Profile</a> 
 	
+
+
 	<h1> Mes informations </h1>
+	<h3> Nom complet: {{user.facebook.name}}</h3>
+	
+	Numéros de téléphone
+	<div ng-repeat="num in user.moreInfo.numerosDeTelephone track by $index">
+		<h3>{{num}}</h3>
+		<button class="btn btn-danger" ng-click="removeUserTelephone($index)">Retirer</button>
+	</div></br>
+	
+	{{message}}
 
-	{{message1}}
-
-	<h3> Nom complet: {{user.moreInfo.prenom}} {{user.moreInfo.nomDeFamille}}</h3>
-	<h3>Age:{{user.moreInfo.age}} </h3>
-	<h3>Pseudo:{{user.moreInfo.pseudo}} </h3>
-	<h3 ng-repeat="num in user.moreInfo.numerosDeTelephone">
-	** {{num}}
+	<h3>Ajouter un numero de téléphone </br>
+		+225 <input type="number" ng-model="moreInfoNew.telephone"  class="form-control">
 	</h3>
+	<button class="btn btn-default" ng-click="newUserTelephone()">Ajouter</button>
 
 
-	Tu n'as pas encore mis tes informations personnelles à jour?
-	Fais le maintenant!
-    <div class="well">
-		<h3> Nom de famille: 
-			<input type="text" ng-model="moreInfoNew.nomDeFamille" class="form-control"> 
-		</h3>
-		<h3> Prénom: 
-			<input type="text" ng-model="moreInfoNew.prenom" class="form-control"> 
-		</h3>
-		<h3>Age: 
-			<input type="number" ng-model="moreInfoNew.age"  class="form-control">
-		</h3>
-		<h3>Pseudo: 
-			<input type="text" ng-model="moreInfoNew.pseudo"  class="form-control">
-		</h3>
-		<button ng-click="updateMoreInfo()" class="btn btn-info"  class="form-control">Mettre à jour
-		</button>
-	</div>
 
 
-{{completedInfo}}
-Fix numero de tel
+
+
+
+
 </div>

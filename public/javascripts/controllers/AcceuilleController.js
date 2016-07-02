@@ -1,55 +1,111 @@
-app.controller("AcceuilleController",["$scope","$location","$window","$http",
-	function($scope,$location,$window,$http){
+app.controller("AcceuilleController",["$scope","$location","$window","$http","authen",
+	function($scope,$location,$window,$http,authen){
 
-//***************Panier********************************************
-//Le panier pr les articles ajoutés depuis les "views".
-//The content is sent to the child controlle: panier.js
+//***************  Panier********************************************
+
+//Content to the child controlle: panier.js
 $scope.panier = []
 
-//****************User Data**************************
+//If theres something in the storage cart, give it to cart
+if(sessionStorage.panier)
+{
+$scope.panier = JSON.parse(sessionStorage.getItem("panier"))
+}
+
+//****************User Data and functions**************************
+
+
+//Is userAuthenticated? To hide/show buttons:))
+$scope.isAuthen
+authen.isAuthen($scope)
+
+//User data
 $scope.user={}
-$scope.child={}
+authen.getUserInfo($scope)
 
-/* You can try this:
-
-$scope.child = {} //declare it in parent controller (scope)
-then in child controller (scope) add:
-
-var parentScope = $scope.$parent;
-parentScope.child = $scope;
-Now the parent has access to the child's scope.
-*/
 
 //To logout of user session
-$scope.logout =function(){
-	$http.get("/logout").success(function(){
-		$scope.isAuthen = false
-		$window.location.href="/"
-		console.log($scope.isAuthen)
-	})
-}
-
-//Making function
-$scope.getUserInfo = function(){
-		//To get the logged in user's info
-		$http.get("/userinfo_serv").success(function(data){
-			$scope.user = data
-		})
-		return $scope.user
-}
-//Calling function
-$scope.getUserInfo()
+$scope.logout = authen.logout //dont put () or else it will execute function
 
 
 
-//Answers the question as true or false,when true hides signup/login buttons
-$scope.isAuthen 
+//**********************Shared functionality*************************
+//Page produit 
+//The id is angular giventhats why therefresh looks like that. Do some nodejs something
+//bout that
 
-//Checking if user is authenticated To hide/show buttons:))
-$http.get("/isAuthen").success(function(data){
-	$scope.isAuthen = data
-	
-})
+//Erasing comments?
+
+
+//Pas Plus de phots(4 par produit)
+//Pictures
+
+//Acceuille
+//Photos qui défilent
+//Authen --definately fb
+
+//Commandes: What happens after order is passed
+
+//Production:
+//Mongo, Heroku, Ospry 
+//Hide Angularjs and code
+//Testing
+
+//Livraison:zone
+//Nombres de produits
+
+//Promo page
+
+//La cliente doit confirmer ---avant que la vendeuse recoivent
+//Delivery limit
+//La vendeuse doit deliver IN TIME!! 
+
+/*
+
+-Betina's Cousin
+-Faikat's Mom
+-Sarah's Sister
+-Amah's mom
+Get list of friends!!
+Piero's Sister---
+Piero: Brings customers:
+
+Customers
+
+Blessing-Customer
+
+****Cliente
+
+-Livraison a la maison
+-Contacter la cliente
+-Retour Policy***:
+Days pour signaler
+-Shop like --- more choice
+-
+
+
+****Vendeuse
+-Louer un mall/magasin
+Moins cher
+-Abidjanwide customers 
+-High Profit
+-Specialised-- Regroupé. 
+-Facebook: une page, beaucoup de jaimes au moins 1000 et promouvoir toujours
+			a la fun ca deviens plus cher
+Groupes facebook: Moins de focus on the product
+				Moins de clientele
+				Plus proféssionel 
+
+
+
+
+
+
+
+
+
+*/
 
 
 }])
+
