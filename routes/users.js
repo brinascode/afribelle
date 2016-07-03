@@ -1,6 +1,6 @@
 module.exports = function(app,passport){
 
- 
+ //Comment
 var User = require("../models/user.js")
 var mongoose = require("mongoose")
  //Limit the amt of info sent as user info! we dont want username or password stuffs
