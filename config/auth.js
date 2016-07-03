@@ -8,6 +8,7 @@ module.exports = {
          "profileFields": ['id', 'emails', 'name'] //This
     }, //http://localhost:3000/auth/facebook/callback
     //'http://bintou.herokuapp.com/auth/facebook/callback'
+    //'http://afribelle.herokuapp.com/auth/facebook/callback'
 
     'twitterAuth' : {
         'consumerKey'       : 'your-consumer-key-here',

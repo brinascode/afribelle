@@ -1,9 +1,12 @@
 {
   "name": "AfriBelle",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
+  },
+  "engines": {
+    "node": "4.1.1"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -14,7 +17,7 @@
     "morgan": "*",
     "serve-favicon": "~2.3.0",
     "method-override": "~2.1.2",
-    "mongoose"   : "*",
+    "mongoose"   : "~4.5.3",
     "mongodb"    : "~2.0.33",
     "passport" : "~0.1.17",         
     "passport-local" : "~0.1.6",    
