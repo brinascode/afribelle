@@ -26,9 +26,16 @@ var userSchema = new Schema({
         name         : String
     },
     moreInfo         : { 
-        numerosDeTelephone:[Number]
+        numerosDeTelephone:[Number],
     },
-    votedFor:           [String]
+    votedFor        : [String],
+    boutiques       : 
+                    [
+                        {
+                        nom:String,
+                        id:String
+                        }
+                    ]
 
 })
 

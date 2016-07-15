@@ -2,6 +2,35 @@ app.factory("sellerFunctions",["$http",function($http){
 
 return {
 
+		createBoutique: function($scope,boutique){
+				$http.post("/createBoutique",boutique).success(function(data){
+					console.log(data)
+					$scope.mesBoutiques= data//Data is array now
+					$scope.showBoutiqueSection = false
+				})
+
+
+		},
+        
+        getMesBoutiques :function($scope){
+
+        		$http.get("/mesBoutiques").success(function(data){
+        			$scope.mesBoutiques = data
+        			console.log($scope.mesBoutiques.length)
+        			//You can only create a boutique if you dont already have one
+					if($scope.mesBoutiques.length != 0){
+						$scope.showBoutiqueSection = false
+					}
+					else{
+						
+						$scope.showBoutiqueSection =true
+						console.log($scope.mesBoutiques.length)
+					}
+        		})
+
+				
+
+        },
 		getMesProduits : function($scope){
 					$http.get("/mesproduits").success(function(data){
 					$scope.mesProduits = data
@@ -11,6 +40,10 @@ return {
 		},
 
 		ajouterProduit : function($scope,nouveauProduit){
+			//Matching product to boutique
+			nouveauProduit.boutique = $scope.mesBoutiques[0].nom
+			nouveauProduit.boutiqueId = $scope.mesBoutiques[0]._id
+			
 			$http.post("/ajouterProduit",nouveauProduit).success(function(data){
 			$scope.mesProduits = data
 			$scope.mesProduits.reverse()

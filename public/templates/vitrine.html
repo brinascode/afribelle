@@ -11,7 +11,7 @@
  </div>
 
 <div class="row"> 
-            </br> 
+            </br>     
             <div ng-repeat="produit in produits track by $index">
                  
                  <div class="col-md-4" class="well"> 
@@ -19,14 +19,19 @@
                         <span style="font-size:30px">
                             {{produit.nom}}
                         </span>
-                    
+                
                      </br>
                      <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
 
                      </a>
-                         <strong>Vendu par: </strong> {{produit.vendeur}}</br>
+                         <strong>Boutique: {{produit.boutique}} </strong></br>
                          <strong>Prix: </strong>{{produit.prix}} FCFA</br>
-                        Livraison inclus dans ce prix?: {{produit.livraison}}</br>
+                        <strong>Livraison:</strong></br>
+
+                        Gratuite pour : {{produit.livraison.gratuite}}</br>
+                        Payante à {{produit.livraison.payanteFixe.prix}} pour 
+                        {{produit.livraison.payanteFixe.lieux}}</br>
+                        *Pour tout autre endroit, le livreur vous contactera</br>
 
                         
 

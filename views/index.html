@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="stylesheets/shop-homepage.css" rel="stylesheet">
+    <link href="stylesheets/font-awesome.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,7 +36,7 @@
 }
 
 .frontLinks:hover{
-    color:black;
+    color:white;
     background-color:pink;
 
 }
@@ -50,7 +51,18 @@
     background-color:;
 }
 
+a{
+    text-decoration:none;
+    color:black;
+}
 
+a:hover {
+    color:black;
+}
+
+.getBlack {
+    color:black;
+}
 
 </style>
 </head>
@@ -76,6 +88,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+
                 </button>
                
                 
@@ -84,7 +97,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li class="getBlack">
                        <a  href="/">Acceuille</a>
                     </li>
                    
@@ -111,52 +124,92 @@
 
                 </ul>
             </div>
+            
+        
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
 
     <!-- Page Content -->
-    </br></br>
-    <div class="container" >
+   </br>
+   <div class="container">
+        <nav class="navbar navbar-inverse" 
+        style="background-color:#f62e46;border:none;color:black">
+          
+          <div class="container">
+                
+                <div class="navbar-header">
+                      
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
 
-        <div class="row"> 
+                      </button>
 
-            <div class="col-md-12" class="nav navbar-nav"> 
-                <ol class="nav navbar-nav" style="background-color:#f62e46;width:100%">
-                    <li>
-                        <a href="/" class="frontLinks"> A la une</a>
-                    </li>
-                    <li>
-                        <a href="soinsducorps" class="frontLinks">Soins du corps</a>
-                    </li>
-                    <li>
-                        <a href="soinsdescheuveux" class="frontLinks">Soins des Cheuveux</a>
-                    </li>
-                    <li><a href="visageetmaquillage" class="frontLinks">Visage et           Maquillage</a>
-                    </li>
-                    <li><a href="parfums" class="frontLinks">Parfums</a>
-                    </li>
-                    
-                    <li>
-                         <a href="/panier" class="frontLinks">
-                            <span class="glyphicon glyphicon-shopping-cart"></span>
-                            Panier
-                            <sup class="">{{panier.length}}</sup>
-                        </a>
-                    </li>
-                </ol>
-            </div></br>
+                       <!--- The buttons that make it apish  -->
+
+                      <div class="navbar-toggle" data-toggle="collapse" style="margin-left:-5px">
+                                <a href="/boutiques" class="frontLinks" style="color:black">  B</a>
+                             
+                                <a href="soinsducorps" class="frontLinks" style="color:black">SDC</a>
+                            
+                                 <a href="soinsdescheuveux" class="frontLinks" style="color:black">SDCH</a>
+                              
+                                <a href="visageetmaquillage" class="frontLinks" style="color:black">VM
+                                </a>
+                              
+                                <a href="parfums" class="frontLinks" style="color:black">P</a>
+                              
+                                <a href="/panier" class="frontLinks" style="color:black">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                 P
+                                 <sup class="">{{panier.length}}</sup>
+                                </a>
+                      </div>
+
+                </div>
+
+                    <!--- Actual navbar -->
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                         <ol class="nav navbar-nav" style="background-color:#f62e46;width:100%">
+                             <li>
+                                <a href="/boutiques" class="frontLinks" style="color:black"> Les boutiques</a>
+                             </li>
+                             <li>
+                                <a href="soinsducorps" class="frontLinks" style="color:black">Soins du corps</a>
+                             </li>
+                              <li>
+                                 <a href="soinsdescheuveux" class="frontLinks" style="color:black">Soins des Cheuveux</a>
+                              </li>
+                              <li>
+                                <a href="visageetmaquillage" class="frontLinks" style="color:black">Visage et Maquillage
+                                </a>
+                              </li>
+                              <li>
+                                <a href="parfums" class="frontLinks" style="color:black">Parfums</a>
+                              </li>
+                              <li>
+                                <a href="/panier" class="frontLinks" style="color:black">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                 Panier
+                                 <sup class="">{{panier.length}}</sup>
+                                </a>
+                              </li>
+                        </ol>
+
+                    </div>
+          </div>
+        </nav>
 
 
-            
-            <div class="col-md-12" ng-view></div>
+        <div ng-view> </div>
 
-            
-        
-        </div>
-            
     </div>
+
+
+
     
 
     <!-- /.container -->
@@ -192,18 +245,20 @@
 
 <script  src="javascripts/modules/AfriBelle.js"></script>
 <script  src="javascripts/controllers/AcceuilleController.js"></script>
-<script  src="javascripts/controllers/decouverte.js"></script>
 <script  src="javascripts/controllers/panier.js"></script>
+<script  src="javascripts/controllers/boutiques.js"></script>
+<script  src="javascripts/controllers/boutiquePage.js"></script>
 <script  src="javascripts/controllers/LogSign.js"></script>
 
 
 <script  src="javascripts/controllers/vitrine.js"></script>
+<script  src="javascripts/controllers/boutiques.js"></script>
 <script  src="javascripts/controllers/produit.js"></script>
 <script  src="javascripts/controllers/profile.js"></script>
 
 <script  src="javascripts/controllers/userInfo.js"></script>
 <script  src="javascripts/controllers/userCommandes.js"></script>
-<script  src="javascripts/controllers/sellerProduits.js"></script>
+<script  src="javascripts/controllers/myBoutique.js"></script>
 <script  src="javascripts/controllers/sellerVentes.js"></script>
 
 

@@ -1,0 +1,9 @@
+boutique schema does not hold the produits
+
+its the produits thats matched to a boutique
+
+//routeParams gives the angular generated part of route, location.path() gives the whole path
+
+Voting from productpage is diff than voting from vitrine
+
+add labelling system

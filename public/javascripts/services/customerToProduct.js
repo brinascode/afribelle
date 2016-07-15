@@ -3,19 +3,42 @@ app.factory("customerToProduct",["$http",function($http)
 
 
 return {
+	//For boutiques display 
+	getBoutiques: function($scope){
 
+		$http.get("/serv_Boutiques").success(function(data){
+			console.log(data)
+			$scope.boutiques = data
+			$scope.boutiques.reverse() 
+		})
+
+	},
+	//Single Boutique
+	getBoutique:function($scope,$routeParams){
+			
+		$http.post("/boutique",$routeParams).success(function(data){
+			$scope.boutique = data //Data is an array now
+		})
+			//Now get the produits from this boutique
+			$http.post("/boutiqueProduits",$routeParams).success(function(data){
+				$scope.produits = data
+			})
+
+	},
+
+
+	//Produits d'une vitrine
 	getProduits: function($scope,route){
 
 			$http.get(route+"Produits").success(function(data){
 				$scope.produits = data
 				$scope.produits.reverse()
-
-				
 				
 			})
 
 	},
 
+	//Page produit
 	getProduit:function($scope,$routeParams){
 			//Is http post the best way to do this?
 		$http.post("/produit",$routeParams).success(function(data){
@@ -111,28 +134,34 @@ return {
 		}	
 
 	},
-	getProduitComments : function($scope,id){	
+	getComments : function($scope,id){	
+				
 				//Is http post the only way to pass dataN
-				$http.post("/produitComments",{discussionId:id}).success(function(data){
+				$http.post("/comments",{discussionId:id}).success(function(data){
 					$scope.comments = data
 					$scope.comments.reverse()
 				})
 	},
 
-	postComment : function($scope,comment){
+	postComment : function($scope,comment,$routeParams){
 
 
-				if(comment.body != ""){
+				if(comment.body != ""){ //Its allowing empty comments to save!
 
-					/*if(typeof $scope.user.facebook != undefined ){
+					if($scope.user.facebook != undefined ){
 						comment.auteur = $scope.user.facebook.name
-					}*/
-					
+					}else{
 						comment.auteur = $scope.user.local.username
+					}
 
-					comment.discussionId = $scope.produit[0]._id
-					comment.date = new Date()
-
+					if($scope.produit != undefined){
+						comment.discussionId = $scope.produit[0]._id
+					}
+					else{
+						 $routeParams.id
+					}
+		
+					comment.date = new Date().toString() //dsnt do anything
 
 					$http.post("/postComment",comment).success(function(data){
 						$scope.comments = data

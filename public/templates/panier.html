@@ -5,7 +5,10 @@
 
 <strong>{{message}}</strong>
 </br>
+
+
 <div class="row"> 
+
 	<div ng-repeat="produit in panier" class="well col-sm-4" >
 
 		<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
@@ -15,12 +18,29 @@
  
 		
 		<center><img ng-src="{{produit.imageUrls[0]}}" width="50%"></center></br>
-		<strong>{{produit.type}}</strong></br> 
-	 
-		<strong>Vendu par:</strong>{{produit.vendeur}}</br> 
+		<strong>Vendu par (Boutique) :</strong> {{produit.boutique}}</br> 
 		<strong>Quantité: </strong>
 		<input type="number" class="form-control" ng-model="produit.quantite"/>
 		<strong>Prix :</strong>{{produit.prix * produit.quantite}}</br>
+		
+
+		<strong>La livraison est:</strong></br>
+
+				*Gratuite pour : {{produit.livraison.gratuite}}</br>
+				*Payante à {{produit.livraison.payanteFixe.prix}} pour 
+				{{produit.livraison.payanteFixe.lieux}}</br>
+				*Pour tout autre endroit, le vendeur vous contactera</br>
+		
+		<form>
+		<strong>Pour quel type de livraison qualifiez vous___?</strong>
+		<select class="form-control" ng-model="produit.livraisonType" required> 
+			<option>Gratuite</option>
+			<option>Payante</option>
+			<option>La boutique me contactera</option>
+		</select>
+
+
+		</br></br>
 		<button class="btn btn-danger" ng-click="retirerDuPanier($index)">Retirer</button>
 
 	</div>  
@@ -28,4 +48,5 @@
 </br>       
 </br>   
 
-<button class="btn btn-danger" ng-click="checkout()"> Confirmer la commande </button> 
+<button type="submit" class="btn btn-danger" ng-click="checkout()" ng-disabled> Confirmer la commande </button> 
+</form>

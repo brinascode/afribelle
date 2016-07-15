@@ -6,15 +6,22 @@ nom:String,
 type:String,//soins_du_corps
 details:String,
 prix:Number,
-livraison:Boolean,
+livraison:{
+			//Les types de livraison  : gratuit, fixe, contactez
+		   gratuite:String,
+		   payanteFixe:{lieux:String,prix:Number},
+		   contactez:String
+		   },
 date:Date,
 image:[String],
 vendeur:String,
 vendeurId:String,
+boutique:String,
+boutiqueId:String,
 vendeurContacts:Array,
 imageUrls:[String],
 mainImageUrl:String,
-votes:[String] //The num will be given by num of users who voted
+votes:[String] //Logs in user Ids ,The num will be given by num of users who voted
 })
 
 

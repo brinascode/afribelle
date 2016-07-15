@@ -30,11 +30,11 @@ $scope.ajouterAuPanier = function(){
 
 $scope.comments =[]
 
-$scope.getProduitComments = function(){
+$scope.getComments = function(){
 	var id = $routeParams.id
-	customerToProduct.getProduitComments($scope,id)
+	customerToProduct.getComments($scope,id)
 }
-$scope.getProduitComments()
+$scope.getComments()
 
 
 

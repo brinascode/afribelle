@@ -9,7 +9,7 @@ $scope.isAuthen = $scope.$parent.isAuthen
 
 //Taking all the products from database for a particular vitrine
 $scope.getProduits = customerToProduct.getProduits
-$scope.getProduits($scope, $location.path())
+$scope.getProduits($scope,$location.path())
 
 
 

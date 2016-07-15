@@ -17,7 +17,17 @@ templateUrl:"templates/acceuille.html"
 when("/produit/:id",{  //Fix this later!!
 	controller:"produit",
 	templateUrl:"templates/produit.html"
-}) //Vitrines
+})
+. 
+when("/boutique/:id",{  //Fix naming later!!
+	controller:"boutiquePage",
+	templateUrl:"templates/boutiquePage.html"
+}) 
+//Vitrines
+.when("/boutiques",{
+	controller:"boutiques",
+	templateUrl:"templates/boutiques.html"
+})
 .when("/soinsducorps",{
 	controller:"vitrine",
 	templateUrl:"templates/vitrine.html"
@@ -56,9 +66,9 @@ when("/produit/:id",{  //Fix this later!!
 	controller:"userInfo", //This controller is at the same time the template's page controller
 	templateUrl:"templates/userInfo.html"
 })
-.when("/sellerProduits",{
-	controller:"sellerProduits",
-	templateUrl:"templates/sellerProduits.html"
+.when("/myBoutique",{
+	controller:"myBoutique",
+	templateUrl:"templates/myBoutique.html"
 })
 .when("/sellerVentes",{
 	controller:"sellerVentes",

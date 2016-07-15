@@ -6,8 +6,37 @@ var Produit = require("../models/produit")
 var User = require("../models/user")
 var Commande = require("../models/commande")
 var Comment = require("../models/comment")
+var Boutique = require("../models/boutique")
 
 //************************************Seller interactions*************
+
+//Les boutiques*************
+//Créer une boutique
+app.post("/createBoutique",function(req,res){
+
+	var boutique = new Boutique(req.body)
+	boutique.save(function(err,data){
+		if (err) throw err 
+		Boutique.find({vendeurId:req.user._id},function(err,data){
+			if(err) throw err
+			res.json(data)
+		})
+
+	})
+
+})
+
+
+app.get("/mesBoutiques",function(req,res){
+	Boutique.find({vendeurId:req.user._id},function(err,data){
+		if (err) throw err
+			res.json(data)
+	})
+})
+
+
+
+
 
 //Getting lists of products available in the store of the logged in user
 app.get("/mesProduits",function(req,res){
@@ -29,6 +58,8 @@ app.post("/ajouterProduit",function(req,res){
 			})
 	})
 })
+
+//Les produits************
 
 //Modifying Produit
 app.post("/modifyProduit",function(req,res){
@@ -145,13 +176,41 @@ var produit
 
 })
 
-//*****************************Categories of Produits
+//*****************************Categories of Boutiques/Produits***************
+
+app.get("/serv_Boutiques",function(req,res){
+
+	Boutique.find({},function(err,data){
+		if(err) throw err
+		res.json(data)
+	})
+})
+
+
+app.post("/boutique",function(req,res){
+
+	Boutique.find({_id:req.body.id},function(err,data){
+		if (err) throw err
+		res.json(data)
+	})
+})
+
+
 app.post("/produit",function(req,res){
 
 	Produit.find({_id:req.body.id},function(err,data){
 			if(err) throw err
 			res.json(data)
 	})
+
+})
+
+app.post("/boutiqueProduits",function(req,res){
+		
+		Produit.find({boutiqueId:req.body.id},function(err,data){
+			if (err) throw err
+			res.json(data)
+		})
 
 })
 
@@ -276,7 +335,7 @@ var next = function(){
 })
 
 
-app.post("/produitComments",function(req,res){
+app.post("/comments",function(req,res){
 
 	Comment.find(req.body,function(err,data){
 		if(err) throw err
@@ -310,10 +369,7 @@ var commande = new Commande(req.body)
 	commande.save(function(err){
 		if(err) throw err
 
-		Commande.find({},function(err,data){
-			if (err) throw err
-			res.json(data) //What to do here
-		})
+		res.json({ans:"Good"})
 
 	})
 

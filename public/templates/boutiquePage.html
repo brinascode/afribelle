@@ -1,0 +1,66 @@
+</br></br>
+<div class="row" ng-repeat="boutique in boutique"> 
+	    
+	    <h1>   {{boutique.nom}} </h1> 
+	            
+</div> </br>
+	                    
+<div ng-repeat="produit in produits track by $index" class="row">
+                <h1>   Disponible dans cette boutique: </h1>  
+                 </br></br>
+                 <div class="col-md-4" class="well"> 
+                    <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                        <span style="font-size:30px">
+                            {{produit.nom}}
+                        </span>
+                
+                        </br>
+                        <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
+
+                     </a>
+
+                     <strong>Boutique: {{produit.boutique}} </strong></br>
+                     <strong>Prix: </strong>{{produit.prix}} FCFA</br>
+                     Livraison inclus dans ce prix?: {{produit.livraison}}</br>
+
+                     <button class="jaime btn" ng-click="newVote($index)" > 
+                        <span class="glyphicon glyphicon-heart" style="30vw"></span>
+                        {{produit.votes.length}}
+                    </button>  
+
+                    <button class="btn btn-md" ng-click="ajouterAuPanier($index)" >
+                    <span class="glyphicon glyphicon-shopping-cart" style="30vw">
+                    </span>
+                     Ajouter au panier 
+                    </button> 
+
+                    
+                 </div> 
+     
+      </br>  </br>  </br>     </br>  </br>  </br> 
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <span ng-show="isAuthen">            
+            <label> Tu as quelque chose à dire à propos de cette boutique? </label> 
+            <textarea class="form-control" ng-model="newComment.body">
+            </textarea> 
+            </br> 
+
+            <button class="btn pinkButton" ng-click="postComment()"> 
+                Commenter
+            </button> 
+        </span>   </br> </br> 
+
+        <div ng-repeat="comment in comments track by $index" class="well" > 
+           
+            Date: {{comment.date}}  </br> 
+            De: {{comment.auteur}}  </br> 
+            {{comment.body}}        </br> 
+        </div>              
+    
+    </div>
+</div>
+
+                    

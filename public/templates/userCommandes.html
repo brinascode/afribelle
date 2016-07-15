@@ -7,17 +7,27 @@
 
 		<div class="well col-lg-4" ng-repeat="commande in commandes">
 
-			Numéro de commande: {{commande._id}} </br>
-			Date de la commande: {{commande.date}} </br>
-			Nom de l'article: {{commande.produitNom}} </br>
-			Vendu par: {{commande.vendeur}} </br>
-			Contacts de la vendeuse:
+			<strong>Numéro de commande: </strong>{{commande._id}} </br>
+			<strong>Date de la commande: </strong>{{commande.date}} </br>
+			<strong>Nom de l'article: </strong>{{commande.produitNom}} </br>
+			<strong>Nom de la boutique : </strong>{{commande.boutiqueNom}}
+			<strong>Vendu par: </strong>{{commande.vendeur}} </br>
+			<strong>Contacts de la vendeuse:</strong>
 			{{commande.vendeurContacts[0]}},
 			{{commande.vendeurContacts[1]}}, 
 			{{commande.vendeurContacts[2]}}</br>
-			Quantité: {{commande.quantite}} </br>
-			Prix: {{commande.prix}} </br>
+			<strong>Quantité:</strong>{{commande.quantite}} </br>
+			<strong>Prix: </strong>{{commande.prix}} </br>
+			
+			<strong>Politique de livraison pour cet article: </strong> </br>
+			Gratuite ici: {{commande.detailsLivraison.gratuite}} </br>
+			Payante à {{commande.detailsLivraison.payanteFixe.prix}} pour 
+			{{commande.detailsLivraison.payanteFixe.lieux}} </br>
+			Pour tout autre endroit, la boutique/vendeur(euse) vous contactera </br>
 
+			<strong>Votre livraison:</strong> {{commande.livraison}}
+			
+			</br>
 		</div>
 	</div>
 

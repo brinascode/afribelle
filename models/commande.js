@@ -8,15 +8,17 @@ acheteur:String,
 acheteurId:String,
 acheteurContacts:Array,
 date:Date,
+boutique:String,
+boutiqueId:String,
 vendeur:String,
 vendeurId:String,
 vendeurContacts:Array,
 produitNom:String,
 type:String,
 quantite:Number,
-prix:Number
-
-
+prix:Number,
+livraison:String,
+detailsLivraison:Object //three types
 
 })
 

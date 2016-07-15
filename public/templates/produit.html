@@ -13,12 +13,17 @@
                      </a>
 
 
-                      <strong>  Vendu par: </strong> {{produit.vendeur}}</br>
+                      <strong>  Boutique: </strong> {{produit.boutique}}</br>
                       <strong>  Prix: </strong>   {{produit.prix}} FCFA </br>
-                      <strong>  Livraison inclus dans ce prix?: </strong> 
-                      {{produit.livraison}}</br></br>
+                      <strong> Description: </strong> {{produit.details}}</br></br></br>
+                      <strong>Livraison:</strong></br>
 
-                     <strong> Description: </strong> {{produit.details}}</br></br></br>
+                        Gratuite pour : {{produit.livraison.gratuite}}</br>
+                        Payante à {{produit.livraison.payanteFixe.prix}} pour 
+                        {{produit.livraison.payanteFixe.lieux}}</br>
+                        *Pour tout autre endroit, le livreur vous contactera</br>
+
+                  
 
                      <div class="row"> 
                      
