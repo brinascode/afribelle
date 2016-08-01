@@ -1,14 +1,17 @@
 </br>
 
+<center>
 
 <div class="container well" class="row">
 	<div class="col-sm-6">
-		<a href="/login"><button class="btn btn-default btn-lg" >Se connecter</button></a>
-		<a href="/signup"><button class="btn btn-default btn-lg " >S'inscrire</button></a></br>
-		</br>
-		<button class="btn btn-primary btn-lg " ng-click="facebookAuthen()"> 
-			<span class="glyphicon glyphicon-log-in"></span> 
+		<a ng-hide="true" href="/login"><button class="btn btn-default btn-block btn-lg" >Se connecter</button></a>
+		<a ng-hide="true" href="/signup"><button class="btn btn-default btn-block btn-lg" >S'inscrire</button></a>
+		
+		<h3><span class="glyphicon glyphicon-log-in"></span> S'inscire/Se connecter</h3></br>
+		<button class="btn btn-primary btn-block btn-lg" ng-click="facebookAuthen()"> 
+			<span class="glyphicon glyphicon-user"></span> 
 			S'inscrire ou se connecter avec Facebook
 		</button>
 	</div>
 </div>
+</center>

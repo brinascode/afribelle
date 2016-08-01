@@ -1,13 +1,41 @@
 </br>
-<h1 >
+
+<h3>
+	<img src="images/shop2.png" width="5%"/> 
     Les Boutiques!
-</h1> 
- <div class="row">
-    <div ng-repeat="boutique in boutiques">
+</h3> 
+
+
+ <div class="row"> 
+    <div ng-repeat="boutique in boutiques" style="height:400px;" >
        
-            <div class="col-md-4 well" >
-                <h2><a ng-href="/boutique/{{boutique._id}}">{{boutique.nom}}</a></h2></br>
+            <div class="col-md-4 well" style="height:380px;background-image:url('images/woodenB.jpg');background-size:90%" >
+               
+               	 <div style="background-color:black">
+               	 	</br>
+               	  <center>
+               	  	<h3><a ng-href="/boutique/{{boutique._id}}" style="color:white">{{boutique.nom}}</a>
+               	  	</h3>
+               	  </center></br>
+ 				         </div> 
+
+
+            	
+ 				          <center><img src="images/{{boutique.themeUrl}}" width="100%" /></center>
+
             </div>
-        
-     </div>
+              
+       
+  </div>
+
+
+
+  
+         
+
+           
+       
+  </div>
+
 </div>
+

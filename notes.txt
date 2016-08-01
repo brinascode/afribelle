@@ -1,3 +1,17 @@
+*plain theme
+
+the theme carries on on the boutique view!!
+hide seller view and user iew
+make the pics links as well!
+les images: pp and sizes
+big pics
+
+pp pics for boutiques
+
+boutique link on prod page
+
+panier and total
+
 boutique schema does not hold the produits
 
 its the produits thats matched to a boutique
@@ -7,3 +21,22 @@ its the produits thats matched to a boutique
 Voting from productpage is diff than voting from vitrine
 
 add labelling system
+
+details/description
+
+deprecated stuff!!
+
+search top stuff
+
+
+if theres no user and the profile page is there, redierect to home
+23
+down vote
+accepted
+I believe the way to do this is $location.url('/RouteTo/Login')
+
+
+the deprecated stuff!
+
+ng-style="{ 'background-image':'url({{vitrinePic.img}})',
+                                        'background-width':'{{vitrinePic.width}}','background-height':'{{vitrinePic.height}}' }"

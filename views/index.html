@@ -18,11 +18,17 @@
     <link href="stylesheets/shop-homepage.css" rel="stylesheet">
     <link href="stylesheets/font-awesome.min.css" rel="stylesheet">
 
+     <!-- Bootflat!! -->
+     <link href="bootflat/css/bootflat.css" rel="stylesheet">
+
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> 
+        #C91F37 #f62e46
     <![endif]-->
 
 <base href="/">
@@ -30,20 +36,27 @@
 .frontLinks
 {
     text-decoration:;
-    color:black;
+    color:white;
     font-size:20px;
 
 }
 
 .frontLinks:hover{
     color:white;
-    background-color:pink;
+    text-decoration: ;
+    background-color:#f62e46;
 
 }
 
+.siteTheme {
+
+ background-color:#ff1844;
+ color:white;
+}
+
 .pinkButton{
-    background-color:#f62e46;
-    color:black;
+    background-color:#ff1844;
+    color:white;
 }
 
 .jaime{
@@ -64,6 +77,23 @@ a:hover {
     color:black;
 }
 
+.roundBlocks{
+
+border-right: 5px solid #000;
+border-left: 5px solid #000;
+border-top: 5px solid #000;
+border-bottom: 5px solid #000;
+border-radius:100px;
+}
+
+.roundblock :hover{
+  background-color:#f62e46;
+}
+
+.myP {
+  font-size:25px;
+}
+
 </style>
 </head>
 
@@ -71,11 +101,11 @@ a:hover {
  style="background:url('imaes/hey.jpg') no-repeat right">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:black">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:black"> 
         <div class="container">
             
             <a class="navbar-brand" href="/" 
-            style="font-size:65px;color:Black;background-color:white;margin-top:3px">
+            style="font-size:60px;color:Black;background-color:white;margin-top:3px">
                 AfriBelle
             </a>
             
@@ -135,66 +165,52 @@ a:hover {
    </br>
    <div class="container">
         <nav class="navbar navbar-inverse" 
-        style="background-color:#f62e46;border:none;color:black">
+        style="background-color:white;border:none;color:black">
           
           <div class="container">
                 
                 <div class="navbar-header">
                       
-                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span> 
+                      <center style="margin-left:20px">
+                        <button type="button" class="navbar-toggle btn btn-block" data-toggle="collapse" data-target="#myNavbar">
+                          <h3><span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          Catégories 
+                           </h3>
+                          
 
-                      </button>
+                        </button>
+                    </center>
 
-                       <!--- The buttons that make it apish  -->
-
-                      <div class="navbar-toggle" data-toggle="collapse" style="margin-left:-5px">
-                                <a href="/boutiques" class="frontLinks" style="color:black">  B</a>
-                             
-                                <a href="soinsducorps" class="frontLinks" style="color:black">SDC</a>
-                            
-                                 <a href="soinsdescheuveux" class="frontLinks" style="color:black">SDCH</a>
-                              
-                                <a href="visageetmaquillage" class="frontLinks" style="color:black">VM
-                                </a>
-                              
-                                <a href="parfums" class="frontLinks" style="color:black">P</a>
-                              
-                                <a href="/panier" class="frontLinks" style="color:black">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>
-                                 P
-                                 <sup class="">{{panier.length}}</sup>
-                                </a>
-                      </div>
-
-                </div>
 
                     <!--- Actual navbar -->
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                         <ol class="nav navbar-nav" style="background-color:#f62e46;width:100%">
-                             <li>
-                                <a href="/boutiques" class="frontLinks" style="color:black"> Les boutiques</a>
+                    <div class="collapse navbar-collapse "  style="background-color:white" id="myNavbar">
+                         <ol class="nav navbar-nav"   style="background-color:white;width:100%">
+                             
+                             <li class="frontLinks">
+                                <a href="/boutiques" class="frontLinks" style="background-color:#ff1844;color:white"> Les boutiques</a>
                              </li>
-                             <li>
-                                <a href="soinsducorps" class="frontLinks" style="color:black">Soins du corps</a>
+                             <li class="frontLinks">
+                                <a href="soinsducorps" class="frontLinks" style="background-color:#ff1844;color:white">Soins du corps</a>
                              </li>
-                              <li>
-                                 <a href="soinsdescheuveux" class="frontLinks" style="color:black">Soins des Cheuveux</a>
+                              <li class="frontLinks">
+                                 <a href="soinsdescheuveux" class="frontLinks" style="background-color:#ff5353;color:white">Soins des Cheuveux</a>
                               </li>
-                              <li>
-                                <a href="visageetmaquillage" class="frontLinks" style="color:black">Visage et Maquillage
+                              <li class="frontLinks">
+                                <a href="visageetmaquillage" class="frontLinks" style="color:white;background-color:#ff5353;">Visage et Maquillage
                                 </a>
                               </li>
-                              <li>
-                                <a href="parfums" class="frontLinks" style="color:black">Parfums</a>
+                              <li class="frontLinks">
+                                <a href="parfums" class="frontLinks" style="background-color:#ff8a80;color:white">Parfums</a>
                               </li>
-                              <li>
-                                <a href="/panier" class="frontLinks" style="color:black">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>
-                                 Panier
-                                 <sup class="">{{panier.length}}</sup>
+                              <li class="frontLinks">
+                               <a href="accessoires" class="frontLinks" style="background-color:#ff8a80;color:white">Accéssoires</a>
+                              </li>
+                              <li class="frontLinks">
+                                <a href="/panier" class="frontLinks" style="background-color:#ff8a80;color:white">
+                                  <span style="font-size:17px" class="glyphicon glyphicon-shopping-cart"></span>
+                                  <sup class="">{{panier.length}}</sup>
                                 </a>
                               </li>
                         </ol>
@@ -222,7 +238,7 @@ a:hover {
             <br>
             <div class="row">
                 <div class="col-lg-12">
-                    <p style="color:white">Copyright &copy; AfriBelle 2016</p>
+                    <p style="color:white">Copyright &copy; AfriBelle 2016</br>Tout droits réservés</p>
                 </div>
             </div>
         </footer>
@@ -232,8 +248,11 @@ a:hover {
  
 
 
-    <!-- jQuery -->
+    <!-- jQuery and bootflat-->
     <script src="javascripts/jquery.js"></script>
+    <script src="bootflat/js/icheck.min.js"></script>
+    <script src="bootflat/js/jquery.fs.selecter.min.js"></script>
+    <script src="bootflat/js/jquery.fs.stepper.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="javascripts/bootstrap.min.js"></script>

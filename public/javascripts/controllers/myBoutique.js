@@ -39,11 +39,31 @@ $scope.createBoutique = function(){
 }
 
 
-		
+//Modify boutique
+$scope.modButtonMessage = "Modifier la boutique"
+$scope.modBoutique = function(){
+
+	$scope.showModBoutique = !$scope.showModBoutique
+	if($scope.showModBoutique === true){
+		$scope.modButtonMessage = "Fermer"
+	}
+	else{
+		$scope.modButtonMessage = "Modifier la boutique"
+	}
 
 
-
-
+}
+//Themes
+$scope.changeBoutiqueTheme = function(url){
+	boutiqueId = $scope.mesBoutiques[0]._id
+	 
+	 var postObject = {
+		url:url,
+		id:boutiqueId
+	}
+	sellerFunctions.changeBoutiqueTheme($scope,postObject)
+	
+}
 
 
 //************Gets the produits *******

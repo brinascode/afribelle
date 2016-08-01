@@ -8,6 +8,7 @@ return {
 					$scope.mesBoutiques= data//Data is array now
 					$scope.showBoutiqueSection = false
 				})
+				
 
 
 		},
@@ -16,26 +17,42 @@ return {
 
         		$http.get("/mesBoutiques").success(function(data){
         			$scope.mesBoutiques = data
-        			console.log($scope.mesBoutiques.length)
+        		
         			//You can only create a boutique if you dont already have one
 					if($scope.mesBoutiques.length != 0){
 						$scope.showBoutiqueSection = false
-					}
+						}
+
 					else{
 						
-						$scope.showBoutiqueSection =true
-						console.log($scope.mesBoutiques.length)
+						$scope.showBoutiqueSection = true
+						
+
 					}
+
+
         		})
 
 				
 
         },
+        //Modifying boutique
+
+        changeBoutiqueTheme : function($scope,postObject){
+        	$http.post("/changeBoutiqueTheme",postObject).success(function(data){
+        		$scope.mesBoutiques[0].themeUrl = postObject.url
+        		
+        		console.log(postObject.url)
+        	})
+
+        },
+
+
 		getMesProduits : function($scope){
 					$http.get("/mesproduits").success(function(data){
 					$scope.mesProduits = data
 					$scope.mesProduits.reverse()
-					console.log(data)
+					
 					})
 		},
 

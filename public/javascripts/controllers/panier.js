@@ -8,7 +8,7 @@ $scope.panier = $scope.$parent.panier
 
 
 if($scope.panier[0] === undefined){
-	$scope.message = "Ton panier est vide. Ajoute vite des articles! "
+	$scope.message = "Votre panier est vide. Ajoutez vite des articles! "
 }
 
 
@@ -27,6 +27,7 @@ $scope.checkout = function(){
 }
 
 
+$scope.totalBoutiques 
 
 
 

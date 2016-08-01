@@ -39,8 +39,13 @@ when("/boutique/:id",{  //Fix naming later!!
 .when("/visageetmaquillage",{
 	controller:"vitrine",
 	templateUrl:"templates/vitrine.html"
-})//Names ofcontrollers can have Caps but for the href and the templateUrl dont
+})
+//Names ofcontrollers can have Caps but for the href and the templateUrl dont
 .when("/parfums",{
+	controller:"vitrine",
+	templateUrl:"templates/vitrine.html"
+})
+.when("/accessoires",{
 	controller:"vitrine",
 	templateUrl:"templates/vitrine.html"
 })

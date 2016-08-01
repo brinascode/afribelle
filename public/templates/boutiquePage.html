@@ -1,44 +1,70 @@
 </br></br>
-<div class="row" ng-repeat="boutique in boutique"> 
+<div class="row" ng-repeat="boutique in boutique" style="background-color:black"> 
 	    
-	    <h1>   {{boutique.nom}} </h1> 
+              </br>
+              <center>
+              <h1><a ng-href="/boutique/{{boutique._id}}" style="color:white">{{boutique.nom}}</a>
+              </h1>
+              </center></br>
+                    
 	            
 </div> </br>
-	                    
-<div ng-repeat="produit in produits track by $index" class="row">
-                <h1>   Disponible dans cette boutique: </h1>  
-                 </br></br>
-                 <div class="col-md-4" class="well"> 
-                    <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
-                        <span style="font-size:30px">
-                            {{produit.nom}}
-                        </span>
-                
-                        </br>
-                        <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
 
-                     </a>
 
-                     <strong>Boutique: {{produit.boutique}} </strong></br>
-                     <strong>Prix: </strong>{{produit.prix}} FCFA</br>
-                     Livraison inclus dans ce prix?: {{produit.livraison}}</br>
 
-                     <button class="jaime btn" ng-click="newVote($index)" > 
-                        <span class="glyphicon glyphicon-heart" style="30vw"></span>
-                        {{produit.votes.length}}
-                    </button>  
 
-                    <button class="btn btn-md" ng-click="ajouterAuPanier($index)" >
-                    <span class="glyphicon glyphicon-shopping-cart" style="30vw">
-                    </span>
-                     Ajouter au panier 
-                    </button> 
 
-                    
-                 </div> 
-     
-      </br>  </br>  </br>     </br>  </br>  </br> 
+<div>
+ <h3>   Disponible dans cette boutique: </h3>
 </div>
+
+<div class="row" style="background-image:url('images/.png');background-size:100%;">        
+    <div ng-repeat="produit in produits track by $index" class="col-md-4" >
+
+                     
+                     </br></br></br>
+                     <div class="well"> 
+                        <center>
+                        <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                            <span style="font-size:30px">
+                                {{produit.nom}}
+                            </span>
+                              <sub><strong>{{produit.prix}} FCFA </strong></sub></br>
+                    
+                            </br>
+                            <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
+
+                         </a>
+
+                     
+                        
+                         <strong>Déscription: </strong>
+                            <p style='overflow-y:scroll'>{{produit.details}}</p> </br>
+                         <strong>Livraison:</strong></br>
+
+                            Gratuite pour : {{produit.livraison.gratuite}}</br>
+                            Payante à {{produit.livraison.payanteFixe.prix}} pour 
+                            {{produit.livraison.payanteFixe.lieux}}</br>
+                            *Pour tout autre endroit, le livreur vous contactera</br>
+
+
+                         <button class="jaime btn" ng-click="newVote($index)" > 
+                            <span class="glyphicon glyphicon-heart" style="color:#ff1844;30vw"></span>
+                            {{produit.votes.length}}
+                        </button>  
+
+                        <button class="btn btn-md" ng-click="ajouterAuPanier($index)" >
+                        <span class="glyphicon glyphicon-shopping-cart" style="30vw">
+                        </span>
+                         Ajouter au panier 
+                        </button> 
+
+                        <center>
+                     </div> 
+         
+          </br>  </br>  </br>     </br>  </br>  </br> 
+    </div>
+</div>  
 
 <div class="row">
     <div class="col-lg-12">

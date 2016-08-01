@@ -11,6 +11,68 @@ $scope.isAuthen = $scope.$parent.isAuthen
 $scope.getProduits = customerToProduct.getProduits
 $scope.getProduits($scope,$location.path())
 
+//Naming the Page and loading vitrine Pic
+$scope.vitrinePic={}
+
+if($location.path() == "/soinsducorps"){
+	$scope.pageTitle = "Soins du Corps"
+		$scope.vitrinePic.img = "images/vitrinePage/hair.jpg"
+	$scope.vitrinePic.width = "30%"
+	$scope.vitrinePic.height ="50%" 
+	$scope.backColor="#ff1844"
+	
+}
+if($location.path() == "/soinsdescheuveux"){
+	$scope.pageTitle = "Soins des Cheuveux"
+
+	$scope.vitrinePic.img = "images/vitrinePage/hair.jpg"
+	$scope.vitrinePic.width = "30%"
+	$scope.vitrinePic.height ="50%" 
+	$scope.backColor="#ff5353"
+	
+}
+if($location.path() == "/visageetmaquillage"){
+	$scope.pageTitle = "Visage et Maquillage"
+	$scope.vitrinePic.img = "images/vitrinePage/visage.jpg"
+	$scope.vitrinePic.width = "25%"
+	$scope.vitrinePic.height ="30%" 
+	$scope.backColor="#4D8FAC"
+	
+}
+if($location.path() == "/parfums"){
+	$scope.pageTitle = "Parfums"
+	$scope.vitrinePic.img = "images/vitrinePage/accessoires.jpg"
+	$scope.vitrinePic.width = "35%"
+	$scope.vitrinePic.height ="30%" 
+	$scope.backColor="#ff8a80"
+}
+
+if($location.path() == "/accessoires"){
+	$scope.pageTitle = "Accéssoires"
+	$scope.vitrinePic.img = "images/vitrinePage/accessoires.jpg"
+	$scope.vitrinePic.width = "35%"
+	$scope.vitrinePic.height ="30%" 
+	$scope.backColor="#ff8a80"
+}
+
+
+//Filter:
+$scope.filter = {}
+$scope.produitFilter = true
+$scope.boutiqueFilter = false
+$scope.changeFilter = function(){
+	$scope.produitFilter = !$scope.produitFilter 
+	$scope.boutiqueFilter = !$scope.boutiqueFilter
+}
+if($scope.produitFilter != true){
+		$scope.mainFilterType="Article" //Bugging
+	}
+	else{
+
+		$scope.mainFilterType="Boutique"
+	}
+
+
 
 
 //Location path is good :))

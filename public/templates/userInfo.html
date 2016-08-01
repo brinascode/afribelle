@@ -1,10 +1,10 @@
 </br></br></br>
 <div class="container">
-	Retour au <a href="/profile">Profile</a> 
+	<h3> <a href="/profile"><span class="glyphicon glyphicon-arrow-left"></span> Profile</a></h3>	</br>
 	
 
 
-	<h1> Mes informations </h1>
+	<h1> <img src="images/userIcon.png" width="5%" /> Mes informations </h1>
 	<h3> Nom complet: {{user.facebook.name}}</h3>
 	
 	Numéros de téléphone
@@ -15,7 +15,7 @@
 	
 	{{message}}
 
-	<h3>Ajouter un numero de téléphone </br>
+	<h3>Merci d'ajouter un numéro de téléphone - nous vous conseillons d'ajouter au moins 2 numéros de téléphone </h3>
 		+225 <input type="number" ng-model="moreInfoNew.telephone"  class="form-control">
 	</h3>
 	<button class="btn btn-default" ng-click="newUserTelephone()">Ajouter</button>

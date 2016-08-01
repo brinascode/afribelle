@@ -2,221 +2,293 @@
 
 <div class="container">
 
-	Retour au <a href="/profile">Profile</a> 
-	</br>
+	<h3> <a href="/profile"><span class="glyphicon glyphicon-arrow-left"></span> 
+		Profile</a></h3>	</br>
 							
 	<div class="row">
-		<h1 class="col-md-6">
-			Ma Boutique: {{mesBoutiques[0].nom}}
-			<input ng-show="showBoutiqueSection" type="text" class="form-control" placeholder="Cree ta nouvelle boutique!" ng-model="nomBoutique"></input> 
-			
-
-			<button ng-show="showBoutiqueSection" class="btn btn-sm pinkButton" ng-click="createBoutique()"> Créer la boutique </button> 
-			<h3>{{boutiqueMsg}}</h3>
-		</h1>
-	</div>
-
-
-
-	<!--- Bouton  -->
-	<div class="row">
-		
-		<button class="btn btn-default btn-xl col-md-6" ng-click="toggleProduitSection()"> 
-		<center><h1>+</h1></center>
-		</br>
-		<h3>Nouveau Produit </h3>
-		</button>
-
-	</div>
 	
-	<!--- Nouveau Produit -->
-		<div  class="row col-md-24" ng-show="produitSection" ng-click="">
-			<div class="col-lg-6 well">
-			<h1>Ajouter un nouveau produit</h1>
-			<h3 class="alert alert-warning">{{message}}</h3>
+			<h3 class="col-md-6">
+				<img src="images/shop2.png" width="10%"/> Ma Boutique: {{mesBoutiques[0].nom}}
+				<input ng-show="showBoutiqueSection" type="text" class="form-control" placeholder="Crée ta nouvelle boutique!" ng-model="nomBoutique"/>
 
-			<center><h3>Détails du produit</h3></center>
-
-			<form>
-				<label>Nom du produit
-					<input type="text" placeholder="Nom" class="form-control" ng-model="nouveauProduit.nom" required/>
-				</label>
-				
-				<label>Type
-					<select class="form-control" ng-model="nouveauProduit.type" placeholder='Type' required>
-					<option>Soins_du_corps</option>
-					<option>Soins_des_cheuveux</option>
-					<option>Visage_et_maquillage</option>
-					<option>Parfum</option>
-					</select>
-				</label>
-
-				<label>
-					<input type="number" class="form-control" placeholder="prix" ng-model="nouveauProduit.prix"  required/>
-				</label></br>
-
-				<textarea type="text" placeholder="Déscription" class="form-control"ng-model="nouveauProduit.details" class="form-control" required/>
-				</textarea>
+					<!-- Pour modifier la boutique (themes et tout)--> 
 				</br>
-				
+				<div>
+					<button ng-hide="showBoutiqueSection" class="btn btn-default" ng-click="modBoutique()">
+					{{modButtonMessage}}</button>
+			    </div>
 
-				<!--La livraison -->
-				<center><h3>La livraison</h3></center>
-				</br>
-				<label>
-
-				<label>Gratuite</label>
-				<input ng-model="nouveauProduit.livraison.gratuite" type="text" placeholder="Les endroits ou vous allez livrer gratuitement- séparez les avec une virgule" class="form-control"></input></br>
-				
-				<label>Payante pour</label></br>
-				Ces endroits:
-				<input ng-model="nouveauProduit.livraison.payanteFixe.lieux" type="text" placeholder="Lieux ou la livraison est payante" class="form-control"></input></br>
-				Prix:
-				<input ng-model="nouveauProduit.livraison.payanteFixe.prix" type="number" placeholder="" class="form-control"></input></br>
-
-				
-				<h3>Une fois votre produit ajouté, cliquer sur modifier pour ajouter des photos.
-				</h3>
-				<button class="btn btn-info" type="submit" ng-click="ajouterProduit(nouveauProduit)" ng-disabled>Mettre en ligne
+			    <button ng-show="showBoutiqueSection" class="btn btn-sm pinkButton" ng-click="createBoutique()"> Créer la boutique 
 				</button> 
-				
-				</br>
-				</br>
-			</form>
-	    	</div>
-		</div>
-		</br>
-
-
-	 <!--- Produits  -->
-	<div class="container">
-		<h1>Mes produits déja en ligne ({{mesProduits.length}}) </h1>
-		<div class="row">
-			<div id="MesProduits" class="well col-sm-3" ng-repeat="produit in mesProduits"
-			style="width:">
-				
-				<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black"><strong>
-					{{produit.nom}}
-				</strong>
-				</a>
-			</br> 
-				
-
-				Ajouté le: {{ date|| produit.date }}</br>
-				<img ng-src="{{produit.mainImageUrl}}" width="50%"></br>
-				<strong>Type: </strong> {{produit.type}}</br>
-				<strong>Prix: </strong>{{produit.prix}} FCFA</br>
-				<strong>Déscription: </strong>{{produit.description}}</br>
-				<strong>Livraison:</strong></br>
-
-				Gratuite pour : {{produit.livraison.gratuite}}</br>
-				Payante à {{produit.livraison.payanteFixe.prix}} pour 
-				{{produit.livraison.payanteFixe.lieux}}</br>
-				*Pour tout autre endroit, vous contacterez le client</br>
+				<h3>{{boutiqueMsg}}</h3></br></br></br>
 
 
 
-				<button class="jaime btn"> 
-                    <span class="glyphicon glyphicon-heart" style="30vw"></span>
-                    {{produit.votes.length}}
-                </button> </br>
-                <button class="btn btn-default" ng-click="modifyProduit($index)"> Modifier </button> 
-				<button class="btn btn-danger btn-sm" ng-click="effacerProduit($index)">Supprimer ce produit
-				</button>
+				<div ng-show="showModBoutique" class="row">
 
-				 
+					<p class="myP">Vitrines - Cliquez un thème pour l'appiquer à votre vitrine:</p> 
+
+					<p class="myP"> Votre thème actuel: </p></br>
+					<img ng-src="images/{{mesBoutiques[0].themeUrl}}" width="20%" class="thumbnail"></br></br>
+
+					<img class="col-md-4 thumbnail" src='images/themesBoutiques/tLipsBack.png' alt='' 
+					ng-click="changeBoutiqueTheme('themesBoutiques/tLipsBack.png')"> 
+
+					<img class="col-md-4 thumbnail" src='images/themesBoutiques/tSimple.png' alt='' 
+					ng-click="changeBoutiqueTheme('themesBoutiques/tSimple.png')" width="25%"> 
+
+					<img class="col-md-4 thumbnail" src='images/themesBoutiques/tMarron.png' alt='' 
+					ng-click="changeBoutiqueTheme('themesBoutiques/tMarron.png')"> </br>
+
+					<img class="col-md-4 thumbnail" src='images/themesBoutiques/tLips.png' alt='' 
+					ng-click="changeBoutiqueTheme('themesBoutiques/tLips.png')"> 
+
 				
 
-			</div>
-		</div>
-	</div>
-	</br>
-                             <!--- Pour les modifs  -->
 
-      <!--- Modifier le produit (sans images)-->
-    <div class="row">
-	    <div class="well col-lg-6" ng-show="modifSection">
+				</div>
+				
 
+
+			</h3>
+	</div></br></br></br>
+
+		
+    <!--- Bouton  -->
+    <div class="row" ng-show="!showBoutiqueSection">
+
+		<button class="btn btn-default btn-xl col-md-6 pinkButton" ng-click="toggleProduitSection()"> 
 			<center>
-	    	<h2>Modifier</h2>
-	    	<button class="btn btn-danger" 
-			ng-click="hideModifSection()">
-			Fermer</button></center>
-			
-			<h3>
-			<strong>Nom:</strong>
-			<input type="text" class="form-control" ng-model="modifying.nom"/>
-			</h3>
-
-			<h3>
-			<strong>Type:</strong>
-			<input type="text" class="form-control" ng-model="modifying.type"/>
-			</h3>
-			
-			
-			<h3>
-			<strong>Prix</strong>
-			<input type="number" class="form-control" ng-model="modifying.prix"/>
-			</br>
-			</h3>
-			
-
-
-			<h3>
-			<strong>Déscription</strong>
-			<textarea type="number" class="form-control" ng-model="modifying.description"></textarea></br>
-			</h3>
-			
-			
-			Livraison inclus dans ce prix:{{modifying.livraison}}</br>
-
-			<button class="btn btn-danger btn-block" 
-			ng-click="modifyProduitPost()">
-			Enregistrer</button></br>
-			
-
-			 <!--- Les images mtn-->	
-			 <h3 class="">
-			 <center>
-			 <span class="glyphicon glyphicon-camera"></span>
-			 Les images</h3>
+				<img src="images/icons/cremeIcon.png" width="15%">
+				<h3>Nouveau Produit </h3>
 			</center>
-			</br>
+			
+			
+		</button></br>
 
-			 Voici les images de cet article </br></br>
-			 La photo principale est: 
-			 <img ng-src="{{modifying.mainImageUrl}}" width="20%"></br>
+	</div></br>
+			
+			<!--- Nouveau Produit -->
+				<div  class="row" ng-show="produitSection" ng-click="">
+						<div class="col-lg-6 well">
+						<h3>Ajouter un nouveau produit</h3>
+							<p class="alert alert-warning">{{message}}</p>
+
+							<center><h3>Détails du produit</h3></center>
+
+								<form>
+									<label>Nom du produit
+										<input type="text" placeholder="Nom" class="form-control" ng-model="nouveauProduit.nom" required />
+									</label>
+									
+									<label>Catégorie
+										<select class="form-control" ng-model="nouveauProduit.type" placeholder='Type' required>
+											<option>soinsducorps</option>
+											<option>soinsdescheuveux</option>
+											<option>visageetmaquillage</option>
+											<option>parfums</option>
+											<option>accessoires</option>
+										</select>
+									</label>
+
+									
+										<input type="number" class="form-control" placeholder="Prix (FCFA)" ng-model="nouveauProduit.prix"  required/>
+										</br>
+
+									
+									<textarea type="text" placeholder="Déscription" class="form-control"ng-model="nouveauProduit.details" class="form-control" required/>
+									</textarea>
+									
+									</br>
+									
+
+									<!--La livraison -->
+									<center><h3>La livraison</h3></center>
+									</br>
+									
+
+									<label>Gratuite</label>
+									<input ng-model="nouveauProduit.livraison.gratuite" type="text" placeholder="Les endroits ou vous allez livrer gratuitement- séparez les avec une virgule" class="form-control" /></br>
+									
+									<label>Payante pour</label></br>
+									Ces endroits:
+									<input ng-model="nouveauProduit.livraison.payanteFixe.lieux" type="text" placeholder="Lieux ou la livraison est payante" class="form-control" /></br>
+									Prix:
+									<input ng-model="nouveauProduit.livraison.payanteFixe.prix" type="number" placeholder="" class="form-control" /></br>
+
+									
+									<p>Une fois votre produit ajouté, cliquer sur modifier pour ajouter des photos.
+									</p>
+									<button class="btn btn-danger btn-block" type="submit" ng-click="ajouterProduit(nouveauProduit)" ng-disabled>Mettre en ligne
+									</button> 
+									</br>
+									<p class="alert alert-warning">{{message}}</p>
+									</br>
+									</br>
+								</form>
+			    </div>
+				</div>
+				<!--- End Nouveau Produit -->
+				</br>
+
+
+
+
+			 <!--- Produits  -->
+			<div class="container">
+				<h3>Mes produits déja en ligne ({{mesProduits.length}}) </h3>
+				<div class="row">
+					<div id="MesProduits" class="well col-sm-3" ng-repeat="produit in mesProduits"
+					style="width:">
+						
+						
+						
+
+						
+						
+						<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+							<img ng-src="{{produit.mainImageUrl}}" width="50%">
+					    </a>
+						<button class="jaime btn"> 
+		                    <span class="glyphicon glyphicon-heart" style="color:#ff1844;30vw"></span>
+		                    {{produit.votes.length}}
+		                </button> </br>
+						<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+							<strong>
+							{{produit.nom}}
+							</strong>
+						</a>
+						</br> 
+						<strong>Ajouté le:</strong> {{ date|| produit.date }}</br>
+						<strong>Type: </strong> {{produit.type}}</br>
+						<strong>Prix: </strong>{{produit.prix}} FCFA</br>
+						<strong>Déscription: </strong>
+						<p style="overflow-x:scroll;overflow-y:scroll">
+						{{produit.details}}</p></br>
+						<strong>Livraison:</strong></br>
+
+						Gratuite pour : {{produit.livraison.gratuite}}</br>
+						Payante à {{produit.livraison.payanteFixe.prix}} pour 
+						{{produit.livraison.payanteFixe.lieux}}</br>
+						*Pour tout autre endroit, vous contacterez la cliente</br>
+
+
+
+						
+		                <button class="btn btn-default" ng-click="modifyProduit($index)"> Modifier </button> 
+						<button class="btn btn-danger btn-sm" ng-click="effacerProduit($index)">Supprimer ce produit
+						</button>
+
+						 
+					</div>
+				</div>
+			</div>
+			
+			<!--- End Produits  -->
+
+
+		                           <!--- Pour les modifs  -->
+
+
+
+		     <!--- Modifier le produit (sans images)-->
+		    <div class="row">
+		    	
+		    		<div class="well col-lg-6" ng-show="modifSection">
+		    		<h2>Modifier</h2>
+			    			<center>
+						    	<button class="btn btn-sm btn-danger" 
+								ng-click="hideModifSection()">
+								Fermer</button>
+							</center>
+							
+							<h3>
+							<strong>Nom:</strong>
+							<input type="text" class="form-control" ng-model="modifying.nom"/>
+							</h3>
+
+							<h3>
+							<strong>Type:</strong>
+							<input type="text" class="form-control" ng-model="modifying.type"/>
+							</h3>
+							
+							
+							<h3>
+							<strong>Prix</strong>
+							<input type="number" class="form-control" ng-model="modifying.prix"/>
+							</br>
+							</h3>
+							
+
+
+							<h3>
+							<strong>Déscription</strong>
+							<textarea type="text" class="form-control" ng-model="modifying.details"></textarea>
+						    </br>
+							</h3>
+							
+							
+							<h3><strong>Livraison:</H3></strong>
+
+							<strong>Gratuite pour :</strong>
+							 <input type="text" class="form-control" ng-model="modifying.livraison.gratuite"/>
+							</br>
+							<strong>Payante à </strong> <input type="number" class="form-control" ng-model="modifying.livraison.payanteFixe.prix"/> 
+							<strong> pour </strong>
+							 <input type="text" class="form-control" ng-model="modifying.livraison.payanteFixe.lieux" placeholder="Les lieux ou la livraison est payante" />
+							</br>
+							<strong>*Pour tout autre endroit, vous contacterez la cliente</strong></br></br>
+
+
+							<button class="btn btn-danger btn-block pinkButton" 
+							ng-click="modifyProduitPost()">
+							Enregistrer</button></br>
+							
+
+							 <!--- Les images mtn-->	
+							 <h3 class="">
+								 <center>
+								 <span class="glyphicon glyphicon-camera"></span>
+								 Les images
+								</center>
+							</h3>
+							</br>
+
+							 <strong>Les images de cet article </strong> </br>
+							(Cliquez sur une image pour la mettre en photo principale):</br>
+							</br>
+							 <span ng-repeat="imgUrl in modifying.imageUrls">
+								 <img ng-src="{{imgUrl}}" width="20%" 
+								  ng-click="newMainImage($index)" />
+								
+								</br>
+								<button class="btn btn-xs btn-danger" 
+								ng-click="effacerImage($index)"> Effacer </button>
+								</br></br>
+							</span> </br></br>
+						
+							<strong>La photo principale est </strong></br> 
+							(Cliquez sur une image ci dessus pour la mettre en photo principale): </br>
+							 <img ng-src="{{modifying.mainImageUrl}}" width="20%" /></br></br>
+							  
+							 Ajouter une image</br>
+							 <form id="ajouterImage">
+					  			<input type="file"  class="form-control"/></br>
+					  			<button type="submit" class="btn pinkButton"
+					  			 ng-click="ajouterImage()" ng-hide="imageDone">Ajouter! 
+					  			</button>
+							</form>  
+							{{imageMessage}}
+
+
+    					</div>
+
+		        </div>
+		     <!---End Pour les modifs  -->
 			  
-			  <h3> Clique sur une image pour la mettre en photo principale</H3>
-			 
-			 <span ng-repeat="imgUrl in modifying.imageUrls">
-				 <img ng-src="{{imgUrl}}" width="20%" 
-				  ng-click="newMainImage($index)" />
-				
-				<button class="btn btn-xs btn-danger" ng-click="effacerImage($index)"> Effacer </button>
-				</br></br>
-			</span>
-
-			
-
-
-			
-			 
-
-			 <form id="ajouterImage">
-	  			<input type="file"  /></br>
-	  			<button type="submit" class="btn btn-info"
-	  			 ng-click="ajouterImage()" ng-hide="imageDone">Ajouter! </button>
-			</form>  
-			{{imageMessage}}
-
-
-
-
-
-	    
-	    </div>
-	</div>
- 	
+						
+					    	
+					
+			   
 
 </div>

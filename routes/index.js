@@ -35,7 +35,20 @@ app.get("/mesBoutiques",function(req,res){
 })
 
 
+//Changer le theme de la boutique:
+app.post("/changeBoutiqueTheme",function(req,res){
+	
+	Boutique.find({_id:req.body.id},function(err,data){
+		if(err) throw err
+		var boutique = data[0]
+		boutique.themeUrl = req.body.url
 
+	    boutique.save(function(err,data){
+	    	if(err) throw err
+	    	res.json({hey:"good"})
+	    })
+	})
+})
 
 
 //Getting lists of products available in the store of the logged in user
@@ -58,6 +71,12 @@ app.post("/ajouterProduit",function(req,res){
 			})
 	})
 })
+
+
+
+
+
+
 
 //Les produits************
 
@@ -217,28 +236,36 @@ app.post("/boutiqueProduits",function(req,res){
 
 
 app.get("/soinsducorpsProduits",function(req,res){
-	Produit.find({type:"Soins_du_corps"},function(err,data){
+	Produit.find({type:"soinsducorps"},function(err,data){
 		if(err) throw err
 		res.json(data)
 	})
 })
 
 app.get("/soinsdescheuveuxProduits",function(req,res){
-	Produit.find({type:"Soins_des_cheuveux"},function(err,data){
+	Produit.find({type:"soinsdescheuveux"},function(err,data){
 		if(err) throw err
 		res.json(data)
 	})
 })
 
 app.get("/visageetmaquillageProduits",function(req,res){
-	Produit.find({type:"Visage_et_maquillage"},function(err,data){
+	Produit.find({type:"visageetmaquillage"},function(err,data){
 		if(err) throw err
 		res.json(data)
 	})
 })
 
+//Off or? 
 app.get("/parfumsProduits",function(req,res){
-	Produit.find({type:"Parfum"},function(err,data){
+	Produit.find({type:"parfums"},function(err,data){
+		if(err) throw err
+		res.json(data)
+	})
+})
+
+app.get("/accessoiresProduits",function(req,res){
+	Produit.find({type:"accessoires"},function(err,data){
 		if(err) throw err
 		res.json(data)
 	})
@@ -400,6 +427,18 @@ app.get("/serv_sellerVentes",function(req,res){
 
 
 //***********************************************
+
+
+app.get('/boutique/:id', function(req, res, next) {
+  res.redirect("/boutiques")
+});
+
+
+/* GET home page. */
+app.get('/produit/:id', function(req, res, next) {
+    res.redirect("/boutiques")
+});
+
 
 
 /* GET home page. */

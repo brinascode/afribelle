@@ -12,16 +12,16 @@ $scope.message
 
 //Not A number + Doesnt update parent!
 $scope.newUserTelephone= function(){ //Validated
-	if($scope.moreInfoNew){ 
+	if($scope.moreInfoNew && $scope.moreInfoNew.telephone.toString().length===8){ 
 		userModifs.newUserTelephone($scope)
-		console.log($scope.moreInfoNew)
-
+		console.log($scope.moreInfoNew.telephone)
+		$window.location.href = "/userInfo"
 	}else{
-		$scope.message = "Veuillez entrez un numéro de telephone valide s'il vous plait"
-		console.log(parse($scope.moreInfoNew))
+		$scope.message = "Veuillez entrez un numéro de telephone Ivoirien valide s'il vous plait"
+		
 	}
 
-	$window.location.href = "/userInfo"
+	
 }
 
 $scope.removeUserTelephone = function($index){

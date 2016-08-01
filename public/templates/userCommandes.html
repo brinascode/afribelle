@@ -1,8 +1,9 @@
 <div class="container">
 	</br>
-	Retour au <a href="/profile">Profile</a> 
-	<h1>Mes commandes (Achats) en cours</h1>
-
+	<h3> <a href="/profile"><span class="glyphicon glyphicon-arrow-left"></span> Profile</a></h3>	</br>
+	 <h3> <img src="images/cart.png" width="5%" /> Mes commandes (Achats) en cours</h3>
+	
+	<h3>Veuillez montrer ces reçus au livreur</h3>
 	<div class="row">
 
 		<div class="well col-lg-4" ng-repeat="commande in commandes">
@@ -10,7 +11,7 @@
 			<strong>Numéro de commande: </strong>{{commande._id}} </br>
 			<strong>Date de la commande: </strong>{{commande.date}} </br>
 			<strong>Nom de l'article: </strong>{{commande.produitNom}} </br>
-			<strong>Nom de la boutique : </strong>{{commande.boutiqueNom}}
+			<strong>Nom de la boutique : </strong>{{commande.boutique}}</br>
 			<strong>Vendu par: </strong>{{commande.vendeur}} </br>
 			<strong>Contacts de la vendeuse:</strong>
 			{{commande.vendeurContacts[0]}},

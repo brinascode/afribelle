@@ -7,7 +7,19 @@
 </br>
 
 
+
+
+
 <div class="row"> 
+
+	<div>
+		Nombre de boutiques: {{}}
+		Total des articles: {{}} </br>
+		Total de la livraison: {{}}</br>
+
+		Total de la commande: {{}}
+	</div>
+
 
 	<div ng-repeat="produit in panier" class="well col-sm-4" >
 
@@ -32,7 +44,7 @@
 				*Pour tout autre endroit, le vendeur vous contactera</br>
 		
 		<form>
-		<strong>Pour quel type de livraison qualifiez vous___?</strong>
+		<strong>Pour quel type de livraison qualifiez vous?</strong>
 		<select class="form-control" ng-model="produit.livraisonType" required> 
 			<option>Gratuite</option>
 			<option>Payante</option>
@@ -48,5 +60,5 @@
 </br>       
 </br>   
 
-<button type="submit" class="btn btn-danger" ng-click="checkout()" ng-disabled> Confirmer la commande </button> 
+<button type="submit" class="btn btn-danger pinkButton" ng-click="checkout()" ng-disabled> Confirmer la commande </button> 
 </form>

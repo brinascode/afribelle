@@ -33,9 +33,14 @@ return {
 			$http.get(route+"Produits").success(function(data){
 				$scope.produits = data
 				$scope.produits.reverse()
-				
+
+
 			})
 
+			
+
+
+			
 	},
 
 	//Page produit
