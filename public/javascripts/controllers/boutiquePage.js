@@ -32,6 +32,7 @@ $scope.comments =[]
 
 $scope.getComments = function(){
 	var id = $routeParams.id
+
 	customerToProduct.getComments($scope,id)
 }
 $scope.getComments()

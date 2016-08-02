@@ -364,7 +364,7 @@ var next = function(){
 
 app.post("/comments",function(req,res){
 
-	Comment.find(req.body,function(err,data){
+	Comment.find({discussionId:req.body.discussionId},function(err,data){
 		if(err) throw err
 		res.json(data)
 	})

@@ -1,4 +1,4 @@
-app.factory("customerToProduct",["$http",function($http)
+app.factory("customerToProduct",["$http","$routeParams",function($http,$routeParams)
 {
 
 
@@ -142,7 +142,10 @@ return {
 	getComments : function($scope,id){	
 				
 				//Is http post the only way to pass dataN
-				$http.post("/comments",{discussionId:id}).success(function(data){
+
+				var postObject = {discussionId:id}
+				$http.post("/comments",postObject).success(function(data){
+					
 					$scope.comments = data
 					$scope.comments.reverse()
 				})
@@ -151,7 +154,8 @@ return {
 	postComment : function($scope,comment,$routeParams){
 
 
-				if(comment.body != ""){ //Its allowing empty comments to save!
+				if(comment.body != ""){ 
+
 
 					if($scope.user.facebook != undefined ){
 						comment.auteur = $scope.user.facebook.name
@@ -159,13 +163,15 @@ return {
 						comment.auteur = $scope.user.local.username
 					}
 
+					//Commenting a boutique or a produit?
 					if($scope.produit != undefined){
 						comment.discussionId = $scope.produit[0]._id
 					}
 					else{
-						 $routeParams.id
+						 comment.discussionId = $routeParams.id
 					}
 		
+					console.log(comment.discussionId)
 					comment.date = new Date().toString() //dsnt do anything
 
 					$http.post("/postComment",comment).success(function(data){

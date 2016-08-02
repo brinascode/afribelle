@@ -26,5 +26,4 @@ $scope.ajouterAuPanier = function($index){
 
 
 
-
 }])
