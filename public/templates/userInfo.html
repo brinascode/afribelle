@@ -5,15 +5,23 @@
 
 
 	<h1> <img src="images/userIcon.png" width="5%" /> Mes informations </h1>
-	<h3> Nom complet: {{user.facebook.name}}</h3>
-	
-	Numéros de téléphone
+	<h3> Nom complet: {{user.facebook.name}} {{user.moreInfo.nomComplet}}</h3>
+	</br>
+
+	<h3></h3>
+	Merci d'écrire votre nom complet pour passer votre commande
+	<input class="form-control" type="text" ng-model="nomCompletNew"/>
+	<button class="btn btn-default" ng-click="newNomComplet()">Ajouter mon nom</button>
+	</br></br>
+
+
+	<h3>Numéros de téléphone</h3>
 	<div ng-repeat="num in user.moreInfo.numerosDeTelephone track by $index">
 		<h3>{{num}}</h3>
 		<button class="btn btn-danger" ng-click="removeUserTelephone($index)">Retirer</button>
 	</div></br>
 	
-	{{message}}
+	<p class="alert alert-warning">{{message}}</p>
 
 	<h3>Merci d'ajouter un numéro de téléphone - nous vous conseillons d'ajouter au moins 2 numéros de téléphone </h3>
 		+225 <input type="number" ng-model="moreInfoNew.telephone"  class="form-control">

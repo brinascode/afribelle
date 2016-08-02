@@ -9,7 +9,7 @@ return {
 		$http.get("/serv_Boutiques").success(function(data){
 			console.log(data)
 			$scope.boutiques = data
-			$scope.boutiques.reverse() 
+			$scope.boutiques.sort(function() { return 0.5 - Math.random() }); 
 		})
 
 	},
@@ -32,7 +32,8 @@ return {
 
 			$http.get(route+"Produits").success(function(data){
 				$scope.produits = data
-				$scope.produits.reverse()
+			
+				$scope.produits.sort(function() { return 0.5 - Math.random() }); 
 
 
 			})

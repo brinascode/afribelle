@@ -76,15 +76,14 @@ $scope.produitSection = false
 $scope.toggleProduitSection = function(){
 	$scope.produitSection = !$scope.produitSection
 }
-$scope.message= "Avant d'ajouter un article, assurez vous d'avoir entré un numéro de téléphone dans: Profile/Mes Infos"
+$scope.message= "Avant d'ajouter d'article, assurez vous d'avoir entré votre nom complet et un numéro de téléphone dans: Profile/Mes Infos"
 //In factory
 $scope.nouveauProduit = {}
 
-
 $scope.ajouterProduit = function(nouveauProduit) //Validated! 
 { 
-	if($scope.$parent.user.local.username){
-	$scope.nouveauProduit.vendeur=""+$scope.user.local.username+""
+	if($scope.user.moreInfo.nomComplet){
+	$scope.nouveauProduit.vendeur=""+$scope.user.moreInfo.nomComplet+""
 	}
 	else{
   	$scope.nouveauProduit.vendeur=""+$scope.user.facebook.name+""
@@ -107,7 +106,7 @@ $scope.ajouterProduit = function(nouveauProduit) //Validated!
     }else{
     	$scope.message = "S'il vous plait veuillez: "+
     	"1. Remplir tous les champs "+
-    	"2. Vérifier que vous avez ajouté un numéro de téléphone dans :'Profile/Mes Infos' "+
+    	"2. Vérifier que vous avez ajouté votre nom complet et un numéro de téléphone dans :'Profile/Mes Infos' "+
     	"3.Verifier que vous ne vendez pas plus de 50 produits en meme temps"
     }//tous or tout
 }

@@ -9,6 +9,13 @@ $scope.moreInfoNew = {}
 $scope.message
 
 
+$scope.nomCompletNew
+$scope.newNomComplet = function(){
+
+	userModifs.newNomComplet($scope,$scope.nomCompletNew)
+		$window.location.href = "/userInfo"
+}
+
 
 //Not A number + Doesnt update parent!
 $scope.newUserTelephone= function(){ //Validated

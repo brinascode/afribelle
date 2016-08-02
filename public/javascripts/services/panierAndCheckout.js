@@ -10,9 +10,9 @@ return {
 
 				if(confirm("Confirmez vous cette commande?"))
 				{
-					if($scope.user.facebook){
+					if($scope.user.facebook || $scope.user.local.username){
 						//Logged in== proceed
-							if($scope.user.moreInfo.numerosDeTelephone.length != 0)
+							if($scope.user.moreInfo.numerosDeTelephone.length != 0 && $scope.user.moreInfo.nomComplet != undefined)
 							{ //Goes through all items in cart to make a commande
 								for(var i=0;i<$scope.panier.length;i++){
 										
@@ -37,7 +37,7 @@ return {
 
 												//Types of logins
 												if($scope.$parent.user.local.username){
-												commande.acheteur=""+$scope.user.local.username+""
+												commande.acheteur=""+$scope.user.moreInfo.nomComplet+""
 												}
 												else{
 											  	commande.acheteur=""+$scope.user.facebook.name+""
@@ -60,7 +60,7 @@ return {
 								}
 							}
 							else{
-								alert("Merci de ajouter un numéro de téléphone dans: Profile/Mes Infos, avant de passer votre commande")
+								alert("Merci de ajouter un numéro de téléphone et votre nom complet dans votre Profile (Mes Infos) avant de passer votre commande")
 							}
 
 

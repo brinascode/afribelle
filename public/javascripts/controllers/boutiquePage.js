@@ -35,8 +35,13 @@ $scope.getComments = function(){
 
 	customerToProduct.getComments($scope,id)
 }
+
+
+$scope.showComments = function(){
+$scope.showComments = true
 $scope.getComments()
 
+}
 
 
 $scope.newComment = {}

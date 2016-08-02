@@ -68,6 +68,26 @@ var mongoose = require("mongoose")
 
 //********************************************Modyfing user*****************
 
+
+app.post("/newNomComplet",function(req,res){
+
+    User.find({_id:req.user.id},function(err,data){
+        if(err) throw err
+        var user = data[0]
+        user.moreInfo.nomComplet = req.body.nomComplet
+
+        user.save(function(err){
+
+            User.find({_id:req.user.id},function(err,data){
+                if (err) throw err
+                res.json(data[0])
+            })
+        })
+    })
+
+})
+
+
 app.post("/newUserTelephone",function(req,res){
     var user
     User.find({_id:req.user._id},function(err,data){

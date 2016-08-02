@@ -75,11 +75,12 @@
             </br> 
 
             <button class="btn pinkButton" ng-click="postComment()"> 
-                Commenter
+                Donner mon avis
             </button> 
         </span>   </br> </br> 
 
-        <div ng-repeat="comment in comments track by $index" class="well" > 
+        <button ng-click="showComments()" class="btn btn-default btn-lg">Voir les avis</button>
+        <div ng-repeat="comment in comments track by $index" class="well" ng-show="showComments"> 
            
             Date: {{comment.date}}  </br> 
             De: {{comment.auteur}}  </br> 

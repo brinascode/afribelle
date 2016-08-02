@@ -27,6 +27,7 @@ var userSchema = new Schema({
     },
     moreInfo         : { 
         numerosDeTelephone:[Number],
+        nomComplet :String
     },
     votedFor        : [String],
     boutiques       : 
