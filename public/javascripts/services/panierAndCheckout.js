@@ -10,7 +10,7 @@ return {
 
 				if(confirm("Confirmez vous cette commande?"))
 				{
-					if($scope.user.facebook || $scope.user.local.username){
+					if($scope.user.facebook || $scope.user.username){
 						//Logged in== proceed
 							if($scope.user.moreInfo.numerosDeTelephone.length != 0 && $scope.user.moreInfo.nomComplet != undefined)
 							{ //Goes through all items in cart to make a commande
@@ -63,9 +63,9 @@ return {
 								alert("Merci de ajouter un numéro de téléphone et votre nom complet dans votre Profile (Mes Infos) avant de passer votre commande")
 							}
 
-
-
-					}else{
+					}
+					else
+					{
 						//Not logged in
 						alert("Merci de vous inscrire/connecter avant de faire des achats. Vos articles "+
 							"resteront dans le panier.")

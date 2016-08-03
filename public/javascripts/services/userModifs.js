@@ -30,6 +30,12 @@ return {
 				$scope.user = data
 				
 			})
+	},
+	changeAvatar : function($scope,postObject){
+
+		$http.post("/changeAvatar",postObject).success(function(data){
+			$scope.user = data
+		})
 	}
 
 

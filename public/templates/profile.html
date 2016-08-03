@@ -3,24 +3,36 @@
 
 		<div class="container" style="margin:5px">
 
-			<div class="jumbotron" style="margin:5px;background-color:#95A5A6">
+			<div class="jumbotron row" style="margin:5px;background-color:#ECF0F1">
 				</br>
 
 
-				<h1 style="text-align:center;color:white">	
-					<span class="glyphicon glyphicon-user"></span> Bienvenue {{user.local.username}} 
-					{{user.facebook.name}}
-		    	</h1>
+		       <div class="col-md-6">
+		       			<center> 
+						<a href="/userInfo"> <img ng-src="images/{{user.moreInfo.profilePic}}" alt="imageProfile" class="img-responsive" width="30%" style="margin-top:-14px"></a>
+						</center>
+						
 
-		    	<img src="images/medalIcon.png" width="0%" style="margin-right:-500px" />
-				<img src="images/trophy.png" width="0%" />
+		       </div>
+
+				<div class="col-md-6">
+					<h1 style="text-align:center;color:">	
+						Bienvenue 
+	 					{{user.local.username}} 
+						{{user.facebook.name}}
+						</br>
+
+
+			    	</h1>
+		       </div> 
+		    
 
 			</div>
 
 			
 				<div class="" style="margin-top:-px;">
 
-				<div class="col-md-3 roundBlock well" style="background-color:#D2D7D3">
+				<div class="col-md-3 roundBlock well" style="background-color:#757D75">
 					<div >
 					<a href="/myBoutique">
 						<center>
@@ -32,7 +44,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-3 roundBlock well" style="background-color:#D2D7D3">
+				<div class="col-md-3 roundBlock well" style="background-color:#757D75">
 					<a href="/userCommandes">
 						<center>
 							<h3>Mes achats</h3>
@@ -41,7 +53,7 @@
 					</a>
 				</div>
 
-				<div class="col-md-3 roundBlock well" style="background-color:#D2D7D3">
+				<div class="col-md-3 roundBlock well" style="background-color:#757D75">
 					<a href="/sellerVentes">
 						<center>
 							<h3>Mes commandes</h3>
@@ -50,7 +62,7 @@
 					</a>
 				</div>
 
-				<div class="col-md-3 roundBlock well" style="background-color:#D2D7D3">
+				<div class="col-md-3 roundBlock well" style="background-color:#757D75">
 					<a href="/userInfo">
 					<center>
 							<h3>Mes infos</h3>

@@ -105,7 +105,7 @@ border-radius:100px;
         <div class="container">
             
             <a class="navbar-brand" href="/" 
-            style="font-size:60px;color:Black;background-color:white;margin-top:3px">
+            style="font-size:60px;color:Black;background-color:white;margin-top:px;border:white 5px;">
                 AfriBelle
             </a>
             
@@ -141,13 +141,8 @@ border-radius:100px;
                        <a  href="/">Acceuille</a>
                     </li>
                    
-                    <li>
-                        <a href="http://afribelle-promo.herokuapp.com">A propos</a>
-                    </li>
                     
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+
                      <li ng-show="isAuthen">
                         <a href="/profile">Profile</a>
                     </li>
@@ -160,7 +155,14 @@ border-radius:100px;
                     </li>
                     <li ng-show="isAuthen">
                         <a style="font-size:20px">Bienvenue {{user.local.username}} {{user.facebook.name}}</a> 
+
                     </li>
+                     <li class="">
+                                <a href="/panier" class="frontLinks" style="background-color:;color:white">
+                                  <span style="font-size:17px" class="glyphicon glyphicon-shopping-cart"></span>
+                                  <sup class="">{{panier.length}}</sup>
+                                </a>
+                              </li>
 
                 </ul>
             </div>
@@ -183,9 +185,7 @@ border-radius:100px;
                       
                       <center style="margin-left:20px">
                         <button type="button" class="navbar-toggle btn btn-block" data-toggle="collapse" data-target="#myNavbar">
-                          <h3><span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
+                          <h3>
                           Catégories 
                            </h3>
                           
@@ -248,8 +248,12 @@ border-radius:100px;
             <br>
             <div class="row">
                 <div class="col-lg-12">
+                    <a href="http://afribelle-promo.herokuapp.com" style="color:white">A propos</a>
+                
                     <p style="color:white">Copyright &copy; AfriBelle 2016</br>Tout droits réservés</p>
                 </div>
+
+                      
             </div>
         </footer>
 

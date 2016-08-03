@@ -145,6 +145,7 @@ return {
 				//Is http post the only way to pass dataN
 
 				var postObject = {discussionId:id}
+
 				$http.post("/comments",postObject).success(function(data){
 					
 					$scope.comments = data
@@ -172,8 +173,9 @@ return {
 						 comment.discussionId = $routeParams.id
 					}
 		
-					console.log(comment.discussionId)
-					comment.date = new Date().toString() //dsnt do anything
+				
+					comment.date = new Date().toString() //to string dsnt do anything
+					comment.profilePic = $scope.user.moreInfo.profilePic
 
 					$http.post("/postComment",comment).success(function(data){
 						$scope.comments = data

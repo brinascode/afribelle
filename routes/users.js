@@ -123,7 +123,27 @@ app.post("/removeUserTelephone",function(req,res){
     })
 })
 
+app.post("/changeAvatar",function(req,res){
 
+    User.find({_id:req.user._id},function(err,data){
+//if there's no user?
+        if (err) throw err
+        var user = data[0]
+        user.moreInfo.profilePic = req.body.url
+
+        user.save(function(err){
+
+            if (err) throw err
+            User.find({_id:req.user._id},function(err,data){
+                if (err) throw err
+                res.json(data[0])
+            })
+         })
+   
+
+    })
+
+})
 
 
 

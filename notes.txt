@@ -12,6 +12,8 @@ boutique link on prod page
 
 panier and total
 
+Panier stick bar
+
 boutique schema does not hold the produits
 
 its the produits thats matched to a boutique

@@ -6,7 +6,8 @@ var commentSchema = new Schema ({
 discussionId:String, //Will take the produitId. 
 date:Date,
 auteur:String,
-body:String
+body:String,
+profilePic:String
 })
 
 module.exports = mongoose.model("comment",commentSchema)

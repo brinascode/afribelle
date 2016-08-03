@@ -29,10 +29,11 @@
                  
 
                  <div class="col-md-4" class="well"> 
-                    <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
+                      <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                          <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
 
                 
-                        <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                      
                             <span style="font-size:30px">
                                 {{produit.nom}}
                             </span>

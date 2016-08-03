@@ -31,10 +31,20 @@ $scope.newUserTelephone= function(){ //Validated
 	
 }
 
+
+
 $scope.removeUserTelephone = function($index){
 	userModifs.removeUserTelephone($scope,$index)
 	$window.location.href = "/userInfo"
 } 
+
+
+$scope.changeAvatar = function(url){
+var postObject = {url:url}
+userModifs.changeAvatar($scope,postObject)
+$window.location.href = "/userInfo"
+
+}
 
 
 }])

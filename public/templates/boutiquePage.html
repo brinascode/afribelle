@@ -83,6 +83,7 @@
         <div ng-repeat="comment in comments track by $index" class="well" ng-show="showComments"> 
            
             Date: {{comment.date}}  </br> 
+            <img ng-src='images/{{comment.profilePic}}' width="8%"/> 
             De: {{comment.auteur}}  </br> 
             {{comment.body}}        </br> 
         </div>              
