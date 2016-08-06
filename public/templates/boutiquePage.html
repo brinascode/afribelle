@@ -1,4 +1,5 @@
 <div class="container" style="margin:5px">
+
   <div class="row" ng-repeat="boutique in boutique" style="background-color:black"> 
   	    
                 </br>
@@ -19,7 +20,8 @@
   </div>
 
   <div class="row" style="background-image:url('images/.png');background-size:100%;">        
-      <div ng-repeat="produit in produits track by $index" class="col-md-4" >
+      
+      <div ng-repeat="produit in produits track by $index" class="col-md-4 col-xs-6" >
 
                        
                        </br></br></br>
@@ -53,11 +55,11 @@
                               {{produit.votes.length}}
                           </button>  
 
-                          <button class="btn btn-md" ng-click="ajouterAuPanier($index)" >
+                          <button class="btn btn-md ajouterPanier" ng-click="ajouterAuPanier($index)" >
                           <span class="glyphicon glyphicon-shopping-cart" style="30vw">
                           </span>
-                           Ajouter au panier 
-                          </button> 
+                          +                         
+                           </button> 
 
                           <center>
                        </div> 

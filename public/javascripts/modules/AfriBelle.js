@@ -6,7 +6,7 @@ app.config(function($routeProvider,$locationProvider){
 
 $routeProvider
 
-.when("/acceuille",{
+.when("/",{
 controller:"AcceuilleController", //This controller is at the same time the page controller
 templateUrl:"templates/acceuille.html"
 })

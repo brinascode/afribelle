@@ -1,5 +1,6 @@
 <div class="container" style="margin:5px">
     <h3> <a ng-href="/{{produit[0].type}}"><span class="glyphicon glyphicon-arrow-left"></span>Retour</a></h3>
+    
     <div class="row" ng-repeat="produit in produit">
          <a ng-href="boutique/{{produit.boutiqueId}}">
              <button class="btn" ng-click="newVote($index)" > 
@@ -21,7 +22,7 @@
                                     {{produit.votes.length}}
                                 </button>   
 
-                                 <button class="btn btn-md" ng-click="ajouterAuPanier($index)" >
+                                 <button class="btn btn-md ajouterPanier" ng-click="ajouterAuPanier($index)" >
                                       <span class="glyphicon glyphicon-shopping-cart" style="30vw">
                                      </span>
                                      +

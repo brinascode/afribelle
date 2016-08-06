@@ -93,7 +93,12 @@ h3,h1,h2 {
 
 .jaime{
     border-radius:100px;
-    background-color:;
+    background-color:black;
+}
+
+.ajouterPanier{
+    border-radius:;
+    background-color:black;
 }
 
 a{
@@ -157,10 +162,12 @@ border-radius:100px;
                     <span class="icon-bar" style="background-color:#ff1844"></span>
                   </button>
 
-                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <a href="/panier">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" >
                      <span style="font-size:17px;color:white" class="glyphicon glyphicon-shopping-cart"></span>
                     <sup style="color:white">{{panier.length}}</sup>
                   </button>
+                  </a>
                 
             </div>
 
@@ -168,7 +175,7 @@ border-radius:100px;
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="getBlack">
-                       <a  href="/">Acceuille</a>
+                       <a  href="/">Acceuil</a>
                     </li>
                    
                   
@@ -214,15 +221,64 @@ border-radius:100px;
                 
                 <div class="navbar-header">
                       
-                      <center style="margin-left:20px">
-                        <button type="button" class="navbar-toggle btn btn-block pinkButton" data-toggle="collapse" data-target="#myNavbar" style="background-color:#ff1844;border:#ff1844;font-family" >
+                    <center style="margin-left:30px">
+                       
+                        <div type="button" class="navbar-toggle btn btn-block btn-default" data-toggle="collapse" data-target="#myNav" style="background-color:white;border:;color:black;font-family" >
                           <h3>
                           Catégories 
                            </h3>
-                          
 
-                        </button>
-                    </center>
+                        </div>
+
+                        </center>
+
+                           <!--- Collapsed navbar -->
+                          <div data-toggle="collapse" class=" navbar-toggle btn btn-block row" style="background-color:white;border:none;margin-left:30px" id="myNav" >
+                        
+                               <button class="btn btn-default col-xs-6" style="background-color:#ff1844;color:white">
+                                
+                                <a href="/" class="frontLinks" >Acceuil</a>
+                              </button>
+                             
+                             <button class="btn btn-default col-xs-6" style="background-color:#ff1844;color:white">
+                                
+                                <a href="/boutiques" class="frontLinks" > Les boutiques</a>
+                              </button>
+                             
+                             <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white">
+                                <a href="soinsducorps" class="frontLinks" >Soins du corps</a>
+                             </button>
+
+                              <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff5353;color:white">
+                                 <a href="soinsdescheuveux" class="frontLinks" >Soins des Cheuveux</a>
+                              </button>
+
+                              <button class="frontLinks btn btn-default col-xs-6" style="color:white;background-color:#ff5353;">
+                                <a href="visageetmaquillage" class="frontLinks" >Visage et Maquillage
+                                </a>
+                              </button>
+
+                              <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff8a80;color:white">
+                                <a href="parfums" class="frontLinks" >Parfums</a>
+                              </button>
+
+                              <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff8a80;color:white">
+                               <a href="accessoires" class="frontLinks" >Accéssoires</a>
+                              </button>
+
+                              <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff8a80;color:white">
+                                <a href="/panier" class="frontLinks" >
+                                  <span style="font-size:17px" class="glyphicon glyphicon-shopping-cart"></span>
+                                  <sup class="">{{panier.length}}</sup>
+                                </a>
+                              </button>
+                       
+                    </div>
+
+
+
+
+
 
                     <!--- Actual navbar -->
                     <div class="collapse navbar-collapse "  style="background-color:white" id="myNavbar">
