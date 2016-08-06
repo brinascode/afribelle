@@ -105,7 +105,7 @@ border-radius:100px;
         <div class="container">
             
             <a class="navbar-brand" href="/" 
-            style="font-size:60px;color:Black;background-color:white;margin-top:px;border:white 5px;">
+            style="font-family:;font-size:450%;color:white;background-color:;margin-top:px;border:white 5px;">
                 AfriBelle
             </a>
             
@@ -115,17 +115,19 @@ border-radius:100px;
                 
                
                              
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+             
+                 <a href="/panier" class="frontLinks navbar-toggle" style="background-color:;color:white">
+                     <span style="font-size:20px;color:#ff1844;margin-top:-5px" class="glyphicon glyphicon-shopping-cart"></span>
+                     <sup class=""></sup>
+                     </a>
+
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
 
-                 <a href="/panier" class="frontLinks navbar-toggle" style="background-color:;color:white">
-                                  <span style="font-size:25px;color:#ff1844" class="glyphicon glyphicon-shopping-cart"></span>
-                                  <sup class="">{{panier.length}}</sup>
-                                </a>
 
 
               
@@ -302,6 +304,7 @@ border-radius:100px;
 <script  src="javascripts/services/panierAndCheckout.js"></script>
 
 <script src="javascripts/ospry.js"></script>
+<script src="http://hammerjs.github.io/dist/hammer-time.min.js"></script>
 
 <script src='javascripts/cloudinary/jquery.ui.widget.js' type='text/javascript'></script>
 <script src='javascripts/cloudinary/jquery.iframe-transport.js' type='text/javascript'>

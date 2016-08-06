@@ -1,112 +1,113 @@
-</br>
-<div class="row">
-    <a class="navbar-brand" href="#"class="col-md-12" style="font-size:30px;text-decoration:underline">
-        {{pageTitle}}
-    </a>
-</div>
+<div class="container" style="margin:5px">
+    <div class="row">
+        <h3 style="font-size:30px;text-decoration:">
+            {{pageTitle}}
+        </h3>
+    </div>
 
-</br> 
+    </br> 
 
-<div class="row" style="background-image:url('')">
-    
-     <div  class="col-lg-12 jumbotron" ng-style="{'background-color':'{{backColor}}'}" >
-         </br>   
-         <center> 
-            <img ng-src="{{vitrinePic.img}}" alt="carousel's Place" ng-style="{'width':'{{vitrinePic.width}}','margin-top':'-20px'}"> 
-         </center>
+    <div class="row" style="background-image:url('')">
+        
+         <div  class="col-lg-12 jumbotron" ng-style="{'background-color':'{{backColor}}'}" >
+             </br>   
+             <center> 
+                <img ng-src="{{vitrinePic.img}}" alt="carousel's Place" ng-style="{'width':'{{vitrinePic.width}}','margin-top':'-20px'}"> 
+             </center>
+         </div>
+
+       
      </div>
 
-   
- </div>
-
-<h3 ng-hide="true"> Rechercher par </h3> 
-<button ng-hide="true" class="btn btn-default" ng-click="changeFilter()">{{mainFilterType}} </button> 
+    <h3 ng-hide="true"> Rechercher par </h3> 
+    <button ng-hide="true" class="btn btn-default" ng-click="changeFilter()">{{mainFilterType}} </button> 
 
 
-<div class="row" ng-show="produitFilter"> 
-            </br>     
-            <div ng-repeat="produit in produits track by $index" >
-                 
+    <div class="row" ng-show="produitFilter"> 
+                </br>     
+                <div ng-repeat="produit in produits track by $index" >
+                     
 
-                 <div class="col-md-4" class="well"> 
-                      <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
-                          <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
-
-                
-                      
-                            <span style="font-size:30px">
-                                {{produit.nom}}
-                            </span>
-                            <sub><strong>{{produit.prix}} FCFA</strong></sub></br>
-                         </a>
-
-                             <strong>Boutique: {{produit.boutique}} </strong></br>
-                             <strong>Livraison:</strong></br>
-
-                            Gratuite pour : {{produit.livraison.gratuite}}</br>
-                            Payante à {{produit.livraison.payanteFixe.prix}} pour 
-                            {{produit.livraison.payanteFixe.lieux}}</br>
-                            *Pour tout autre endroit, le livreur vous contactera</br>
-
-                            
-
-                         <button class="jaime btn" ng-click="newVote($index)" > 
-                            <span class="glyphicon glyphicon-heart"  style="color:#ff1844;30vw"></span>
-                            {{produit.votes.length}}
-                        </button>     
-                        <button class="btn btn-md" ng-click="ajouterAuPanier($index)" ><span class="glyphicon glyphicon-shopping-cart" style="30vw">
-                        </span>
-                         Ajouter au panier 
-                        </button> 
-
-               
+                     <div class="col-md-4" class="well"> 
+                          <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                              <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
 
                     
-                 </div> 
+                          
+                                <span style="font-size:30px">
+                                    {{produit.nom}}
+                                </span>
+                                <sub><strong>{{produit.prix}} FCFA</strong></sub></br>
+                             </a>
 
-            </div> 
+                                 <strong>Boutique: {{produit.boutique}} </strong></br>
+                                 <strong>Livraison:</strong></br>
 
-        </div>
+                                Gratuite pour : {{produit.livraison.gratuite}}</br>
+                                Payante à {{produit.livraison.payanteFixe.prix}} pour 
+                                {{produit.livraison.payanteFixe.lieux}}</br>
+                                *Pour tout autre endroit, le livreur vous contactera</br>
 
-        <div class="row" ng-show="boutiqueFilter"> 
-            </br>     
-            <div ng-repeat="boutique in boutiques track by $index" style="overflow-x:scroll">
-                 <h3>{{boutique.nom}}</h3> 
+                                
 
-                 <div ng-repeat="produit in boutique.articles"> 
-                     <div class="col-md-4" class="well"> 
-                        <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
+                             <button class="jaime btn" ng-click="newVote($index)" > 
+                                <span class="glyphicon glyphicon-heart"  style="color:#ff1844;30vw"></span>
+                                {{produit.votes.length}}
+                            </button>     
+                            <button class="btn btn-md" ng-click="ajouterAuPanier($index)" ><span class="glyphicon glyphicon-shopping-cart" style="30vw">
+                            </span>
+                             Ajouter au panier 
+                            </button> 
 
-                        <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
-                            <span style="font-size:30px">
-                                {{produit.nom}}
-                            </span></br>
-                         </a>
-
-                             <strong>Boutique: {{produit.boutique}} </strong></br>
-                             <strong>Prix: </strong>{{produit.prix}} FCFA</br>
-                            <strong>Livraison:</strong></br>
-
-                            Gratuite pour : {{produit.livraison.gratuite}}</br>
-                            Payante à {{produit.livraison.payanteFixe.prix}} pour 
-                            {{produit.livraison.payanteFixe.lieux}}</br>
-                            *Pour tout autre endroit, le livreur vous contactera</br>
-
-                            
-
-                         <button class="jaime btn" ng-click="newVote($index)" > 
-                            <span class="glyphicon glyphicon-heart" style="30vw"></span>
-                            {{produit.votes.length}}
-                        </button>     
-                        <button class="btn btn-md" ng-click="ajouterAuPanier($index)" ><span class="glyphicon glyphicon-shopping-cart" style="30vw">
-                        </span>
-                         Ajouter au panier 
-                        </button> 
+                   
 
                         
                      </div> 
-                <h3> 
 
-            </div> 
+                </div> 
 
-        </div>
+            </div>
+
+            <div class="row" ng-show="boutiqueFilter"> 
+                </br>     
+                <div ng-repeat="boutique in boutiques track by $index" style="overflow-x:scroll">
+                     <h3>{{boutique.nom}}</h3> 
+
+                     <div ng-repeat="produit in boutique.articles"> 
+                         <div class="col-md-4" class="well"> 
+                            <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
+
+                            <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                                <span style="font-size:30px">
+                                    {{produit.nom}}
+                                </span></br>
+                             </a>
+
+                                 <strong>Boutique: {{produit.boutique}} </strong></br>
+                                 <strong>Prix: </strong>{{produit.prix}} FCFA</br>
+                                <strong>Livraison:</strong></br>
+
+                                Gratuite pour : {{produit.livraison.gratuite}}</br>
+                                Payante à {{produit.livraison.payanteFixe.prix}} pour 
+                                {{produit.livraison.payanteFixe.lieux}}</br>
+                                *Pour tout autre endroit, le livreur vous contactera</br>
+
+                                
+
+                             <button class="jaime btn" ng-click="newVote($index)" > 
+                                <span class="glyphicon glyphicon-heart" style="30vw"></span>
+                                {{produit.votes.length}}
+                            </button>     
+                            <button class="btn btn-md" ng-click="ajouterAuPanier($index)" ><span class="glyphicon glyphicon-shopping-cart" style="30vw">
+                            </span>
+                             Ajouter au panier 
+                            </button> 
+
+                            
+                         </div> 
+                    <h3> 
+
+                </div> 
+
+            </div>
+</div>            

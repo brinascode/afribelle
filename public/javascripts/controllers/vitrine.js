@@ -42,16 +42,14 @@ if($location.path() == "/visageetmaquillage"){
 if($location.path() == "/parfums"){
 	$scope.pageTitle = "Parfums"
 	$scope.vitrinePic.img = "images/vitrinePage/accessoires.jpg"
-	$scope.vitrinePic.width = "35%"
-	$scope.vitrinePic.height ="30%" 
+	$scope.vitrinePic.width = "20%"
 	$scope.backColor="#ff8a80"
 }
 
 if($location.path() == "/accessoires"){
 	$scope.pageTitle = "Accéssoires"
 	$scope.vitrinePic.img = "images/vitrinePage/accessoires.jpg"
-	$scope.vitrinePic.width = "35%"
-	$scope.vitrinePic.height ="30%" 
+	$scope.vitrinePic.width = "20%"
 	$scope.backColor="#ff8a80"
 }
 

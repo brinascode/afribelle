@@ -1,97 +1,103 @@
-</br></br>
-<h3> <a ng-href="/{{produit[0].type}}"><span class="glyphicon glyphicon-arrow-left"></span>Retour</a></h3>
-<div class="row" ng-repeat="produit in produit"> 
+<div class="container" style="margin:5px">
+    <h3> <a ng-href="/{{produit[0].type}}"><span class="glyphicon glyphicon-arrow-left"></span>Retour</a></h3>
+    <div class="row" ng-repeat="produit in produit">
+         <button class="btn" ng-click="newVote($index)" > 
+                Voir la boutique: <strong>{{produit.boutique}}</strong>   
+        </button>  
+        <center>
 
-    <center>
+            	<div class="col-lg-12 well">
+            		<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                                    
+                                <h1>{{produit.nom}}</h1>
+                              
+                                 
 
-        	<div class="col-lg-12 well">
-        		<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                                 <button class="jaime btn" ng-click="newVote($index)" > 
+                                     <span class="glyphicon glyphicon-heart" style="color:#ff1844;30vw"></span>
+                                    {{produit.votes.length}}
+                                </button>   
+
+                                 <button class="btn btn-md" ng-click="ajouterAuPanier($index)" >
+                                      <span class="glyphicon glyphicon-shopping-cart" style="30vw">
+                                     </span>
+                                     +
+                                 </button>
+
+
                                 
-                            <h1>{{produit.nom}}</h1>
-                          
-                             
+                                 </br>
 
-                             <button class="jaime btn" ng-click="newVote($index)" > 
-                                 <span class="glyphicon glyphicon-heart" style="color:#ff1844;30vw"></span>
-                                {{produit.votes.length}}
-                            </button>   
-
-                             <button class="btn btn-md" ng-click="ajouterAuPanier($index)" >
-                                  <span class="glyphicon glyphicon-shopping-cart" style="30vw">
-                                 </span>
-                                 +
-                             </button>
-                             </br></br>
-
-                             <center><img ng-src="{{produit.mainImageUrl}}" width="20%" />
-                             </center></br>
-                             </br></br>
+                                 <center><img ng-src="{{produit.mainImageUrl}}" width="20%" />
+                                 </center></br>
+                                 </br></br>
 
 
 
-                </a>
+                    </a>
 
 
-                              <strong>  Boutique: </strong> {{produit.boutique}}</br>
-                              <strong>  Prix: </strong>   {{produit.prix}} FCFA </br>
-                              <strong> Description: </strong> {{produit.details}}</br></br></br>
-                              <strong>Livraison:</strong></br>
+                                 
+                                  <strong>  Prix: </strong>   {{produit.prix}} FCFA </br>
+                                  <strong> Description: </strong> {{produit.details}}</br></br></br>
+                                  <strong>Livraison:</strong></br>
 
-                                Gratuite pour : {{produit.livraison.gratuite}}</br>
-                                Payante à {{produit.livraison.payanteFixe.prix}} pour 
-                                {{produit.livraison.payanteFixe.lieux}}</br>
-                                *Pour tout autre endroit, le livreur vous contactera</br>
+                                    Gratuite pour : {{produit.livraison.gratuite}}</br>
+                                    Payante à {{produit.livraison.payanteFixe.prix}} pour 
+                                    {{produit.livraison.payanteFixe.lieux}}</br>
+                                    *Pour tout autre endroit, le livreur vous contactera</br>
 
-                          
+                              
 
-                             <div class="row"> 
-                             
-                                 <div class="col-sm-6"> 
-                                       <img ng-src="{{produit.imageUrls[0]}}" width="20%"></br>
+                                 <div class="row"> 
+                                 
+                                     <div class="col-sm-6"> 
+                                           <img ng-src="{{produit.imageUrls[0]}}" width="20%"></br>
+                                     </div>
+                                     <div class="col-sm-6"> 
+                                           <img ng-src="{{produit.imageUrls[1]}}" width="100%"></br>
+                                     </div>
+                                     <div class="col-sm-6"> 
+                                        <img ng-src="{{produit.imageUrls[2]}}" width="40%"></br>
+                                     </div>
+                                     <div class="col-sm-6"> 
+                                        <img ng-src="{{produit.imageUrls[3]}}" width="40%"></br>
+                                     </div>
+                                     <div class="col-sm-6"> 
+                                        <img ng-src="{{produit.imageUrls[4]}}" width="40%"></br>
+                                     </div>
                                  </div>
-                                 <div class="col-sm-6"> 
-                                       <img ng-src="{{produit.imageUrls[1]}}" width="100%"></br>
-                                 </div>
-                                 <div class="col-sm-6"> 
-                                    <img ng-src="{{produit.imageUrls[2]}}" width="40%"></br>
-                                 </div>
-                                 <div class="col-sm-6"> 
-                                    <img ng-src="{{produit.imageUrls[3]}}" width="40%"></br>
-                                 </div>
-                                 <div class="col-sm-6"> 
-                                    <img ng-src="{{produit.imageUrls[4]}}" width="40%"></br>
-                                 </div>
-                             </div>
-                  
-                     
+                      
+                         
 
-        	</div>
+            	</div>
 
-        	
-        	</div>
-            <div class="col-lg-12">
-                <span ng-show="isAuthen">            
-                    <label> Vous avez quelque chose à dire sur cet article? </label> 
-                    <textarea class="form-control" ng-model="newComment.body">
-                    </textarea> 
-                    </br> 
+            	
+            	</div>
+                <div class="col-lg-12">
+                    <span ng-show="isAuthen">            
+                        <label> Vous avez quelque chose à dire sur cet article? </label> 
+                        <textarea class="form-control" ng-model="newComment.body">
+                        </textarea> 
+                        </br> 
 
-                    <button class="btn pinkButton" ng-click="postComment()"> 
-                        Commenter
-                    </button> 
-                </span>   </br> </br> 
+                        <button class="btn pinkButton" ng-click="postComment()"> 
+                            Commenter
+                        </button> 
+                    </span>   </br> </br> 
 
-                <div ng-repeat="comment in comments track by $index" class="well"> 
-                   
-                    Date: {{comment.date}}  </br> 
-                     <img ng-src='images/{{comment.profilePic}}' width="8%"/> 
-                    De: {{comment.auteur}}  </br> 
-                    {{comment.body}}        </br> 
-                </div>              
-            
-            </div>
+                    <div ng-repeat="comment in comments track by $index" class="well"> 
+                       
+                        Date: {{comment.date}}  </br> 
+                         <img ng-src='images/{{comment.profilePic}}' width="8%"/> 
+                        De: {{comment.auteur}}  </br> 
+                        {{comment.body}}        </br> 
+                    </div>              
+                
+                </div>
 
-    </center>
-                    
-                    
+        </center>
+                        
+                        
+    </div>
 </div>

@@ -1,64 +1,65 @@
-</br>
-<h1 style="text-align:" class="h1">Panier</H1>
-</br>
+<div class="container" style="margin:5px">
+	<h1 style="text-align:" class="h1">Panier</H1>
+	</br>
 
 
-<strong>{{message}}</strong>
-</br>
+	<strong>{{message}}</strong>
+	</br>
 
 
 
 
 
-<div class="row"> 
+	<div class="row"> 
 
-	<div>
-		Nombre de boutiques: {{}}
-		Total des articles: {{}} </br>
-		Total de la livraison: {{}}</br>
+		<div style="margin:5px">
+			Nombre de boutiques: {{}}
+			Total des articles: {{}} </br>
+			Total de la livraison: {{}}</br>
 
-		Total de la commande: {{}}
-	</div>
-
-
-	<div ng-repeat="produit in panier" class="well col-sm-4" >
-
-		<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
-			<center><h3>{{produit.nom}}</h3>
-			</center></br>
-		</a> 
- 
-		
-		<center><img ng-src="{{produit.imageUrls[0]}}" width="50%"></center></br>
-		<strong>Vendu par (Boutique) :</strong> {{produit.boutique}}</br> 
-		<strong>Quantité: </strong>
-		<input type="number" class="form-control" ng-model="produit.quantite"/>
-		<strong>Prix :</strong>{{produit.prix * produit.quantite}}</br>
-		
-
-		<strong>La livraison est:</strong></br>
-
-				*Gratuite pour : {{produit.livraison.gratuite}}</br>
-				*Payante à {{produit.livraison.payanteFixe.prix}} pour 
-				{{produit.livraison.payanteFixe.lieux}}</br>
-				*Pour tout autre endroit, le vendeur vous contactera</br>
-		
-		<form>
-		<strong>Pour quel type de livraison qualifiez vous?</strong>
-		<select class="form-control" ng-model="produit.livraisonType" required> 
-			<option>Gratuite</option>
-			<option>Payante</option>
-			<option>La boutique me contactera</option>
-		</select>
+			Total de la commande: {{}}
+		</div>
 
 
-		</br></br>
-		<button class="btn btn-danger" ng-click="retirerDuPanier($index)">Retirer</button>
+		<div ng-repeat="produit in panier" class="well col-sm-4" >
 
-	</div>  
-</div>      
-</br>       
-</br>   
+			<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+				<center><h3>{{produit.nom}}</h3>
+				</center></br>
+			</a> 
+	 
+			
+			<center><img ng-src="{{produit.imageUrls[0]}}" width="50%"></center></br>
+			<strong>Vendu par (Boutique) :</strong> {{produit.boutique}}</br> 
+			<strong>Quantité: </strong>
+			<input type="number" class="form-control" ng-model="produit.quantite"/>
+			<strong>Prix :</strong>{{produit.prix * produit.quantite}}</br>
+			
 
-<button type="submit" class="btn btn-danger pinkButton" ng-click="checkout()" ng-disabled> Confirmer la commande </button> 
-</form>
+			<strong>La livraison est:</strong></br>
+
+					*Gratuite pour : {{produit.livraison.gratuite}}</br>
+					*Payante à {{produit.livraison.payanteFixe.prix}} pour 
+					{{produit.livraison.payanteFixe.lieux}}</br>
+					*Pour tout autre endroit, le vendeur vous contactera</br>
+			
+			<form>
+			<strong>Pour quel type de livraison qualifiez vous?</strong>
+			<select class="form-control" ng-model="produit.livraisonType" required> 
+				<option>Gratuite</option>
+				<option>Payante</option>
+				<option>La boutique me contactera</option>
+			</select>
+
+
+			</br></br>
+			<button class="btn btn-danger" ng-click="retirerDuPanier($index)">Retirer</button>
+
+		</div>  
+	</div>      
+	</br>       
+	</br>   
+
+	<button type="submit" class="btn btn-danger pinkButton" ng-click="checkout()" ng-disabled> Confirmer la commande </button> 
+	</form>
+</div>
