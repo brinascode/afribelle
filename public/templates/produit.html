@@ -1,9 +1,12 @@
 <div class="container" style="margin:5px">
     <h3> <a ng-href="/{{produit[0].type}}"><span class="glyphicon glyphicon-arrow-left"></span>Retour</a></h3>
     <div class="row" ng-repeat="produit in produit">
-         <button class="btn" ng-click="newVote($index)" > 
-                Voir la boutique: <strong>{{produit.boutique}}</strong>   
-        </button>  
+         <a ng-href="boutique/{{produit.boutiqueId}}">
+             <button class="btn" ng-click="newVote($index)" > 
+                    Voir la boutique: <strong>{{produit.boutique}}</strong>   
+            </button> 
+        </a> 
+        
         <center>
 
             	<div class="col-lg-12 well">
