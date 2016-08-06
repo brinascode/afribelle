@@ -33,11 +33,43 @@
 
 <base href="/">
 <style>
+
+
+@font-face {
+    font-family:bernado;
+    src: url(fonts/bernadomodabold.ttf);
+}
+
+
+@font-face {
+
+  font-family:trench;
+  src: url(fonts/trench.ttf);
+}
+
+
+@font-face {
+
+  font-family:dalmais;
+  src: url(fonts/dalmais.otf);
+}
+
+
+h3,h1,h2 {
+  font-family:trench;
+}
+
+.shopBanner {
+  font-family:sans-serif;
+}
+
+
 .frontLinks
 {
     text-decoration:;
     color:white;
     font-size:20px;
+    font-family: ;
 
 }
 
@@ -77,6 +109,9 @@ a:hover {
     color:black;
 }
 
+
+
+
 .roundBlocks{
 
 border-right: 5px solid #000;
@@ -105,10 +140,9 @@ border-radius:100px;
         <div class="container">
             
             <a class="navbar-brand" href="/" 
-            style="font-family:;font-size:5vw;color:white;background-color:;margin-top:px;border:white 5px;" >
+            style="font-family:trench;font-size:4.8vw;color:white;background-color:;margin-top:px;" >
                 AfriBelle
             </a>
-            
             
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -118,16 +152,15 @@ border-radius:100px;
              
                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar" style="background-color:#ff1844"></span>
+                    <span class="icon-bar" style="background-color:#ff1844"></span>
+                    <span class="icon-bar" style="background-color:#ff1844"></span>
                   </button>
 
-
-
-              
-
-               
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                     <span style="font-size:17px;color:white" class="glyphicon glyphicon-shopping-cart"></span>
+                    <sup style="color:white">{{panier.length}}</sup>
+                  </button>
                 
             </div>
 
@@ -138,11 +171,7 @@ border-radius:100px;
                        <a  href="/">Acceuille</a>
                     </li>
                    
-                    
-
-                     <li ng-show="isAuthen">
-                        <a href="/profile">Profile</a>
-                    </li>
+                  
                     
                      <li ng-hide="isAuthen">
                        <a  href="/authen">S'inscrire /Se connecter</a>
@@ -154,6 +183,11 @@ border-radius:100px;
                         <a style="font-size:20px">Bienvenue {{user.local.username}} {{user.facebook.name}}</a> 
 
                     </li>
+
+                     <li ng-show="isAuthen">
+                        <a href="/profile"><span class="glyphicon glyphicon-user" style="color:white;font-size:17px"> Profile</a>
+                    </li>
+
                      <li class="">
                                 <a href="/panier" class="frontLinks" style="background-color:;color:white">
                                   <span style="font-size:17px" class="glyphicon glyphicon-shopping-cart"></span>
@@ -181,7 +215,7 @@ border-radius:100px;
                 <div class="navbar-header">
                       
                       <center style="margin-left:20px">
-                        <button type="button" class="navbar-toggle btn btn-block" data-toggle="collapse" data-target="#myNavbar">
+                        <button type="button" class="navbar-toggle btn btn-block pinkButton" data-toggle="collapse" data-target="#myNavbar" style="background-color:#ff1844;border:#ff1844;font-family" >
                           <h3>
                           Catégories 
                            </h3>
@@ -189,7 +223,6 @@ border-radius:100px;
 
                         </button>
                     </center>
-
 
                     <!--- Actual navbar -->
                     <div class="collapse navbar-collapse "  style="background-color:white" id="myNavbar">

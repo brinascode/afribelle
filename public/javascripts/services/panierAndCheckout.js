@@ -10,7 +10,7 @@ return {
 
 				if(confirm("Confirmez vous cette commande?"))
 				{
-					if($scope.user.facebook || $scope.user.username){
+					if($scope.user.facebook || $scope.user.local.username){
 						//Logged in== proceed
 							if($scope.user.moreInfo.numerosDeTelephone.length != 0 && $scope.user.moreInfo.nomComplet != undefined)
 							{ //Goes through all items in cart to make a commande
