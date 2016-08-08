@@ -10,8 +10,7 @@ $scope.message
 $scope.user2 = {}
 
 //If connected, go to profile. Block access to this page!
-$scope.$parent.user != {}
-$window.location.href = "/profile"
+
 
 //Now the redirecting is done server side
 $scope.signup =function(){
