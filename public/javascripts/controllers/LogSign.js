@@ -8,17 +8,27 @@ $scope.logg
 $scope.sign 
 $scope.message
 $scope.user2 = {}
+
+//If connected, go to profile. Block access to this page!
+$scope.$parent.user != {}
+$window.location.href = "/profile"
+
 //Now the redirecting is done server side
 $scope.signup =function(){
 		$http.post("/signup",$scope.sign)
-		$window.location.href = "/login"
-		$scope.message = "Connecte toi avec ton nouveau compte"
+
+			$window.location.href = "/login"
+			$scope.message = "Connecte toi avec ton nouveau compte"
+
+		
 			
 }
 
 $scope.login = function(){
 	$http.post("/login",$scope.logg)
-	$window.location.href = "/profile"
+		$window.location.href = "/profile"
+
+	
 	
 }
 

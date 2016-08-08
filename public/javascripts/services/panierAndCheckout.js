@@ -14,7 +14,7 @@ return {
 				{
 					
 
-					if($scope.user.google){
+					if($scope.user.google || $scope.user.local || $scope.user.facebook ){
 					
 						//Logged in== proceed
 							if($scope.user.moreInfo.numerosDeTelephone.length != 0 && $scope.user.moreInfo.nomComplet != undefined)
@@ -44,9 +44,6 @@ return {
 
 											
 
-
-
-
 											$http.post("/nouvelleCommande",commande)
 											.success(function(data){
 												alert("Merci de commander avec AfriBelle!")
@@ -61,7 +58,8 @@ return {
 								}
 							}
 							else{
-								alert("Merci d'ajouter un numéro de téléphone et votre nom complet dans votre Profile (Mes Infos) avant de passer votre commande")
+								alert("Merci d'ajouter un numéro de téléphone et votre nom complet dans votre Profile (Mes Infos) avant de passer votre commande. Vos articles resteront dans votre panier.")
+								$window.location.href= "/userInfo"
 							}
 
 					}
