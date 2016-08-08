@@ -19,7 +19,7 @@ if($scope.user)
 		$scope.newNomComplet = function(){
 
 			userModifs.newNomComplet($scope,$scope.nomCompletNew)
-			$window.location.href = "/userInfo"
+			
 				
 		}
 
@@ -28,7 +28,7 @@ if($scope.user)
 		$scope.newUserTelephone= function(){ //Validated
 			if($scope.moreInfoNew && $scope.moreInfoNew.telephone.toString().length===8){ 
 				userModifs.newUserTelephone($scope)
-				$window.location.href = "/userInfo"
+				
 				
 			}else{
 				$scope.message = "Veuillez entrez un numéro de telephone Ivoirien valide s'il vous plait"
@@ -42,14 +42,14 @@ if($scope.user)
 
 		$scope.removeUserTelephone = function($index){
 			userModifs.removeUserTelephone($scope,$index)
-			$window.location.href = "/userInfo"
+	
 		} 
 
 
 		$scope.changeAvatar = function(url){
 		var postObject = {url:url}
 		userModifs.changeAvatar($scope,postObject)
-		$window.location.href = "/userInfo"
+	
 
 		}
 

@@ -9,8 +9,7 @@ return {
 			var postObject = {nomComplet:nomCompletNew}
 			$http.post("/newNomComplet",postObject).success(function(data){
 				$scope.user = data
-			
-				//Cause a page refresh !!$window.refresh()
+				$window.location.href = "/userInfo"
 			}) 
 
 
@@ -21,7 +20,7 @@ return {
 			$http.post("/newUserTelephone",$scope.moreInfoNew).success(function(data){
 				$scope.user = data
 			//Cant modify parent from child!!
-				//Cause a page refresh !!$window.refresh()
+					$window.location.href = "/userInfo"
 			}) 
 			
 	},
@@ -29,6 +28,7 @@ return {
 		
 			$http.post("/removeUserTelephone",{indice:$index}).success(function(data){
 				$scope.user = data
+					$window.location.href = "/userInfo"
 				
 			})
 	},
@@ -36,6 +36,7 @@ return {
 
 		$http.post("/changeAvatar",postObject).success(function(data){
 			$scope.user = data
+			$window.location.href = "/userInfo"
 		})
 	}
 
