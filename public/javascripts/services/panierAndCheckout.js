@@ -47,7 +47,8 @@ return {
 											$http.post("/nouvelleCommande",commande)
 											.success(function(data){
 												alert("Merci de commander avec AfriBelle!")
-												$location.url("/userCommandes")
+												
+
 												
 											})			
 
