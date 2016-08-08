@@ -47,7 +47,7 @@ return {
 											$http.post("/nouvelleCommande",commande)
 											.success(function(data){
 												alert("Merci de commander avec AfriBelle!")
-												$window.location.href= "/userCommandes"
+												$location.url("/userCommandes")
 												
 											})			
 
