@@ -3,7 +3,7 @@ app.controller("Panier",
 	function($scope,$http,$location,$window,panierAndCheckout)
 {
 
-$scope.user= $scope.$parent.user
+
 $scope.panier = $scope.$parent.panier
 
 

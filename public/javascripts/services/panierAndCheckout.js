@@ -1,4 +1,4 @@
-app.factory("panierAndCheckout",["$http","$window","$location",function($http,$window,$location){
+app.factory("panierAndCheckout",["$http","$window","$location","authen",function($http,$window,$location,authen){
 
 return {
 
@@ -6,12 +6,18 @@ return {
 	//Stuff bought from diff people!
 
 	checkout: function($scope){
+
+
+		//User data
+		$scope.user={}
+		authen.getUserInfo($scope)
+
 			if($scope.panier.length !=0){
 
 				if(confirm("Confirmez vous cette commande?"))
 				{
-					if($scope.user.facebook || $scope.user.local.username || $scope.user.google ){
-						console.log("ok?")
+					if($scope.user){
+					
 						//Logged in== proceed
 							if($scope.user.moreInfo.numerosDeTelephone.length != 0 && $scope.user.moreInfo.nomComplet != undefined)
 							{ //Goes through all items in cart to make a commande
