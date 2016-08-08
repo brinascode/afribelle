@@ -1,8 +1,10 @@
 app.controller("Panier",
-	["$scope","$http","$location","$window","panierAndCheckout",
-	function($scope,$http,$location,$window,panierAndCheckout)
+	["$scope","$http","$location","$window","authen","panierAndCheckout",
+	function($scope,$http,$location,$window,authen,panierAndCheckout)
 {
-
+	
+$scope.user={}
+authen.getUserInfo($scope)
 
 $scope.panier = $scope.$parent.panier
 

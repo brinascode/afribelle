@@ -16,6 +16,7 @@ return {
 	getUserInfo:function($scope){
 			$http.get("/userinfo_serv").success(function(data){
 				$scope.user = data
+			
 			})
 	}
 	
