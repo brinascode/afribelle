@@ -1,5 +1,4 @@
 app.factory("userModifs",["$http","$window",function($http,$window){
-$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 
 
 return {
@@ -36,7 +35,7 @@ return {
 
 		$http.post("/changeAvatar",postObject).success(function(data){
 			$scope.user = data
-			$window.location.href = "/userInfo"
+				$window.location.href = "/userInfo"
 		})
 	}
 

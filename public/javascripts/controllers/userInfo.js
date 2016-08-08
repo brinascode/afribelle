@@ -1,7 +1,7 @@
 app.controller("userInfo",["$scope","$http","$location","$window","authen","userModifs",
 	function($scope,$http,$location,$window,authen,userModifs){
 
-$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+
 
 $scope.user={}
 authen.getUserInfo($scope)
@@ -11,11 +11,7 @@ $scope.completedInfo = false
 $scope.moreInfoNew = {}
 $scope.message
 
-
-if($scope.user)
-{
-
-		$scope.nomCompletNew
+	$scope.nomCompletNew
 		$scope.newNomComplet = function(){
 
 			userModifs.newNomComplet($scope,$scope.nomCompletNew)
@@ -53,7 +49,6 @@ if($scope.user)
 
 		}
 
-}
 
 
 
