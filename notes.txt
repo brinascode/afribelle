@@ -42,3 +42,15 @@ the deprecated stuff!
 
 ng-style="{ 'background-image':'url({{vitrinePic.img}})',
                                         'background-width':'{{vitrinePic.width}}','background-height':'{{vitrinePic.height}}' }"
+
+
+
+                                        $scope.supprimerBoutique = function(){
+
+	if(confirm("Voulez vous vraiment supprimer votre boutique? Ceci éffacera également tout les articles que vous y vendez.")
+		){
+		console.log("hey")
+	}
+		
+}
+

@@ -25,8 +25,9 @@ $scope.createBoutique = function(){
 		$scope.boutiqueMsg = "Veuillez entrer un nom de boutique"
 	}
 	else{
-		confirm("Voulez vous vraiment renommer votre boutique ainsi: " + $scope.nomBoutique+" ? Vous ne"+
-			"pourrez plus changer ce nom")
+
+			if(confirm("Voulez vous vraiment renommer votre boutique ainsi: " + $scope.nomBoutique+" ? Vous ne"+
+			" pourrez plus changer ce nom"))
 			{
 				sellerFunctions.createBoutique($scope,{
 				nom:$scope.nomBoutique,
@@ -37,6 +38,8 @@ $scope.createBoutique = function(){
     }
 			
 }
+
+
 
 
 //Modify boutique

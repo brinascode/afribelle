@@ -27,6 +27,12 @@ $scope.facebookAuthen=function(){
 }
  
 
+$scope.googleAuthen = function(){
+
+	 $window.location.href="/auth/google"
+}
+
+
 }])
 
 

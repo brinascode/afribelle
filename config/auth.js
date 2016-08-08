@@ -17,9 +17,11 @@ module.exports = {
     },
 
     'googleAuth' : {
-        'clientID'      : 'your-secret-clientID-here',
-        'clientSecret'  : 'your-client-secret-here',
-        'callbackURL'   : 'http://localhost:3000/auth/google/callback'
+        'clientID'      : '498511473971-qg4kepg3r29muqk38npf30lg3fh35j8m.apps.googleusercontent.com',
+        'clientSecret'  : 'hghCEQOdiveIUNFqjdv1qHf2',
+        'callbackURL'   : "http://afribelle.herokuapp.com/auth/google/callback"
+        //http://localhost:3000/auth/google/callback
+        //"http://afribelle.herokuapp.com/auth/google/callback"
     }
 
 };

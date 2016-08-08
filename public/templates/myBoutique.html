@@ -7,16 +7,17 @@
 	
 			<h3 class="col-md-6">
 				<img src="images/shop2.png" width="10%"/> Ma Boutique: {{mesBoutiques[0].nom}}
-				<input ng-show="showBoutiqueSection" type="text" class="form-control" placeholder="Crée ta nouvelle boutique!" ng-model="nomBoutique"/>
+				<input ng-show="showBoutiqueSection" type="text" class="form-control" placeholder="Crée ta nouvelle boutique!" ng-model="nomBoutique" style="font-size:20px"/>
 
 					<!-- Pour modifier la boutique (themes et tout)--> 
 			
-				<div>
-					<button ng-hide="showBoutiqueSection" class="btn btn-default" ng-click="modBoutique()">
+				<div >
+					<button ng-hide="showBoutiqueSection" class="btn btn-default" ng-click="modBoutique()" style="font-size:20px">
 					{{modButtonMessage}}</button>
+
 			    </div>
 
-			    <button ng-show="showBoutiqueSection" class="btn btn-sm pinkButton" ng-click="createBoutique()"> Créer la boutique 
+			    <button ng-show="showBoutiqueSection" style="font-size:20px" class="btn pinkButton" ng-click="createBoutique()"> Créer la boutique 
 				</button> 
 				<h3>{{boutiqueMsg}}</h3></br></br></br>
 
