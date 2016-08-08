@@ -44,13 +44,15 @@ return {
 
 											
 
-											$http.post("/nouvelleCommande",commande)
-											.success(function(data){
-												alert("Merci de commander avec AfriBelle!")
 												
+												var req = {
+														method:"POST",url:"/nouvelleCommande",data:commande,headers:{"Content-Type": "application/json"}
+												}
 
-												
-											})			
+											$http(req).then(function(data){
+												alert("Merci de commander avec AfriBelle!")
+											 	$window.location.href= "/userCommandes"
+											})
 
 										}
 										else{
