@@ -9,7 +9,7 @@ var flash = require("connect-flash")
 var session = require("express-session")
 var mongoose = require("mongoose")
 //var db = mongoose.connect("mongodb://127.0.0.1/27017/mymgis")
-var db = mongoose.connect("mongodb://sabrinakoumoin:abidjan54@ds051960.mlab.com:51960/bintoudb")
+var db = mongoose.connect("mongodb://sabrinakoumoin:abidjan54@afribelle1-shard-00-00-z9s7w.mongodb.net:27017,afribelle1-shard-00-01-z9s7w.mongodb.net:27017,afribelle1-shard-00-02-z9s7w.mongodb.net:27017/admin?ssl=true&replicaSet=Afribelle1-shard-0")
 
 
 var app = express();
