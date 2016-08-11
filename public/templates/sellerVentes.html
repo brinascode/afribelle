@@ -1,11 +1,13 @@
 <div class="container">
 	</br>
 	<h3> <a href="/profile"><span class="glyphicon glyphicon-arrow-left"></span> Profile</a></h3>
-	<h3> <img src="images/moneyIcon.png" width="5%" /> Mes commandes (Ventes) en cours</h3>
-
+	<h3> <img src="images/moneyIcon.png" width="5%" /> Mes commandes (Ventes) en cours</h3></br>
+	
+	
 	<div class="row">
 
 		<div class="well col-lg-4" ng-repeat="commande in commandes">
+ 				<h3>Commande</h3>
 			<strong>Numéro de commande:</strong> {{commande._id}} </br>
 			<strong>Date de la commande:</strong> {{commande.date}} </br>
 			<strong>Nom de l'article:</strong> {{commande.produitNom}} </br>
@@ -24,7 +26,9 @@
 			{{commande.detailsLivraison.payanteFixe.lieux}} </br>
 			Pour tout autre endroit, contactez la cliente </br>
 
-			<strong>Livraison pour cette commande:</strong> {{commande.livraison}}
+			<strong>Livraison pour cette commande:</strong> {{commande.livraison}}</br></br>
+
+				<p style=""> Merci de contacter votre client/cliente pour effectuer la livraison.Le client/la cliente doit avoir le meme numéro de reçu que vous. </p> 
 
 
 

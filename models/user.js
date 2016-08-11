@@ -26,9 +26,11 @@ var userSchema = new Schema({
         name         : String
     },
     moreInfo         : { 
+        vendeur     : Boolean, 
         numerosDeTelephone:[Number],
         nomComplet :String,
         profilePic:String
+
     },
     votedFor        : [String],
     boutiques       : 

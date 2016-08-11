@@ -17,7 +17,7 @@
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
     "method-override": "~2.1.2",
-    "mongoose"   : "*",
+    "mongoose"   : "~4.3.7",
     "mongodb"    : "~2.0.33",
     "passport" : "~0.1.17",         
     "passport-local" : "~0.1.6",    
