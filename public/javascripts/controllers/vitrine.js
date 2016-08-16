@@ -16,7 +16,7 @@ $scope.vitrinePic={}
 
 if($location.path() == "/soinsducorps"){
 	$scope.pageTitle = "Soins du Corps"
-		$scope.vitrinePic.img = "images/vitrinePage/hair.jpg"
+		$scope.vitrinePic.img = "images/vitrinePage/corps.jpg"
 	$scope.vitrinePic.width = "30%"
 	$scope.vitrinePic.height ="50%" 
 	$scope.backColor="#ff1844"
@@ -41,7 +41,7 @@ if($location.path() == "/visageetmaquillage"){
 }
 if($location.path() == "/parfums"){
 	$scope.pageTitle = "Parfums"
-	$scope.vitrinePic.img = "images/vitrinePage/accessoires.jpg"
+	$scope.vitrinePic.img = "images/vitrinePage/parfums.jpg"
 	$scope.vitrinePic.width = "20%"
 	$scope.backColor="#ff8a80"
 }

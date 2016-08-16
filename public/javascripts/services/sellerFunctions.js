@@ -17,8 +17,7 @@ return {
 
         		$http.get("/mesBoutiques").success(function(data){
         			$scope.mesBoutiques = data
-        		//Livraison automatically fills the new produit inputs
-        		$scope.nouveauProduit.livraison = data[0].livraison 
+        		
         			//You can only create a boutique if you dont already have one
 					if($scope.mesBoutiques.length != 0){
 						$scope.showBoutiqueSection = false
@@ -27,7 +26,7 @@ return {
 					else{
 						
 						$scope.showBoutiqueSection = true
-						
+						console.log($scope.showBoutiqueSection )
 
 					}
 
