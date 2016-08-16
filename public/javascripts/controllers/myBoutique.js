@@ -31,15 +31,13 @@ $scope.createBoutique = function(){
 			{
 				sellerFunctions.createBoutique($scope,{
 				nom:$scope.nomBoutique,
-				vendeur:$scope.user.local.username, //Must fix this!
-				vendeurId:$scope.user._id
+				vendeurId:$scope.user._id,
+				themeUrl:"themesBoutiques/tLipsBack.png"
 				})
 			}	
     }
 			
 }
-
-
 
 
 //Modify boutique
@@ -56,6 +54,17 @@ $scope.modBoutique = function(){
 
 
 }
+
+//Politique de Livraison
+
+$scope.boutiqueLivraison 
+
+$scope.updateBoutiqueLivraison = function(){
+	sellerFunctions.updateBoutiqueLivraison($scope)
+}
+
+
+
 //Themes
 $scope.changeBoutiqueTheme = function(url){
 	boutiqueId = $scope.mesBoutiques[0]._id
@@ -74,6 +83,7 @@ $scope.mesProduits=[]
 $scope.getMesProduits  = sellerFunctions.getMesProduits
 $scope.getMesProduits($scope)
 
+
 //*****************Pour ajouter un nouveau produit (updates the product list)
 $scope.produitSection = false
 $scope.toggleProduitSection = function(){
@@ -82,6 +92,7 @@ $scope.toggleProduitSection = function(){
 $scope.message= "Avant d'ajouter d'article, assurez vous d'avoir entré votre nom complet et un numéro de téléphone dans: Profile/Mes Infos"
 //In factory
 $scope.nouveauProduit = {}
+
 
 $scope.ajouterProduit = function(nouveauProduit) //Validated! 
 { 

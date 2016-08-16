@@ -17,7 +17,8 @@ return {
 
         		$http.get("/mesBoutiques").success(function(data){
         			$scope.mesBoutiques = data
-        		
+        		//Livraison automatically fills the new produit inputs
+        		$scope.nouveauProduit.livraison = data[0].livraison 
         			//You can only create a boutique if you dont already have one
 					if($scope.mesBoutiques.length != 0){
 						$scope.showBoutiqueSection = false
@@ -38,11 +39,25 @@ return {
         },
         //Modifying boutique
 
+        updateBoutiqueLivraison: function($scope){
+        		
+        		var postObject = $scope.boutiqueLivraison
+        		console.log(postObject)
+        		$http.post("/updateBoutiqueLivraison",postObject).success(function(data){
+        		$scope.mesBoutiques = data
+        		$scope.nouveauProduit.livraison = data[0].livraison 
+        		console.log(data[0])
+        	
+        		
+        	})
+
+
+        },
         changeBoutiqueTheme : function($scope,postObject){
         	$http.post("/changeBoutiqueTheme",postObject).success(function(data){
         		$scope.mesBoutiques[0].themeUrl = postObject.url
         		
-        		console.log(postObject.url)
+        		
         	})
 
         },

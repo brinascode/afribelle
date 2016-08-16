@@ -34,6 +34,23 @@ app.get("/mesBoutiques",function(req,res){
 	})
 })
 
+app.post("/updateBoutiqueLivraison",function(req,res){
+	Boutique.find({vendeurId:req.user._id},function(err,data){
+		if (err) throw err
+		var boutique = data[0]
+		boutique.livraison = req.body
+ 		
+ 		boutique.save(function(err){
+ 			if(err) throw err
+ 			Boutique.find({vendeurId:req.user._id},function(err,data){
+ 				if (err) throw err
+ 				res.json(data)
+ 			})
+ 		})
+	})
+})
+
+
 
 //Changer le theme de la boutique:
 app.post("/changeBoutiqueTheme",function(req,res){

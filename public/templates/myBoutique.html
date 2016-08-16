@@ -25,21 +25,41 @@
 
 				<div ng-show="showModBoutique" class="row">
 
-					<p class="myP">Vitrines - Cliquez un thème pour l'appiquer à votre vitrine:</p> 
+					<h3>Livraison: </h3> 
+					<label> Gratuite pour: 
+						<input placeholder="" type="text" class="form-control" ng-model="boutiqueLivraison.gratuite"/> </label>
+					</br>
+					<label> Payante à
+						
+						<input placeholder="" type="number" class="form-control" 
+						ng-model="boutiqueLivraison.payanteFixe.prix"/> 
+						pour: 
+						<input placeholder="" type="text"class="form-control" 
+						ng-model="boutiqueLivraison.payanteFixe.lieux"/>  </br>
+					</label> </br>
+					*Pour tout autre endroit, vous contacterez la cliente/le client.
+						<button class="btn btn-default" ng-click="updateBoutiqueLivraison()"> Enregistrer </button>
+							
+					</br>
+					<h3>Vitrines:
+					</h3> 
 
-					<p class="myP img-responsive"> Votre thème actuel: </p></br>
-					<img ng-src="images/{{mesBoutiques[0].themeUrl}}" width="20%" class="thumbnail"></br></br>
+					<p class="myP img-responsive"> 
+						Cliquez un thème pour l'appiquer à votre vitrine</br> 
+						Voice votre thème actuel </p></br>
 
-					<img class="col-md-4 thumbnail img-responsive" src='images/themesBoutiques/tLipsBack.png' alt='' 
+					<img ng-src="images/{{mesBoutiques[0].themeUrl}}" width="20%" 
+					class="thumbnail" ></br></br>
+
+					<img class="col-md-4 col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tLipsBack.png' alt='' 
 					ng-click="changeBoutiqueTheme('themesBoutiques/tLipsBack.png')" width="20%"> 
-
-					<img class="col-md-4 thumbnail img-responsive" src='images/themesBoutiques/tSimple.png' alt='' 
+					<img class="col-md-4 col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tSimple.png' alt='' 
 					ng-click="changeBoutiqueTheme('themesBoutiques/tSimple.png')" width="20%"> 
 
-					<img class="col-md-4 thumbnail img-responsive" src='images/themesBoutiques/tMarron.png' alt='' 
+					<img class="col-md-4  col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tMarron.png' alt='' 
 					ng-click="changeBoutiqueTheme('themesBoutiques/tMarron.png')" width="20%"> </br>
 
-					<img class="col-md-4 thumbnail img-responsive" src='images/themesBoutiques/tLips.png' alt='' 
+					<img class="col-md-4 col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tLips.png' alt='' 
 					ng-click="changeBoutiqueTheme('themesBoutiques/tLips.png')" width="20%"> 
 
 				
@@ -53,7 +73,7 @@
 	</div></br>
 
 		
-    <!--- Bouton  -->
+    <!--- Bouton To add nouveau produit  -->
     <div class="row" ng-show="!showBoutiqueSection">
 
 		<button class="btn btn-default btn-xl col-md-6 pinkButton" ng-click="toggleProduitSection()"> 
@@ -67,6 +87,8 @@
 
 	</div></br>
 			
+
+
 			<!--- Nouveau Produit -->
 				<div  class="row" ng-show="produitSection" ng-click="">
 						<div class="col-lg-6 well">
@@ -109,8 +131,9 @@
 									<label>Gratuite</label>
 									<input ng-model="nouveauProduit.livraison.gratuite" type="text" placeholder="Les endroits ou vous allez livrer gratuitement- séparez les avec une virgule" class="form-control" /></br>
 									
+									
 									<label>Payante pour</label></br>
-									Ces endroits:
+									Ces endroits:{{nouveauProduit.livraison.payanteFixe.lieux}}
 									<input ng-model="nouveauProduit.livraison.payanteFixe.lieux" type="text" placeholder="Lieux ou la livraison est payante" class="form-control" /></br>
 									Prix:
 									<input ng-model="nouveauProduit.livraison.payanteFixe.prix" type="number" placeholder="" class="form-control" /></br>
@@ -134,10 +157,13 @@
 
 
 			 <!--- Produits  -->
+			
+
+			 <!--- Deja en ligne -->
 			<div class="container">
 				<h3>Mes produits déja en ligne ({{mesProduits.length}}) </h3>
 				<div class="row">
-					<div id="MesProduits" class="well col-sm-3" ng-repeat="produit in mesProduits"
+					<div id="MesProduits" class="well col-xs-6" ng-repeat="produit in mesProduits"
 					style="width:">
 						
 						

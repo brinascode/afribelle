@@ -23,7 +23,7 @@ $scope.ajouterAuPanier = function($index){
 } //Cant add same thing twice! 
 
 
-
+$scope.helpPics = "images/{{boutique.themeUrl}}"
 
 
 }])

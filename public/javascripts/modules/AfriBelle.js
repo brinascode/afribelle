@@ -76,7 +76,7 @@ when("/boutique/:id",{  //Fix naming later!!
 	controller:"vitrine",
 	templateUrl:"templates/vitrine.html"
 })
-.when("/soinsdescheveux",{
+.when("/soinsdescheuveux",{
 	controller:"vitrine", 
 	templateUrl:"templates/vitrine.html"
 })

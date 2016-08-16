@@ -4,30 +4,31 @@
   	<img src="images/shop2.png" width="5%"/> 
       Les Boutiques!
   </h3> 
+</div>
 
+   <div class="row well"  > 
+     
+      <span ng-repeat="boutique in boutiques" style="margin-left:px" class="thumbnail col-md-4 col-xs-6 "  >
+          <a ng-href="/boutique/{{boutique._id}}" 
+                      style="color:white;">     
+           
+                   <div style="background-color:black;border-right:white;"  >
+                            </br>
+                            <center style="">
+                              <h3 class="shopBanner">{{boutique.nom}}
+                              </h3>
+                            </center></br>
+                           </div> 
+                     
+                      
+           				         <img src="images/{{boutique.themeUrl}}" width="20%" 
+                             style="margin-top:-5px"/>
 
-   <div class="row"> 
-      <div ng-repeat="boutique in boutiques" style="height:px;background-image:url('images/.jpg');background-size:90%;margin-left:px" class="col-md-4 col-xs-6 well" >
-         
-              <div>
-                 
-                 	 <div style="background-color:black">
-                 	 	</br>
-                 	  <center style="">
-                 	  	<h3 class="shopBanner"><a ng-href="/boutique/{{boutique._id}}" style="color:white">{{boutique.nom}}</a>
-                 	  	</h3>
-                 	  </center></br>
-   				         </div> 
+          </a>        
 
+            
 
-              	
-   				          <center><img src="images/{{boutique.themeUrl}}" width="100%" /></center>
-
-              </div>
-                
-         
-    </div>
-
+    </span>
 
 
     
@@ -38,4 +39,4 @@
     </div>
 
   </div>
-</div>
+

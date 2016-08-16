@@ -5,6 +5,12 @@ var boutique = new Schema({
 nom:String,
 vendeur:String,
 vendeurId:String,
+livraison:{
+			//Les types de livraison  : gratuit, fixe, contactez
+		   gratuite:String,
+		   payanteFixe:{lieux:String,prix:Number},
+		   contactez:String
+		   },
 imageUrls:[String],
 mainImageUrl:String,
 themeUrl:String,
