@@ -1,5 +1,8 @@
 *plain theme
 
+**erasing not working
+**type modification = not text
+
 the theme carries on on the boutique view!!
 hide seller view and user iew
 make the pics links as well!
@@ -9,6 +12,18 @@ big pics
 pp pics for boutiques
 
 boutique link on prod page
+duplicated products
+
+
+**for now ng-hide = false, because vendeur is false
+**go make vendeur true, then put ng-show
+
+**I dont have their emails -- who is vendeur and who is not? Vendeur --make your acc, add your name, let us check :) 
+
+
+
+
+
 
 panier and total
 
@@ -53,4 +68,4 @@ ng-style="{ 'background-image':'url({{vitrinePic.img}})',
 	}
 		
 }
-
+/soinsdescheveux

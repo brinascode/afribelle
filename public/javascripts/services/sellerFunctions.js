@@ -41,14 +41,12 @@ return {
         updateBoutiqueLivraison: function($scope){
         		
         		var postObject = $scope.boutiqueLivraison
-        		console.log(postObject)
+
         		$http.post("/updateBoutiqueLivraison",postObject).success(function(data){
-        		$scope.mesBoutiques = data
-        		$scope.nouveauProduit.livraison = data[0].livraison 
-        		console.log(data[0])
-        	
-        		
-        	})
+	        		$scope.mesBoutiques = data
+
+	        		 
+        		})
 
 
         },
@@ -86,9 +84,9 @@ return {
 		modifyProduitPost : function($scope){
 			$http.post("/modifyProduit",$scope.modifying).success(function(data){
 				$scope.mesProduits[$scope.modIndex] = data
-				console.log(data)
+				
 			})
-			$scope.message2 = "Changements enregistrés"
+			$scope.message2 = "Changements éffecutés"
 		},
 
 		effacerProduit : function($scope,$index){

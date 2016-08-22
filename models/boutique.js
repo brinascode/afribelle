@@ -6,9 +6,10 @@ nom:String,
 vendeur:String,
 vendeurId:String,
 livraison:{
-			//Les types de livraison  : gratuit, fixe, contactez
+			//Les types de livraison: gratuit, fixe, contactez
 		   gratuite:String,
-		   payanteFixe:{lieux:String,prix:Number},
+		   payantePrix:String,
+		   payanteLieux:Number,
 		   contactez:String
 		   },
 imageUrls:[String],

@@ -65,6 +65,7 @@ $scope.updateBoutiqueLivraison = function(){
 
 
 
+
 //Themes
 $scope.changeBoutiqueTheme = function(url){
 	boutiqueId = $scope.mesBoutiques[0]._id

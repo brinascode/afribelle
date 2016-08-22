@@ -38,7 +38,9 @@ app.post("/updateBoutiqueLivraison",function(req,res){
 	Boutique.find({vendeurId:req.user._id},function(err,data){
 		if (err) throw err
 		var boutique = data[0]
+		boutique.markModified('livraison');
 		boutique.livraison = req.body
+
  		
  		boutique.save(function(err){
  			if(err) throw err
@@ -100,13 +102,29 @@ app.post("/ajouterProduit",function(req,res){
 //Modifying Produit
 app.post("/modifyProduit",function(req,res){
 
-	Produit.findOneAndUpdate({_id:req.body._id}, req.body, function(err,produit) {
-  		if (err) throw err;
+	Produit.find({_id:req.body._id},function(err,data){
 
-  		Produit.find({_id:req.body._id},function(err,data){
-  			res.json(data[0])
-  		})
- 		
+		if (err) throw err
+			console.log(req.body)
+	  		//it cant save because the new object req.body doesnt have tht function?
+	  		var produit = data[0]
+	  		//Modification fields
+	  		produit.nom = req.body.nom
+	  		produit.type = req.body.type
+	  		produit.prix = req.body.prix
+	  		produit.details = req.body.details
+	  	
+	  	
+	  		produit.save(function(err,data){
+	  			if(err) throw err
+
+	  			Produit.find({_id:req.body._id},function(err,data){
+  					res.json(data[0])
+  				})
+
+	  		})
+
+
 	});
 
 })

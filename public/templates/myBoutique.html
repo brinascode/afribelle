@@ -5,66 +5,77 @@
 		Profile</a></h3>
 	<div class="row">
 	
-			<h3 class="col-md-6">
-				<img src="images/shop2.png" width="10%"/> Ma Boutique: {{mesBoutiques[0].nom}}
+			<h3 class="col-md-12">
+				<img src="images/shop2.png" width="5%"/> Ma Boutique: <a ng-href="/boutique/{{mesBoutiques[0]._id}}"> {{mesBoutiques[0].nom}}</a>
 				<input ng-show="showBoutiqueSection" type="text" class="form-control" placeholder="Crée ta nouvelle boutique!" ng-model="nomBoutique" style="font-size:20px"/>
-
-					<!-- Pour modifier la boutique (themes et tout)--> 
-			
-				<div >
+				<div > </br>
 					<button ng-hide="showBoutiqueSection" class="btn btn-default" ng-click="modBoutique()" style="font-size:20px">
 					{{modButtonMessage}}</button>
 
 			    </div>
+			</h3>
 
+					<!-- Pour modifier la boutique (themes et tout)--> 
+			
 			    <button ng-show="showBoutiqueSection" style="font-size:20px" class="btn pinkButton" ng-click="createBoutique()"> Créer la boutique 
 				</button> 
 				<h3>{{boutiqueMsg}}</h3></br></br></br>
 
 
 
-				<div ng-show="showModBoutique" class="row">
+				<div ng-show="showModBoutique" class="row" style="border:solid;">
+					  <div class="col-md-6 col-xs-6"> 
+						<h3> Politique de livraison: </h3> 
 
-					<h3>Livraison: </h3> 
-					<label> Gratuite pour: 
-						<input placeholder="" type="text" class="form-control" ng-model="boutiqueLivraison.gratuite"/> </label>
-					</br>
-					<label> Payante à
-						
-						<input placeholder="" type="number" class="form-control" 
-						ng-model="boutiqueLivraison.payanteFixe.prix"/> 
-						pour: 
-						<input placeholder="" type="text"class="form-control" 
-						ng-model="boutiqueLivraison.payanteFixe.lieux"/>  </br>
-					</label> </br>
-					*Pour tout autre endroit, vous contacterez la cliente/le client.
-						<button class="btn btn-default" ng-click="updateBoutiqueLivraison()"> Enregistrer </button>
+						<strong> Politique actuelle </strong> </br> 
+						Livraison gratuite : {{mesBoutiques[0].livraison.gratuite}}</br> 
+						Livraison payante à : {{mesBoutiques[0].livraison.payantePrix}}</br> 
+						pour: {{mesBoutiques[0].livraison.payanteLieux}}</br> 
+						*Pour tout autre endroit, vous contacterez la cliente/le client.</br> 
+						Modifier:</br> 
+						<label> Gratuite pour: 
+							<input placeholder="" type="text" class="form-control" ng-model="boutiqueLivraison.gratuite"/> </label>
+						</br>
+						<label> Payante à
 							
-					</br>
-					<h3>Vitrines:
-					</h3> 
+							<input placeholder="" type="number" class="form-control" 
+							ng-model="boutiqueLivraison.payantePrix"/> 
+							pour: 
+							<input placeholder="" type="text"class="form-control" 
+							ng-model="boutiqueLivraison.payanteLieux"/>  </br>
+						</label> </br>
+						*Pour tout autre endroit, vous contacterez la cliente/le client. </br>
+							<button class="btn btn-default" ng-click="updateBoutiqueLivraison()"> Enregistrer </button>
+								
+						</br>
+				     </div>
+						
 
-					<p class="myP img-responsive"> 
-						Cliquez un thème pour l'appiquer à votre vitrine</br> 
-						Voice votre thème actuel </p></br>
+				     <div class="col-md-6 col-xs-6"> 
+						<h3>Vitrines:
+						</h3> 
 
-					<img ng-src="images/{{mesBoutiques[0].themeUrl}}" width="20%" 
-					class="thumbnail" ></br></br>
+						<p class=""> 
+							Cliquez un thème pour l'appiquer à votre vitrine</br> 
+							Voice votre thème actuel </p></br>
 
-					<img class="col-md-4 col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tLipsBack.png' alt='' 
-					ng-click="changeBoutiqueTheme('themesBoutiques/tLipsBack.png')" width="20%"> 
-					<img class="col-md-4 col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tSimple.png' alt='' 
-					ng-click="changeBoutiqueTheme('themesBoutiques/tSimple.png')" width="20%"> 
+						<img ng-src="images/{{mesBoutiques[0].themeUrl}}" width="30%" 
+						class="thumbnail" ></br></br>
 
-					<img class="col-md-4  col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tMarron.png' alt='' 
-					ng-click="changeBoutiqueTheme('themesBoutiques/tMarron.png')" width="20%"> </br>
+						<img class="col-md-4 col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tLipsBack.png' alt='' 
+						ng-click="changeBoutiqueTheme('themesBoutiques/tLipsBack.png')" width="20%"> 
+						<img class="col-md-4 col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tSimple.png' alt='' 
+						ng-click="changeBoutiqueTheme('themesBoutiques/tSimple.png')" width="20%"> 
 
-					<img class="col-md-4  col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/fushiaB.png' alt='' 
-					ng-click="changeBoutiqueTheme('themesBoutiques/fushiaB.png')" width="20%"> </br>
+						<img class="col-md-4  col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tMarron.png' alt='' 
+						ng-click="changeBoutiqueTheme('themesBoutiques/tMarron.png')" width="20%"> </br>
 
-					<img class="col-md-4 col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tLips.png' alt='' 
-					ng-click="changeBoutiqueTheme('themesBoutiques/tLips.png')" width="20%"> 
+						<img class="col-md-4  col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/fushiaB.png' alt='' 
+						ng-click="changeBoutiqueTheme('themesBoutiques/fushiaB.png')" width="20%"> </br>
 
+						<img class="col-md-4 col-xs-6 thumbnail img-responsive" src='images/themesBoutiques/tLips.png' alt='' 
+						ng-click="changeBoutiqueTheme('themesBoutiques/tLips.png')" width="20%"> 
+					</div>
 				
 
 
@@ -72,7 +83,7 @@
 				
 
 
-			</h3>
+		
 	</div></br>
 
 		
@@ -136,7 +147,7 @@
 									
 									
 									<label>Payante pour</label></br>
-									Ces endroits:{{nouveauProduit.livraison.payanteFixe.lieux}}
+								
 									<input ng-model="nouveauProduit.livraison.payanteFixe.lieux" type="text" placeholder="Lieux ou la livraison est payante" class="form-control" /></br>
 									Prix:
 									<input ng-model="nouveauProduit.livraison.payanteFixe.prix" type="number" placeholder="" class="form-control" /></br>
@@ -256,17 +267,7 @@
 							</h3>
 							
 							
-							<h3><strong>Livraison:</H3></strong>
-
-							<strong>Gratuite pour :</strong>
-							 <input type="text" class="form-control" ng-model="modifying.livraison.gratuite"/>
-							</br>
-							<strong>Payante à </strong> <input type="number" class="form-control" ng-model="modifying.livraison.payanteFixe.prix"/> 
-							<strong> pour </strong>
-							 <input type="text" class="form-control" ng-model="modifying.livraison.payanteFixe.lieux" placeholder="Les lieux ou la livraison est payante" />
-							</br>
-							<strong>*Pour tout autre endroit, vous contacterez la cliente</strong></br></br>
-
+						
 
 							<button class="btn btn-danger btn-block pinkButton" 
 							ng-click="modifyProduitPost()">
