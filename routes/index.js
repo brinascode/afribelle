@@ -44,7 +44,6 @@ app.post("/updateBoutiqueLivraison",function(req,res){
 		}
 		else{
 			var boutique = data[0]
-			boutique.markModified('livraison');
 			boutique.livraison = req.body
 			boutique.save(function(err){
  			if(err) throw err
