@@ -44,6 +44,7 @@ return {
 
         		$http.post("/updateBoutiqueLivraison",postObject).success(function(data){
 	        		$scope.mesBoutiques = data
+	        		$window.location.href = "/myBoutique"
 
 	        		 
         		})
