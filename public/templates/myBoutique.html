@@ -6,7 +6,11 @@
 	<div class="row">
 	
 			<h3 class="col-md-12">
-				<img src="images/shop2.png" width="5%"/> Ma Boutique: <a ng-href="/boutique/{{mesBoutiques[0]._id}}"> {{mesBoutiques[0].nom}}</a>
+				<a ng-href="/boutique/{{mesBoutiques[0]._id}}">
+				<img src="images/shop2.png" width="5%"/> Ma Boutique: 
+				 {{mesBoutiques[0].nom}}</a>
+			</br> (Cliquez pour voir votre boutique)
+
 				<input ng-show="showBoutiqueSection" type="text" class="form-control" placeholder="Crée ta nouvelle boutique!" ng-model="nomBoutique" style="font-size:20px"/>
 				<div > </br>
 					<button ng-hide="showBoutiqueSection" class="btn btn-default" ng-click="modBoutique()" style="font-size:20px">
@@ -33,17 +37,17 @@
 						pour: {{mesBoutiques[0].livraison.payanteLieux}}</br> 
 						*Pour tout autre endroit, vous contacterez la cliente/le client.</br> 
 						Modifier:</br> 
-						Separez les endroits avec une virgule
+						
 						<label> Gratuite pour: 
-							<input placeholder="" type="text" class="form-control" ng-model="boutiqueLivraison.gratuite"/> </label>
+							<input  type="text" class="form-control" ng-model="boutiqueLivraison.gratuite" placeholder="Separez avec une virgule"/> </label>
 						</br>
 						<label> Payante à
 							
 							<input placeholder="" type="number" class="form-control" 
 							ng-model="boutiqueLivraison.payantePrix"/> 
 							pour: 
-							<input placeholder="" type="text"class="form-control" 
-							ng-model="boutiqueLivraison.payanteLieux"/>  </br>
+							<input  type="text"class="form-control" 
+							ng-model="boutiqueLivraison.payanteLieux" placeholder="Separez avec une virgule"/>  </br>
 						</label> </br>
 						*Pour tout autre endroit, vous contacterez la cliente/le client. </br>
 							<button class="btn btn-default" ng-click="updateBoutiqueLivraison()"> Enregistrer </button>
@@ -162,7 +166,9 @@
 
 			 <!--- Deja en ligne -->
 			<div class="container">
-				<h3>Mes produits déja en ligne ({{mesProduits.length}}) </h3>
+				<h3>Mes articles déja en ligne ({{mesProduits.length}}) </h3>
+			</br> (Cliquez sur un article pour voir sa page)
+
 				<div class="row">
 					<div id="MesProduits" class="well col-xs-6" ng-repeat="produit in mesProduits"
 					style="width:">
@@ -191,12 +197,7 @@
 						<strong>Déscription: </strong>
 						<p style="overflow-x:scroll;overflow-y:scroll">
 						{{produit.details}}</p></br>
-						<strong>Livraison:</strong></br>
-
-						Gratuite pour : {{produit.livraison.gratuite}}</br>
-						Payante à {{produit.livraison.payanteFixe.prix}} pour 
-						{{produit.livraison.payanteFixe.lieux}}</br>
-						*Pour tout autre endroit, vous contacterez la cliente</br>
+						
 
 
 
@@ -234,9 +235,16 @@
 							</h3>
 
 							<h3>
-							<strong>Type:</strong>
-							<input type="text" class="form-control" ng-model="modifying.type"/>
-							</h3>
+							<strong>Catégorie</strong>
+							
+										<select class="form-control" ng-model="modifying.type" placeholder='Type' required>
+											<option>soinsducorps</option>
+											<option>soinsdescheveux</option>
+											<option>visageetmaquillage</option>
+											<option>parfums</option>
+											<option>accessoires</option>
+										</select>
+									
 							
 							
 							<h3>
@@ -254,7 +262,7 @@
 							</h3>
 							
 							
-						
+							<p class="alert alert-warning">{{modifMessage}}</p>
 
 							<button class="btn btn-danger btn-block pinkButton" 
 							ng-click="modifyProduitPost()">

@@ -7,12 +7,13 @@ type:String,//soins_du_corps,accessoire,
 typeExtra:String,
 details:String,
 prix:Number,
-/*livraison:{
-			//Les types de livraison  : gratuit, fixe, contactez
+livraison:{
+		   //Les types de livraison: gratuit, fixe, contactez
 		   gratuite:String,
-		   payanteFixe:{lieux:String,prix:Number},
+		   payantePrix:Number,
+		   payanteLieux:String,
 		   contactez:String
-		   }, */
+		   },
 date:Date,
 image:[String],
 vendeur:String,

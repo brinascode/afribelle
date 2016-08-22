@@ -142,7 +142,7 @@ app.post("/modifyProduit",function(req,res){
 app.post("/effacerProduit",function(req,res){
 	var ans
 
-	Produit.find(req.body,function(err,data){
+	Produit.find({_id:req.body.id},function(err,data){
 		if(err) throw err
 		
 		if(data[0] === undefined) //Does this work? Yes :) Very important for removing stuff!

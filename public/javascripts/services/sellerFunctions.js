@@ -65,6 +65,7 @@ return {
 					$http.get("/mesproduits").success(function(data){
 					$scope.mesProduits = data
 					$scope.mesProduits.reverse()
+					console.log($scope.mesProduits)
 					
 					})
 		},
@@ -73,7 +74,7 @@ return {
 			//Matching product to boutique
 			nouveauProduit.boutique = $scope.mesBoutiques[0].nom
 			nouveauProduit.boutiqueId = $scope.mesBoutiques[0]._id
-			nouveauProduit.livraison = $scope.mesBoutiques[0].livraison
+			
 			
 			$http.post("/ajouterProduit",nouveauProduit).success(function(data){
 			$scope.mesProduits = data
@@ -86,9 +87,11 @@ return {
 		modifyProduitPost : function($scope){
 			$http.post("/modifyProduit",$scope.modifying).success(function(data){
 				$scope.mesProduits[$scope.modIndex] = data
+				$scope.modifMessage = "Changements éffecutés!"
+				setTimeout(function(){$scope.modifMessage=""},5000)
 				
 			})
-			$scope.message2 = "Changements éffecutés"
+
 		},
 
 		effacerProduit : function($scope,$index){
@@ -97,7 +100,7 @@ return {
 					$scope.mesProduits[$index].nom+"? "+
 					"La suppression est irréversible")
 				){ 
-					$http.post("/effacerProduit",$scope.mesProduits[$index])
+					$http.post("/effacerProduit",{id:$scope.mesProduits[$index]._id})
 					.success(function(data){
 
 								$scope.mesProduits = data

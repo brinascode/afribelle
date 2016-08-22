@@ -16,6 +16,7 @@ $scope.getMesBoutiques()
 
 
 
+
 //Créer sa boutique:
 $scope.nomBoutique 
 $scope.boutiqueMsg 
@@ -85,6 +86,7 @@ $scope.getMesProduits  = sellerFunctions.getMesProduits
 $scope.getMesProduits($scope)
 
 
+
 //*****************Pour ajouter un nouveau produit (updates the product list)
 $scope.produitSection = false
 $scope.toggleProduitSection = function(){
@@ -92,7 +94,8 @@ $scope.toggleProduitSection = function(){
 }
 $scope.message= "Avant d'ajouter d'article, assurez vous d'avoir entré votre nom complet et un numéro de téléphone dans: Profile/Mes Infos"
 //In factory
-$scope.nouveauProduit = {}
+$scope.nouveauProduit = {livraison:{gratuite:"",payantePrix:0,payanteLieux:""}}
+
 
 
 $scope.ajouterProduit = function(nouveauProduit) //Validated! 
@@ -106,13 +109,18 @@ $scope.ajouterProduit = function(nouveauProduit) //Validated!
 
 	$scope.nouveauProduit.vendeurId=""+$scope.user._id+""
 	$scope.nouveauProduit.vendeurContacts = $scope.user.moreInfo.numerosDeTelephone
+	$scope.nouveauProduit.livraison.gratuite = $scope.mesBoutiques[0].livraison.gratuite
+		$scope.nouveauProduit.livraison.payantePrix = $scope.mesBoutiques[0].livraison.payantePrix
+		$scope.nouveauProduit.livraison.payanteLieux = $scope.mesBoutiques[0].livraison.payanteLieux
+	
 
-
-	if(nouveauProduit.nom && nouveauProduit.type && nouveauProduit.details && mesBoutiques[0].livraison && 
+	if(nouveauProduit.nom && nouveauProduit.type && nouveauProduit.details && $scope.mesBoutiques[0].livraison && 
 	   nouveauProduit.prix && $scope.user.moreInfo.numerosDeTelephone.length != 0
 	   && $scope.mesProduits.length < 51) 
 	  //It needs a reload to check for nums
 	{  
+		
+			
 			sellerFunctions.ajouterProduit($scope,nouveauProduit) 
 
 			
@@ -153,6 +161,7 @@ $scope.modifyProduit = function($index){//Data binding makes unsaved changes sta
 }
 
 $scope.modifyProduitPost = function(){
+	//Stop from posting empty stuff
 	sellerFunctions.modifyProduitPost($scope)
 }
 
