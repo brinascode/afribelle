@@ -37,18 +37,26 @@ app.get("/mesBoutiques",function(req,res){
 app.post("/updateBoutiqueLivraison",function(req,res){
 	Boutique.find({vendeurId:req.user._id},function(err,data){
 		if (err) throw err
-		var boutique = data[0]
-		boutique.markModified('livraison');
-		boutique.livraison = req.body
+
+		if(data[0] === undefined) //Does this work? Yes :) Very important for removing stuff!
+		{
+				ans = "Rien à effacer"
+		}
+		else{
+			var boutique = data[0]
+			boutique.markModified('livraison');
+			boutique.livraison = req.body
+			boutique.save(function(err){
+ 			if(err) throw err
+	 			Boutique.find({vendeurId:req.user._id},function(err,data){
+	 				if (err) throw err
+	 				res.json(data)
+	 			})
+ 			})
+		}
+
 
  		
- 		boutique.save(function(err){
- 			if(err) throw err
- 			Boutique.find({vendeurId:req.user._id},function(err,data){
- 				if (err) throw err
- 				res.json(data)
- 			})
- 		})
 	})
 })
 
