@@ -16,7 +16,7 @@ var MongoClient = require('mongodb').MongoClient;
 var uri  = "mongodb://sabrinakoumoin:abidjan54@cluster0-shard-00-00-z9s7w.mongodb.net:27017,cluster0-shard-00-01-z9s7w.mongodb.net:27017,cluster0-shard-00-02-z9s7w.mongodb.net:27017/authSource=Admin&ssl=true&replicaSet=Cluster0-shard-0"
 var uri2 = "mongodb://sabrinakoumoin:abidjan54@ds051960.mlab.com:51960/bintoudb"
 var uri3 = "mongodb://127.0.0.1/27017/mymgis"
-var uriG = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405,ds155405-a1.mlab.com:55405/afribelle?replicaSet=rs-ds155405&connectWithNoPrimary=true"
+var uriG = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribelle?replicaSet=rs-ds155405&connectWithNoPrimary=true"
 var uri4 = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribelle?connectWithNoPrimary=true"
 mongoose.connect(uriG, {
     replset: {
