@@ -108,9 +108,8 @@ $scope.ajouterProduit = function(nouveauProduit) //Validated!
 	$scope.nouveauProduit.vendeurContacts = $scope.user.moreInfo.numerosDeTelephone
 
 
-	if(nouveauProduit.nom && nouveauProduit.type && nouveauProduit.details && 
-	   nouveauProduit.prix && nouveauProduit.livraison &&
-	  $scope.user.moreInfo.numerosDeTelephone.length != 0
+	if(nouveauProduit.nom && nouveauProduit.type && nouveauProduit.details && mesBoutiques[0].livraison && 
+	   nouveauProduit.prix && $scope.user.moreInfo.numerosDeTelephone.length != 0
 	   && $scope.mesProduits.length < 51) 
 	  //It needs a reload to check for nums
 	{  
@@ -122,7 +121,8 @@ $scope.ajouterProduit = function(nouveauProduit) //Validated!
     	$scope.message = "S'il vous plait veuillez: "+
     	"1. Remplir tous les champs "+
     	"2. Vérifier que vous avez ajouté votre nom complet et un numéro de téléphone dans :'Profile/Mes Infos' "+
-    	"3.Verifier que vous ne vendez pas plus de 50 produits en meme temps"
+    	"3.Verifier que vous avez ajouter une politique de livraison à votre boutique" +
+    	"4.Verifier que vous ne vendez pas plus de 50 produits en meme temps"
     }//tous or tout
 }
 

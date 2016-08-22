@@ -73,6 +73,7 @@ return {
 			//Matching product to boutique
 			nouveauProduit.boutique = $scope.mesBoutiques[0].nom
 			nouveauProduit.boutiqueId = $scope.mesBoutiques[0]._id
+			nouveauProduit.livraison = $scope.mesBoutiques[0].livraison
 			
 			$http.post("/ajouterProduit",nouveauProduit).success(function(data){
 			$scope.mesProduits = data
