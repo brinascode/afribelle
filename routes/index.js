@@ -45,7 +45,7 @@ app.post("/updateBoutiqueLivraison",function(req,res){
 		else{
 			var boutique = data[0]
 			boutique.livraison = req.body
-			boutique.save(function(err){
+			boutique.save(function(err,data){
  			if(err) throw err
 	 			Boutique.find({vendeurId:req.user._id},function(err,data){
 	 				if (err) throw err

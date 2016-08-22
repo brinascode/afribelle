@@ -8,8 +8,8 @@ vendeurId:String,
 livraison:{
 			//Les types de livraison: gratuit, fixe, contactez
 		   gratuite:String,
-		   payantePrix:String,
-		   payanteLieux:Number,
+		   payantePrix:Number,
+		   payanteLieux:String,
 		   contactez:String
 		   },
 imageUrls:[String],
