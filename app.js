@@ -18,7 +18,7 @@ var uri2 = "mongodb://sabrinakoumoin:abidjan54@ds051960.mlab.com:51960/bintoudb"
 var uri3 = "mongodb://127.0.0.1/27017/mymgis"
 var uriG = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405,ds155405-a1.mlab.com:55405/afribelle?replicaSet=rs-ds155405&connectWithNoPrimary=true"
 var uri4 = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribelle?connectWithNoPrimary=true"
-mongoose.connect(uri4, {
+mongoose.connect(uriG, {
     replset: {
       connectWithNoPrimary:true,
       auto_reconnect: true,
