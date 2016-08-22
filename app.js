@@ -19,7 +19,7 @@ var uri3 = "mongodb://127.0.0.1/27017/mymgis"
 var uri4 = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405,ds155405-a1.mlab.com:55405/afribelle"
 mongoose.connect(uri4, {
     replset: {
-      connectWithNoPrimary:true
+      connectWithNoPrimary:true,
       auto_reconnect: true,
       ssl: true,
       sslValidate: false,
