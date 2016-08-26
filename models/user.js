@@ -1,7 +1,7 @@
 var mongoose = require("mongoose")
 var bcrypt = require("bcrypt-nodejs")
 var Schema = mongoose.Schema
-//Make distinction btw email and usernam
+//Make distinction btw email and username
 var userSchema = new Schema({
     local            : {
         username     : String,

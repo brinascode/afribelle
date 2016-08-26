@@ -45,6 +45,22 @@ app.post("/updateBoutiqueLivraison",function(req,res){
 		else{
 			var boutique = data[0]
 			boutique.livraison = req.body
+
+			//Updating the livraison for the products
+			Produit.find({vendeurId:req.user._id},function(err,data){
+				if(err) throw err
+				for(var i=0;i<data.length;i++){
+					data[i].livraison = req.body
+					data[i].save(function(err){
+					})
+
+				}
+
+
+			})
+
+
+
 			boutique.save(function(err,data){
  			if(err) throw err
 	 			Boutique.find({vendeurId:req.user._id},function(err,data){

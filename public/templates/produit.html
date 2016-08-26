@@ -43,13 +43,16 @@
 
                                  
                                   <strong>  Prix: </strong>   {{produit.prix}} FCFA </br>
-                                  <strong> Description: </strong> {{produit.details}}</br></br></br>
+                                  <strong> Description: </strong> {{produit.details}}</br>
+
+                                    <strong> Quantité Disponible: </strong> 
+                                    {{produit.quantiteDisponible}}</br></br></br>
+
                                   <strong>Livraison:</strong></br>
-                                   <a ng-href="boutique/{{produit.boutiqueId}}">
-                                        <button class="btn" ng-click="newVote($index)" > 
-                                           Voir la politique de livraison de la boutique <strong></strong>   
-                                             </button> 
-                                            </a> 
+                                   La livraison est gratuite pour: {{produit.livraison.gratuite}}</br>
+                                   La livraison est payante à {{produit.livraison.payantePrix}}F pour :
+                                    {{produit.livraison.payanteLieux}}
+                                   
 
                                     
 

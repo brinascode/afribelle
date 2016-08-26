@@ -11,10 +11,10 @@ livraison:{
 		   //Les types de livraison: gratuit, fixe, contactez
 		   gratuite:String,
 		   payantePrix:Number,
-		   payanteLieux:String,
-		   contactez:String
+		   payanteLieux:String
 		   },
 date:Date,
+quantiteDisponible:Number,
 image:[String],
 vendeur:String,
 vendeurId:String,

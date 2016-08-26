@@ -45,11 +45,9 @@ return {
 											
 
 												
-												var req = {
-														method:"POST",url:"/nouvelleCommande",data:commande,headers:{"Content-Type": "application/json"}
-												}
 
-											$http(req).then(function(data){
+											$http.post("/nouvelleCommande",commande).success(function(){
+
 												alert("Merci de commander avec AfriBelle!")
 											 	$window.location.href= "/userCommandes"
 											})

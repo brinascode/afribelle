@@ -3,7 +3,6 @@ var Schema = mongoose.Schema
 
 var commande = new Schema({
 
-
 acheteur:String,
 acheteurId:String,
 acheteurContacts:Array,

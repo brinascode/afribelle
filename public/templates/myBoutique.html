@@ -131,13 +131,17 @@
 										</select>
 									</label>
 
-									
+									<label>Prix</label>
 										<input type="number" class="form-control" placeholder="Prix (FCFA)" ng-model="nouveauProduit.prix"  required/>
 										</br>
 
-									
+									<label>Déscription</label>
 									<textarea type="text" placeholder="Déscription" class="form-control"ng-model="nouveauProduit.details" class="form-control" required/>
 									</textarea>
+
+									<label>Quantité Disponible
+										<input type="number" placeholder="Quantité disponible" class="form-control" ng-model="nouveauProduit.quantiteDisponible" required />
+									</label>
 									
 									</br>
 									
@@ -194,12 +198,11 @@
 						<strong>Ajouté le:</strong> {{ date|| produit.date }}</br>
 						<strong>Type: </strong> {{produit.type}}</br>
 						<strong>Prix: </strong>{{produit.prix}} FCFA</br>
+						<strong>Quantite Disponible:</strong> {{produit.quantiteDisponible}}</br>
 						<strong>Déscription: </strong>
 						<p style="overflow-x:scroll;overflow-y:scroll">
 						{{produit.details}}</p></br>
 						
-
-
 
 						
 		                <button class="btn btn-default" ng-click="modifyProduit($index)"> Modifier </button> 
@@ -260,6 +263,13 @@
 							<textarea type="text" class="form-control" ng-model="modifying.details"></textarea>
 						    </br>
 							</h3>
+
+							<h3>
+							<label>Quantité Disponible
+										<input type="number" placeholder="Quantité disponible" class="form-control" ng-model="nouveauProduit.quantiteDisponible" required />
+									</label>
+									</h3>
+									
 							
 							
 							<p class="alert alert-warning">{{modifMessage}}</p>
