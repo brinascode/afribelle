@@ -56,37 +56,44 @@ return {
 
 	ajouterAuPanier : function($scope,$index){
 		//Cant add twice! Validated :)
+		//You can add from : Vitrine, Product Page
 	
 		var proceed = 0
 
-		//To add to cart from product page
-		if($scope.produit){ //Make sure its not stupid!
-			console.log("true")
+		
+		//Adding from the vitrine is the standard so to add from product page you change the page var to match the vitrine var
+		if($scope.produit){ 
+			
 			 $scope.produits = $scope.produit
 		}
 
 
-			//Checking that product not already in cart
-		for(var i=0;i<=$scope.$parent.panier.length;i++)
+		//Going through cart to make sure that product is not already inside it
+		for(var i=0;i<=$scope.panier.length;i++)
 		{	
-			//Pour ajouter d'une vitrine
-			if($scope.$parent.panier[i] &&
+			if($scope.panier[i] &&
 				$scope.produits[$index] &&
-				$scope.$parent.panier[i]._id == $scope.produits[$index]._id)
+				$scope.panier[i]._id == $scope.produits[$index]._id)
 			{
-				proceed +=1 //If already in basket then dont read
+				proceed +=1 //If already in basket proceed == 1
 			}
 			
 		}
 		
+		//If proceed is not 1, meaning product is not in basket:
 		if(proceed < 1){
-			$scope.produits[$index].quantite = 1  //Setting quantity value
-			$scope.$parent.panier.push($scope.produits[$index])
+			$scope.produits[$index].quantite = 1  //Setting generic quantity value
+			$scope.panier.push($scope.produits[$index])
 
-			//Add to session storage:
-			sessionStorage.panier = JSON.stringify($scope.$parent.panier)
-			console.log(sessionStorage)
-			//	Tell them when their browser sucks!
+
+			//Le total de la commande: (takes from diff scopes, all are fed from acceuille controller)
+			$scope.$parent.panierDetails.totalCommande += parseInt($scope.produits[$index].prix)
+			console.log($scope.$parent.panierDetails.totalCommande)
+
+			//Add to session storage: (sessionStorage can only hold Strings remember?)
+			sessionStorage.panier = JSON.stringify($scope.panier)
+			
+			//	Tell them when their browser sucks if they don't have sessionStorage!!
 		}
 		
 	},
@@ -97,7 +104,7 @@ return {
 
 		//Voting from product page
 		if($scope.produit){ 
-			console.log("true")
+		
 			 $scope.produits = $scope.produit
 		}
 
@@ -131,7 +138,7 @@ return {
 					$scope.produits[$index] = data.produit
 					$scope.user = data.user
 					
-					console.log(data)
+					
 				})
 
 				

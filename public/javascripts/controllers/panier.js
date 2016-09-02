@@ -7,13 +7,17 @@ $scope.user={}
 authen.getUserInfo($scope)
 
 $scope.panier = $scope.$parent.panier
+$scope.panierDetails = $scope.$parent.panierDetails
+
+
+
 
 
 if($scope.panier[0] === undefined){
 	$scope.message = "Votre panier est vide. Ajoutez vite des articles! "
 }
 
-
+//Comment ca ajoute au panier? == customerToProduct service !
 
 $scope.retirerDuPanier= function($index){
 

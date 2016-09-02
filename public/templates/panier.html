@@ -14,14 +14,20 @@
 
 	<div class="row"> 
 
+		
+
+		<h3>1.<span class="label label-default">Ajoutez des articles à votre panier</span></h3>
+		<h3>2.<span class="label label-default">Pour chaque article, sélectionnez votre type de livraison en fonction de l'endroit ou votre article sera livré</span></h3>
+		<h3>3.<span class="label label-default">Confirmez la commande!</span></h3></br>
+
 		<div style="margin:5px">
-			
-			Total des articles: {{panier.length}} </br>
+			<strong><h3>Détails de la commande</h3></strong></br>
+			<strong>Total des articles</strong>: {{panier.length}} </br>
 			Total de la livraison: {{}}</br>
-			Total de la commande: {{}}
+			Total de la commande: {{panierDetails.totalCommande}}
 		</div>
 
-
+		<h3><strong>Articles</strong></h3></br>
 		<div ng-repeat="produit in panier" class="well col-sm-4 col-xs-6" >
 
 			<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">

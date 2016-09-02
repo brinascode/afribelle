@@ -3,6 +3,7 @@ app.controller("vitrine",
 	function($scope,$http,$location,$window,customerToProduct,$routeParams)
 {
 
+$scope.panier = $scope.$parent.panier
 $scope.produits
 $scope.user = $scope.$parent.user
 $scope.isAuthen = $scope.$parent.isAuthen

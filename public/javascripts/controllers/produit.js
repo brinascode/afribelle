@@ -5,7 +5,8 @@ app.controller("produit",
 
 //Fix refresh, causedby angular giving :id
 
-//Maybe put this in service? To share common euhhh...
+//Maybe put all this into service? To share common euhhh...
+$scope.panier = $scope.$parent.panier
 $scope.user = $scope.$parent.user
 $scope.isAuthen = $scope.$parent.isAuthen
 

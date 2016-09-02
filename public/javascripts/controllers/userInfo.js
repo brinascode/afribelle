@@ -8,7 +8,7 @@ authen.getUserInfo($scope)
 
 
 $scope.completedInfo = false
-$scope.moreInfoNew = {}
+$scope.moreInfoNew = {telephone:225}
 $scope.message
 
 	$scope.nomCompletNew
@@ -22,13 +22,32 @@ $scope.message
 
 		//Not A number + Doesnt update parent!
 		$scope.newUserTelephone= function(){ //Validated
-			if($scope.moreInfoNew && $scope.moreInfoNew.telephone.toString().length===8){ 
-				userModifs.newUserTelephone($scope)
+			if($scope.moreInfoNew && $scope.moreInfoNew.telephone){ 
+
+				//Make it into a string to take out 225 and also use length property
+				var stringedNum = $scope.moreInfoNew.telephone.toString()
+				var afterSlice = stringedNum.slice(3) //Take out 225
+
+				
+				//If without the 225 
+				if(afterSlice.length === 8){
+					console.log(afterSlice)
+					
+					//Update the num now :)
+					$scope.moreInfoNew.telephone = afterSlice //Didnt put  parseInt  cause it ignores 0 as well (just like toString)
+					userModifs.newUserTelephone($scope)
+				}
+				else{
+					$scope.message = "Veuillez entrez un numéro de telephone Ivoirien valide s'il vous plait"
+				}
 				
 				
-			}else{
+			}
+			 
+			else{
+				
 				$scope.message = "Veuillez entrez un numéro de telephone Ivoirien valide s'il vous plait"
-				
+
 			}
 
 			

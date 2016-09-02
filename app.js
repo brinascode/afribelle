@@ -10,7 +10,6 @@ var session = require("express-session")
 var mongoose = require("mongoose")
 
 
-//var db = mongoose.connect("mongodb://sabrinakoumoin:abidjan54@afribelle1-shard-00-00-z9s7w.mongodb.net:27017,afribelle1-shard-00-01-z9s7w.mongodb.net:27017,afribelle1-shard-00-02-z9s7w.mongodb.net:27017/admin?ssl=true&replicaSet=Afribelle1-shard-0")
 
 var MongoClient = require('mongodb').MongoClient;
 var uri  = "mongodb://sabrinakoumoin:abidjan54@cluster0-shard-00-00-z9s7w.mongodb.net:27017,cluster0-shard-00-01-z9s7w.mongodb.net:27017,cluster0-shard-00-02-z9s7w.mongodb.net:27017/authSource=Admin&ssl=true&replicaSet=Cluster0-shard-0"
@@ -18,6 +17,7 @@ var uri2 = "mongodb://sabrinakoumoin:abidjan54@ds051960.mlab.com:51960/bintoudb"
 var uri3 = "mongodb://127.0.0.1/27017/mymgis"
 var uriG = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribelle?replicaSet=rs-ds155405&connectWithNoPrimary=true"
 var uri4 = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribelle?connectWithNoPrimary=true"
+//4 is real
 mongoose.connect(uri4, {
     replset: {
       connectWithNoPrimary:true,
@@ -37,11 +37,7 @@ mongoose.connect(uri4, {
   });
 
 
-/* MongoClient.connect(uri, function(err, db) {
-if(db){  db.close();}
 
-});
-*/
 
 //what to do if callbacks take too long?
 

@@ -44,8 +44,7 @@ return {
 
 											
 
-												
-
+							
 											$http.post("/nouvelleCommande",commande).success(function(){
 
 												alert("Merci de commander avec AfriBelle!")

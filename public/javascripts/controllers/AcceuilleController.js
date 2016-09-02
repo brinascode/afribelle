@@ -3,8 +3,10 @@ app.controller("AcceuilleController",["$scope","$location","$window","$http","au
 
 //***************  Panier********************************************
 
-//Content to the child controlle: panier.js
+//Content to the child controller: panier.js
 $scope.panier = []
+$scope.panierDetails = {}
+
 
 //If theres something in the storage cart, give it to cart
 if(sessionStorage.panier)
