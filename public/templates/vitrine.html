@@ -24,7 +24,9 @@
     <button ng-hide="true" class="btn btn-default" ng-click="changeFilter()">{{mainFilterType}} </button> 
 
 
-    <div class="row" ng-show="produitFilter"> 
+    <div class="row" ng-show="produitFilter">
+           <center> <H1>  {{noProduits}}  </H1>    </center> 
+           <center> <H2>  {{loadingScreen}}      </H2>  </center> 
                 </br>     
                 <div ng-repeat="produit in produits track by $index" >
                      

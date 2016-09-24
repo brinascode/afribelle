@@ -6,16 +6,24 @@ return {
 	//For boutiques display 
 	getBoutiques: function($scope){
 
+		if($scope.boutiques.length == 0){
+				$scope.loadingScreen = "En charge ..."
+			}
+
+
 		$http.get("/serv_Boutiques").success(function(data){
-			console.log(data)
+
+			$scope.loadingScreen = ""
 			$scope.boutiques = data
 			$scope.boutiques.sort(function() { return 0.5 - Math.random() }); 
 		})
 
 	},
+
 	//Single Boutique
 	getBoutique:function($scope,$routeParams){
 			
+		//Get the boutique info first, then its produits
 		$http.post("/boutique",$routeParams).success(function(data){
 			$scope.boutique = data //Data is an array now
 		})
@@ -29,11 +37,19 @@ return {
 
 	//Produits d'une vitrine
 	getProduits: function($scope,route){
+			if(!$scope.produits){
+				$scope.loadingScreen = "En charge ..."
+			}
+
 
 			$http.get(route+"Produits").success(function(data){
 				$scope.produits = data
-			
+				$scope.loadingScreen = ""
 				$scope.produits.sort(function() { return 0.5 - Math.random() }); 
+
+				if($scope.produits.length == 0){
+					$scope.noProduits = "Arrive bientot!"
+				}
 
 
 			})

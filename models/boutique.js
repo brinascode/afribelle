@@ -10,7 +10,8 @@ livraison:{
 		   gratuite:String,
 		   payantePrix:Number,
 		   payanteLieux:String,
-		   contactez:String
+		   contactez:String,
+		   date: String
 		   },
 imageUrls:[String],
 mainImageUrl:String,

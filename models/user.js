@@ -26,7 +26,7 @@ var userSchema = new Schema({
         name         : String
     },
     moreInfo         : { 
-        vendeur     : Boolean, //Everybody is false by default. You must change the non-vendeurs to true??
+        vendeur     : Boolean, //Everybody is false by default. I change the vendeurs to true.
         numerosDeTelephone:Array,
         nomComplet :String,
         profilePic:String

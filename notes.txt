@@ -1,6 +1,21 @@
+
+db.users.find({"google.email":"sabrina.koumoin@gmail.com"})
+db.boutiques.remove({nom:"Boutique Exemple :)"})
+db.users.update(
+    {},
+    {
+      $set: { "moreInfo.vendeur": "true" },
+     
+   
+    },
+     { multi: true}
+)
+
+{ multi: true}
+
 *plain theme
 
-**erasing not working
+
 **type modification = not text
 
 the theme carries on on the boutique view!!

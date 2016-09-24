@@ -10,7 +10,7 @@
         </ol>
       <div class="carousel-inner" >
         <div class="item active">
-          <img src="images/vitrinePage/bienvenue.jpg" alt="carousel's Place" width="50%"  class="img-responsive">
+             <center><img src="images/vitrinePage/bienvenue.jpg" alt="carousel's Place" width="50%"  class="img-responsive">   </center>
         </div>
        
 
@@ -24,21 +24,18 @@
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
     </div>
-</br>
+    </br>
 
 
 
-
-
-
-
-  <h3 style="font-family:trench">
-  	
-   Découvre les Boutiques!
-  </h3> 
+    <h3 style="font-family:trench">
+    	
+     Découvre les Boutiques!
+    </h3> 
 </div>
 
    <div class="row well"  > 
+          <center> <H2>  {{loadingScreen}}  </H2>    </center> 
      
       <span ng-repeat="boutique in boutiques" style="margin-left:px" class="thumbnail col-md-4 col-xs-6 "  >
           <a ng-href="/boutique/{{boutique._id}}" 
@@ -56,16 +53,9 @@
            				         <img src="images/{{boutique.themeUrl}}" width="20%" 
                              style="margin-top:-5px"/>
 
-          </a>        
-
-            
-
+          </a>      
+          
     </span>
-
-
-    
-           
-
              
          
     </div>
