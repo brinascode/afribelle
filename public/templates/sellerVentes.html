@@ -20,13 +20,16 @@
 			<strong>Prix: </strong> {{commande.prix}} </br>
 			
 
-			<strong>Politique de livraison pour cet article: </strong> </br>
-			Gratuite ici: {{commande.detailsLivraison.gratuite}} </br>
-			Payante à {{commande.detailsLivraison.payanteFixe.prix}} pour 
-			{{commande.detailsLivraison.payanteFixe.lieux}} </br>
-			Pour tout autre endroit, contactez la cliente </br>
+		    <strong>Politique de livraison pour cet article: </strong> </br>
+			Gratuite ici: {{commande.livraison.gratuite}} </br>
+			Payante à {{commande.livraison.payantePrix}} pour 
+			{{commande.livraison.payanteLieux}} </br>
+			Pour tout autre endroit, contactez la cliente 
+		   </br>
 
-			<strong>Livraison pour cette commande:</strong> {{commande.livraison}}</br></br>
+			<strong>La livraison pour cette commande:</strong> 
+			{{commande.thisLivraison}}
+		    </br></br>
 
 				<p style=""> Merci de contacter votre client/cliente pour effectuer la livraison.Le client/la cliente doit avoir le meme numéro de reçu que vous. </p> 
 

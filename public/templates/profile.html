@@ -1,4 +1,7 @@
-<div class="container" style="margin:5px">
+
+
+<center><h2>{{loadingMessage}}</h2>
+<div ng-hide="isLoading" class="container" style="margin:5px">
 
 			<div class="jumbotron row" style="margin:5px;background-color:#ECF0F1">
 				</br>
@@ -51,7 +54,7 @@
 					</a>
 				</div>
 
-				<div class="col-md-3 col-xs-6 roundBlock well" style="background-color:#ECF0F1">
+				<div ng-show="user.moreInfo.vendeur" class="col-md-3 col-xs-6 roundBlock well" style="background-color:#ECF0F1">
 					<a href="/sellerVentes">
 						<center>
 							<h3>Mes commandes</h3>

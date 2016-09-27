@@ -23,28 +23,26 @@ return {
 										
 										if($scope.panier[i].livraisonType != null)
 										{
+											var date = new Date()
+										
 											var commande = 	{  
 							 					
 												acheteurId:$scope.user._id,
 												acheteur:$scope.user.moreInfo.nomComplet,
 												acheteurContacts:$scope.user.moreInfo.numerosDeTelephone,
-												date:new Date(),
+												date:date,
 												vendeur:$scope.panier[i].vendeur,
 												vendeurId:$scope.panier[i].vendeurId,
 												boutique:$scope.panier[i].boutique,
 												boutiqueId:$scope.panier[i].boutiqueId,
-												vendeurContacts:$scope.panier[i].vendeurContacts,
 												produitNom:$scope.panier[i].nom,
 												quantite:$scope.panier[i].quantite,
 												prix:$scope.panier[i].prix,
-										        livraison:$scope.panier[i].livraisonType,
-										        detailsLivraison:$scope.panier[i].livraison
-
+												thisLivraison:$scope.panier[i].livraisonType
+												//livraison is the entire livraison policy of boutique
+										       
 												}
 
-											
-
-							
 											$http.post("/nouvelleCommande",commande).success(function(){
 
 												alert("Merci de commander avec AfriBelle!")
@@ -53,12 +51,12 @@ return {
 
 										}
 										else{
-											alert("Merci de spécifier votre type delivraison pour tous vos articles")
+											alert("Chère cliente, avant de passer votre commande, vous devez choisir un type de livraion pour tout vos articles.")
 										}
 								}
 							}
 							else{
-								alert("Merci d'ajouter un numéro de téléphone et votre nom complet dans votre Profile (Mes Infos) avant de passer votre commande. Vos articles resteront dans votre panier.")
+								alert("Chère cliente, avant de passer votre commande, vous devez ajouter votre numéro de téléphone dans Profile - Mes Infos.")
 								$window.location.href= "/userInfo"
 							}
 
@@ -66,8 +64,8 @@ return {
 					else
 					{
 						//Not logged in
-						alert("Merci de vous inscrire/connecter avant de faire des achats. Vos articles "+
-							"resteront dans le panier.")
+						alert("Chère cliente, avant de passer votre commande, vous devez vous inscrire ou vous connecter. Vous devez également choisir un type de livraion pour tout vos articles. Tout vos articles "+
+							"resteront dans le panier!")
 						$location.url("/authen")
 					}
 
@@ -84,6 +82,7 @@ return {
 				$http.get("/serv_userCommandes").success(function(data){
 					$scope.commandes = data
 					$scope.commandes.reverse()
+					
 				})
 	},
 

@@ -22,15 +22,26 @@ return {
 
 	//Single Boutique
 	getBoutique:function($scope,$routeParams){
+
+		if($scope.boutique.length == 0 && $scope.produits.length == 0){
+				$scope.isLoading = true
+				$scope.loadingScreen = "En charge ..."
+			}
 			
 		//Get the boutique info first, then its produits
 		$http.post("/boutique",$routeParams).success(function(data){
 			$scope.boutique = data //Data is an array now
+			$scope.isLoading = false
+			$scope.loadingScreen = ""
+			
 		})
-			//Now get the produits from this boutique
-			$http.post("/boutiqueProduits",$routeParams).success(function(data){
+		
+		//Now get the produits from this boutique
+		$http.post("/boutiqueProduits",$routeParams).success(function(data){
 				$scope.produits = data
-			})
+				$scope.isLoading = false
+				$scope.loadingScreen = ""
+		})
 
 	},
 
@@ -111,6 +122,8 @@ return {
 			
 			//	Tell them when their browser sucks if they don't have sessionStorage!!
 		}
+
+	
 		
 	},
 

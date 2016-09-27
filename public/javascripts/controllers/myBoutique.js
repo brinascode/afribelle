@@ -94,24 +94,22 @@ $scope.toggleProduitSection = function(){
 }
 $scope.message= "Avant d'ajouter d'article, assurez vous d'avoir entré votre nom complet et un numéro de téléphone dans: Profile/Mes Infos"
 //In factory
-$scope.nouveauProduit = {livraison:{gratuite:"",payantePrix:0,payanteLieux:""}}
+$scope.nouveauProduit = {}
+
 
 
 
 $scope.ajouterProduit = function(nouveauProduit) //Validated! 
 { 
-	if($scope.user.moreInfo.nomComplet){
+	if($scope.user){
+		if($scope.user.moreInfo.nomComplet){
 	$scope.nouveauProduit.vendeur=""+$scope.user.moreInfo.nomComplet+""
 	}
 	else{
   	$scope.nouveauProduit.vendeur=""+$scope.user.facebook.name+""
 	}
 
-	$scope.nouveauProduit.vendeurId=""+$scope.user._id+""
-	$scope.nouveauProduit.vendeurContacts = $scope.user.moreInfo.numerosDeTelephone
-	$scope.nouveauProduit.livraison.gratuite = $scope.mesBoutiques[0].livraison.gratuite
-		$scope.nouveauProduit.livraison.payantePrix = $scope.mesBoutiques[0].livraison.payantePrix
-		$scope.nouveauProduit.livraison.payanteLieux = $scope.mesBoutiques[0].livraison.payanteLieux
+	
 	
 
 	if(nouveauProduit.nom && nouveauProduit.type && nouveauProduit.details && $scope.mesBoutiques[0].livraison && 
@@ -132,6 +130,8 @@ $scope.ajouterProduit = function(nouveauProduit) //Validated!
     	"3.Verifier que vous avez ajouter une politique de livraison à votre boutique" +
     	"4.Verifier que vous ne vendez pas plus de 50 produits en meme temps"
     }//tous or tout
+	}
+	
 }
 
 

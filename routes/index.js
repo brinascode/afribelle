@@ -103,15 +103,40 @@ app.get("/mesProduits",function(req,res){
 
 //Adding new products to db
 app.post("/ajouterProduit",function(req,res){
-	var newProduit = new Produit(req.body)
-	newProduit.date= new Date()
-	newProduit.save(function(err,data){
+	var newProduit  = new Produit(req.body)
+	newProduit.date = new Date()
+
+	Boutique.find({vendeurId:req.user._id},function(err,data){
 		if(err) throw err
-			Produit.find({vendeurId:req.user._id},function(err,data){
-			if (err) throw err
-			res.json(data)
+
+		//Adding boutique's livraison to produit (the mongo thingy)
+		var boutiqueLivraison = data[0]	
+		newProduit.livraison = boutiqueLivraison.livraison
+
+		//Adding contacts of vendeur now
+
+		User.find({_id:req.user._id},function(err,data){
+			var contactsVendeur = data[0].moreInfo.numerosDeTelephone
+			newProduit.vendeurContacts = contactsVendeur
+
+
+			newProduit.save(function(err,data){
+				if(err) throw err
+				Produit.find({vendeurId:req.user._id},function(err,data){
+				if (err) throw err
+				res.json(data)
+				})
 			})
+
+		})
+
+		
+
 	})
+
+
+
+	
 })
 
 
@@ -451,12 +476,29 @@ app.post("/postComment",function(req,res){
 app.post("/nouvelleCommande",function(req,res){
 
 var commande = new Commande(req.body)
-	commande.save(function(err){
+
+	//Adding livraison of item ordered
+	Boutique.find({_id:req.body.boutiqueId},function(err,data){
 		if(err) throw err
 
-		res.json({ans:"Good"})
+		commande.livraison = data[0].livraison
 
+		//adding vendeurContacts:
+
+		User.find({_id:req.body.vendeurId},function(err,data){
+			if(err) throw err
+			commande.vendeurContacts = data[0].moreInfo.numerosDeTelephone
+		
+			commande.save(function(err){
+				if(err) throw err
+
+				res.json({ans:"Good"})
+
+			})
+
+		})
 	})
+
 
 })
 
@@ -481,6 +523,59 @@ app.get("/serv_sellerVentes",function(req,res){
 })
 
 
+
+/*/Fix
+app.get("/quickfix",function(req,res){
+
+	Produit.find({},function(err,data){
+		if (err) throw err
+		var end = 0
+		var stuff=[]
+	  
+
+	    for(var i=0;i<data.length;i++){
+	    	var produit = data[i]
+
+	    	if(!produit.livraison){
+	    	 	//var id = parseInt(produit.boutiqueId)
+	    	 	//Couldnt parse int cause it wasnt fully numbers! 
+	    	 	//cant use the boutique id cause its a string and boutique will need the REAL id
+	    		//I cant do this dataB[i] cause im already in the loop! and the search will happen once!
+	    		Boutique.find({vendeurId:produit.vendeurId},function(err,dataB){
+	    			
+	    			if(!dataB[0]){
+		    				
+
+	    			}
+	    			else{
+	    				produit.livraison = dataB[0].livraison
+	    				console.log(dataB[0].livraison)
+	    				console.log(produit.livraison)
+		    			produit.save(function(err){
+		    				if(err) throw err
+		    			})
+		    			stuff.push(produit)
+	    			}
+	    			
+	    		})
+	    	}
+	    }
+		
+		res.json(stuff)
+			
+				
+			
+		})
+
+				
+
+
+
+
+	
+})
+
+*/
 
 
 

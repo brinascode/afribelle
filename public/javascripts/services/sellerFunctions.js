@@ -20,13 +20,16 @@ return {
         		
         			//You can only create a boutique if you dont already have one
 					if($scope.mesBoutiques.length != 0){
+						//You already have a boutique
 						$scope.showBoutiqueSection = false
+						
+
 						}
 
 					else{
 						
 						$scope.showBoutiqueSection = true
-						console.log($scope.showBoutiqueSection )
+						
 
 					}
 
@@ -45,7 +48,6 @@ return {
         		$http.post("/updateBoutiqueLivraison",postObject).success(function(data){
 	        		$scope.mesBoutiques = data
 	        		$window.location.href = "/myBoutique"
-
 	        		 
         		})
 
@@ -65,7 +67,8 @@ return {
 					$http.get("/mesproduits").success(function(data){
 					$scope.mesProduits = data
 					$scope.mesProduits.reverse()
-					console.log($scope.mesProduits)
+					
+				
 					
 					})
 		},
@@ -74,14 +77,31 @@ return {
 			//Matching product to boutique
 			nouveauProduit.boutique = $scope.mesBoutiques[0].nom
 			nouveauProduit.boutiqueId = $scope.mesBoutiques[0]._id
-			
-			
-			$http.post("/ajouterProduit",nouveauProduit).success(function(data){
-			$scope.mesProduits = data
-			$scope.mesProduits.reverse()
-			
 
+			nouveauProduit.vendeurId = ""+$scope.user._id+""
+			nouveauProduit.vendeurContacts = $scope.user.moreInfo.numerosDeTelephone
+			nouveauProduit.livraison = {}
+			//nouveauProduit.livraison = $scope.mesBoutiques[0].livraison
+			//This does not reach dserver (up=)
+
+		
+			//$scope.nouveauProduit.livraison.gratuite = $scope.mesBoutiques[0].livraison.gratuite
+			//$scope.nouveauProduit.livraison.payantePrix = $scope.mesBoutiques[0].livraison.payantePrix
+			//$scope.nouveauProduit.livraison.payanteLieux = $scope.mesBoutiques[0].livraison.payanteLieux
+			
+			$scope.isLoading = true
+			$scope.loadingMessage = "Ajout de votre article en cours ..."
+
+			$http.post("/ajouterProduit",nouveauProduit).success(function(data){
+				$scope.mesProduits = data
+				$scope.mesProduits.reverse()
+
+				$scope.isLoading = false
+				$scope.loadingMessage = ""
+				
 			})
+
+
 
 		},
 		modifyProduitPost : function($scope){

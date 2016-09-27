@@ -14,13 +14,32 @@
 
 	<div class="row"> 
 
+		<div class="col-xs-4 col-md-4">
+			1.<span class="label label-default">Ajoutez des articles à votre panier</span>
+			</br>
+		</div>
+		<div class="col-xs-4 col-md-4">
+			2.<span class="label label-default">Pour chaque article, sélectionnez votre type de 
+		</span>
+		</br><span class="label label-default">livraison en fonction de l'endroit ou votre article sera livré</span>
+		</div>
+
+		<div class="col-xs-4 col-md-4">
+			3.<span class="label label-default">Confirmez la commande!</span></br>
+		</div>
+
+
+	</br></br></br>
+		<div class="well">
+			<span >Sur AfriBelle, vous pouvez commander des articles dans plusieurs boutiques en meme temps et payer à la livraison! Cépendant, chaque boutique vous livrera vos articles individuellement. </br>Après avoir passé votre commande, vous obtiendrez un reçu et la boutique vous contactera pour la livraison</span></br>
+		</div>
+
 		
 
-		<h3>1.<span class="label label-default">Ajoutez des articles à votre panier</span></h3>
-		<h3>2.<span class="label label-default">Pour chaque article, sélectionnez votre type de livraison en fonction de l'endroit ou votre article sera livré</span></h3>
-		<h3>3.<span class="label label-default">Confirmez la commande!</span></h3></br>
 
-		<div style="margin:5px">
+	
+		</br>
+		<div style="margin:5px" ng-hide="true">
 			<strong><h3>Détails de la commande</h3></strong></br>
 			<strong>Total des articles</strong>: {{panier.length}} </br>
 			Total de la livraison: {{}}</br>
@@ -40,7 +59,7 @@
 			<strong>Vendu par (Boutique) :</strong> {{produit.boutique}}</br> 
 			<strong>Quantité: </strong>
 			<input type="number" class="form-control" ng-model="produit.quantite"/>
-			<strong>Prix :</strong>{{produit.prix * produit.quantite}}</br>
+			<strong>Prix de l'article :</strong> {{produit.prix * produit.quantite}} </br>
 			
 
 			<strong>La livraison est:</strong></br>
@@ -54,10 +73,11 @@
 			<strong>Pour quel type de livraison qualifiez vous?</strong>
 			<select class="form-control" ng-model="produit.livraisonType" required> 
 				<option>Gratuite</option>
-				<option>Payante</option>
+				<option>Payante à {{produit.livraison.payantePrix}}</option>
 				<option>La boutique me contactera</option>
 			</select>
 
+			
 
 			</br></br>
 			<button class="btn btn-danger" ng-click="retirerDuPanier($index)">Retirer</button>

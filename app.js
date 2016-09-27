@@ -18,7 +18,7 @@ var uri3 = "mongodb://127.0.0.1/27017/mymgis"
 var uriG = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribelle?replicaSet=rs-ds155405&connectWithNoPrimary=true"
 var uri4 = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribelle?connectWithNoPrimary=true"
 //4 is real
-//for mongo shell: mongo ds155405-a0.mlab.com:55405/<database> -u sabrinakoumoin -p abidjan54
+//for mongo shell: mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
 mongoose.connect(uri4, {
     replset: {
       connectWithNoPrimary:true,

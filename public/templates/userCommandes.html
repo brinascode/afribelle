@@ -21,13 +21,14 @@
 			<strong>Quantité:</strong>{{commande.quantite}} </br>
 			<strong>Prix: </strong>{{commande.prix}} </br>
 			
-			<strong>Politique de livraison pour cet article: </strong> </br>
-			Gratuite ici: {{commande.detailsLivraison.gratuite}} </br>
-			Payante à {{commande.detailsLivraison.payanteFixe.prix}} pour 
-			{{commande.detailsLivraison.payanteFixe.lieux}} </br>
+				<strong>Politique de livraison pour cet article: </strong> </br>
+			Gratuite ici: {{commande.livraison.gratuite}} </br>
+			Payante à {{commande.livraison.payantePrix}} pour 
+			{{commande.livraison.payanteLieux}}
+			 </br>
 			Pour tout autre endroit, la boutique/vendeur(euse) vous contactera </br>
 
-			<strong>Votre livraison:</strong> {{commande.livraison}}</br></br>
+			<strong>Votre livraison:</strong> {{commande.thisLivraison}}</br></br>
 
 			<p style=""> La boutique/le livreur vous contactera. Merci de lui presenter ce reçu à la livraison. Le numéro de commande sur ce reçu et celui que vous presentera le livreur doivent etre identique.</p> 
 			

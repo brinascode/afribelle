@@ -1,5 +1,51 @@
+//Go through every produit
+    for(var i=0;i<=data.length;i++){
+      
+      //the loop will run b4 res is given!!!!
+      //your real id is a num, not a string!
 
-db.users.find({"google.email":"sabrina.koumoin@gmail.com"})
+      //look for boutique
+      var produit = data[i] 
+
+      if(produit) {
+
+          Boutique.find({_id:produit.boutiqueId},function(err,dataB){
+            if (err) throw err
+              
+              if(dataB.length != 0) {
+                produit.livraison = dataB[0].livraison
+
+                produit.save(function(err){
+                if(err) throw err
+
+                  
+
+                })
+              }
+                else{
+                res.json({hey:"hi"})
+                }
+
+              
+          })
+
+      }else{
+        res.json({hi:"j"})
+      }
+
+
+
+
+mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
+db.users.find({})
+db.boutiques.find({nom:"KASSA & MADIYA beauty shop"}) shop1 , shop1p
+
+for(var i=0;i<db.produits.find({boutique:"KASSA & MADIYA beauty shop"}).length;i++){
+ db.produits.find({boutique:"KASSA & MADIYA beauty shop"})[i].livraison = db.boutiques.find({nom:"KASSA & MADIYA beauty shop"})
+}
+
+db.produits.find({boutique:"KASSA & MADIYA beauty shop"})
+"google.email":"Armanda.Ahoua@gmail.com"
 db.boutiques.remove({nom:"Boutique Exemple :)"})
 db.users.update(
     {},
@@ -12,6 +58,8 @@ db.users.update(
 )
 
 { multi: true}
+
+db.users.find()
 
 *plain theme
 

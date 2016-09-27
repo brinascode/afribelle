@@ -16,8 +16,9 @@ produitNom:String,
 type:String,
 quantite:Number,
 prix:Number,
-livraison:String, //??
-detailsLivraison:Object //using this
+livraison:Object, 
+thisLivraison:String
+
 
 })
 

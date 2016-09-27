@@ -11,6 +11,7 @@ $scope.panierDetails = $scope.$parent.panierDetails
 
 
 
+console.log($scope.panier)
 
 
 if($scope.panier[0] === undefined){
