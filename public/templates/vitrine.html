@@ -31,13 +31,12 @@
                 <div ng-repeat="produit in produits track by $index" >
                      
 
-                     <div class="col-md-4 col-xs-6 well"  
-                    > 
+                     <div class="col-md-4 col-xs-6 well "  > 
                           
                           <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
                              
-                            <center>  <img ng-src="{{produit.mainImageUrl}}" 
-                                alt="Image de l'article en charge - peut prendre quelques secondes. Si ce message persiste, veuillez rafraichir la page ou vérifier que votre connection à internet fonctionne correctement." width="50%" />
+                            <center>  <div class="div"> <img ng-src="{{produit.mainImageUrl}}" 
+                                alt="Image de l'article en charge - peut prendre quelques secondes. Si ce message persiste, veuillez rafraichir la page ou vérifier que votre connection à internet fonctionne correctement." width="50%" /> <div>
                             </center>
                             </br>
 
