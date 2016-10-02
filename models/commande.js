@@ -17,7 +17,8 @@ type:String,
 quantite:Number,
 prix:Number,
 livraison:Object, 
-thisLivraison:String
+thisLivraison:String,
+deliveryConfirmed:Boolean
 
 
 })

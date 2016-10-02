@@ -1,5 +1,5 @@
 <div class="container" style="margin:5px">
-    <h3> <a ng-href="/{{produit[0].type}}"><span class="glyphicon glyphicon-arrow-left"></span>Retour</a></h3>
+    <h3> <a ng-href="/{{produit[0].type}}"><span class="glyphicon glyphicon-arrow-left"></span> Retour</a></h3>
     
     <div class="row" ng-repeat="produit in produit">
          <a ng-href="boutique/{{produit.boutiqueId}}">
@@ -32,7 +32,7 @@
                                 
                                  </br>
 
-                                 <center><img ng-src="{{produit.mainImageUrl}}" width="20%" />
+                                 <center><img ng-src="{{produit.mainImageUrl}}" alt="Image de l'article en charge. Si ce message persiste, veuillez rafraichir la page ou vérifier que votre connection à internet fonctionne correctement." width="20%" />
                                  </center></br>
                                  </br></br>
 
@@ -61,19 +61,19 @@
                                  <div class="row"> 
                                  
                                      <div class="col-sm-6"> 
-                                           <img ng-src="{{produit.imageUrls[0]}}" width="20%"></br>
+                                           <img ng-src="{{produit.imageUrls[0]}}" width="45%"></br>
                                      </div>
                                      <div class="col-sm-6"> 
-                                           <img ng-src="{{produit.imageUrls[1]}}" width="100%"></br>
+                                           <img ng-src="{{produit.imageUrls[1]}}" width="45%"></br>
                                      </div>
                                      <div class="col-sm-6"> 
-                                        <img ng-src="{{produit.imageUrls[2]}}" width="40%"></br>
+                                        <img ng-src="{{produit.imageUrls[2]}}" width="45%"></br>
                                      </div>
                                      <div class="col-sm-6"> 
-                                        <img ng-src="{{produit.imageUrls[3]}}" width="40%"></br>
+                                        <img ng-src="{{produit.imageUrls[3]}}" width="45%"></br>
                                      </div>
                                      <div class="col-sm-6"> 
-                                        <img ng-src="{{produit.imageUrls[4]}}" width="40%"></br>
+                                        <img ng-src="{{produit.imageUrls[4]}}" width="45%"></br>
                                      </div>
                                  </div>
                       

@@ -31,16 +31,23 @@ return {
 		//Get the boutique info first, then its produits
 		$http.post("/boutique",$routeParams).success(function(data){
 			$scope.boutique = data //Data is an array now
-			$scope.isLoading = false
-			$scope.loadingScreen = ""
+			
 			
 		})
 		
 		//Now get the produits from this boutique
 		$http.post("/boutiqueProduits",$routeParams).success(function(data){
 				$scope.produits = data
-				$scope.isLoading = false
-				$scope.loadingScreen = ""
+				
+				if(data.length == 0){
+					$scope.isLoading = false
+					$scope.loadingScreen = "Les articles de cette boutique seront bientot disponibles"
+				}else{
+					$scope.isLoading = false
+					$scope.loadingScreen = ""
+
+				}
+				
 		})
 
 	},

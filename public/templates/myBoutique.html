@@ -168,11 +168,12 @@
 
 			 <!--- Produits  -->
 			
+				<center><h2> {{loadingMessage}} </h2></center>
 
 			 <!--- Deja en ligne -->
-			<div class="container">
+			<div class="container" ng-hide="isLoading">
 				<h3>Mes articles déja en ligne ({{mesProduits.length}}) </h3>
-			</br> (Cliquez sur un article pour voir sa page)
+				</br> (Cliquez sur un article pour voir sa page)
 
 				<div class="row">
 					<div id="MesProduits" class="well col-xs-6" ng-repeat="produit in mesProduits"

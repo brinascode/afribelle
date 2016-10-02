@@ -14,9 +14,9 @@ $scope.user2 = {}
 
 //Now the redirecting is done server side
 $scope.signup =function(){
-		$http.post("/signup",$scope.sign)
+		$http.post("/signup",$scope.sign).success($window.location.href = "/profile")
 
-			$window.location.href = "/login"
+			
 			$scope.message = "Connecte toi avec ton nouveau compte"
 
 		
@@ -24,8 +24,8 @@ $scope.signup =function(){
 }
 
 $scope.login = function(){
-	$http.post("/login",$scope.logg)
-		$window.location.href = "/profile"
+	$http.post("/login",$scope.logg).success($window.location.href = "/profile")
+		
 
 	
 	

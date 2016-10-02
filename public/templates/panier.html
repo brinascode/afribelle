@@ -14,24 +14,33 @@
 
 	<div class="row"> 
 
-		<div class="col-xs-4 col-md-4">
-			1.<span class="label label-default">Ajoutez des articles à votre panier</span>
-			</br>
-		</div>
-		<div class="col-xs-4 col-md-4">
-			2.<span class="label label-default">Pour chaque article, sélectionnez votre type de 
-		</span>
-		</br><span class="label label-default">livraison en fonction de l'endroit ou votre article sera livré</span>
-		</div>
+		<div class="col-xs-12 col-md-4">
+			<strong>1. Ajoutez des articles à votre panier</strong>
+			
+		</div></br>
 
-		<div class="col-xs-4 col-md-4">
-			3.<span class="label label-default">Confirmez la commande!</span></br>
-		</div>
+		<div class="col-xs-12 col-md-4">
+			<strong>2. Pour chaque article, sélectionnez votre type de 
+			livraison en fonction de l'endroit ou votre article sera livré.</strong>
+		</div></br>
+
+		<div class="col-xs-12 col-md-4">
+			<strong>4. Inscrivez/Connectez vous</br></strong>
+		</div></br>
+
+		<div class="col-xs-12 col-md-4">
+			<strong>5. Mettez à jour vos informations personnelles en cliquant <a href="/userInfo" style="color:red">ICI</a> </br></strong>
+		</div></br>
+
+		<div class="col-xs-12 col-md-4">
+			<strong>6. Confirmez votre commande! </br></strong>
+		</div></br>
+
 
 
 	</br></br></br>
 		<div class="well">
-			<span >Sur AfriBelle, vous pouvez commander des articles dans plusieurs boutiques en meme temps et payer à la livraison! Cépendant, chaque boutique vous livrera vos articles individuellement. </br>Après avoir passé votre commande, vous obtiendrez un reçu et la boutique vous contactera pour la livraison</span></br>
+			<span >*Sur AfriBelle, vous pouvez commander des articles dans plusieurs boutiques en meme temps et payer à la livraison! Cépendant, chaque boutique vous livrera vos articles individuellement. Après avoir passé votre commande, vous obtiendrez un reçu et la boutique vous contactera pour la livraison.</span></br>
 		</div>
 
 		
@@ -46,7 +55,7 @@
 			Total de la commande: {{panierDetails.totalCommande}}
 		</div>
 
-		<h3><strong>Articles</strong></h3></br>
+		<h3><strong>Articles({{panier.length}})</strong></h3></br>
 		<div ng-repeat="produit in panier" class="well col-sm-4 col-xs-6" >
 
 			<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
@@ -55,7 +64,7 @@
 			</a> 
 	 
 			
-			<center><img ng-src="{{produit.imageUrls[0]}}" width="50%"></center></br>
+			<center><img ng-src="{{produit.imageUrls[0]}}" alt="Image de l'article en charge. Si ce message persiste, veuillez rafraichir la page ou vérifier que votre connection à internet fonctionne correctement." width="50%"></center></br>
 			<strong>Vendu par (Boutique) :</strong> {{produit.boutique}}</br> 
 			<strong>Quantité: </strong>
 			<input type="number" class="form-control" ng-model="produit.quantite"/>
@@ -67,7 +76,7 @@
 					*Gratuite pour : {{produit.livraison.gratuite}}</br>
 					*Payante à {{produit.livraison.payantePrix}} pour 
 					{{produit.livraison.payanteLieux}}</br>
-					*Pour tout autre endroit, le vendeur vous contactera</br>
+					*Pour tout autre endroit, la boutique vous contactera</br>
 			
 			<form>
 			<strong>Pour quel type de livraison qualifiez vous?</strong>

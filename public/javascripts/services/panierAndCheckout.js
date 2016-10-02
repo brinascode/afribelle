@@ -19,17 +19,18 @@ return {
 						//Logged in== proceed
 							if($scope.user.moreInfo.numerosDeTelephone.length != 0 && $scope.user.moreInfo.nomComplet != undefined)
 							{ //Goes through all items in cart to make a commande
+								var date = new Date().toLocaleDateString()
 								for(var i=0;i<$scope.panier.length;i++){
 										
 										if($scope.panier[i].livraisonType != null)
 										{
-											var date = new Date()
+									
 										
 											var commande = 	{  
 							 					
 												acheteurId:$scope.user._id,
 												acheteur:$scope.user.moreInfo.nomComplet,
-												acheteurContacts:$scope.user.moreInfo.numerosDeTelephone,
+												acheteurContacts:$scope.user.moreInfo.numerosDeTelephone[0],
 												date:date,
 												vendeur:$scope.panier[i].vendeur,
 												vendeurId:$scope.panier[i].vendeurId,
@@ -79,17 +80,25 @@ return {
 	},
 
 	getUserCommandes : function($scope){
+				$scope.loadingMessage = "En charge ..."
+				$scope.isLoading = true
 				$http.get("/serv_userCommandes").success(function(data){
 					$scope.commandes = data
 					$scope.commandes.reverse()
+						$scope.loadingMessage = ""
+						$scope.isLoading = false
 					
 				})
 	},
 
 	getSellerVentes : function($scope){
+				$scope.loadingMessage = "En charge ..."
+				$scope.isLoading = true
 				$http.get("/serv_sellerVentes").success(function(data){
 					$scope.commandes = data
 					$scope.commandes.reverse()
+					$scope.loadingMessage = ""
+					$scope.isLoading = false
 				})
 	}
 

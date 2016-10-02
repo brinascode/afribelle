@@ -1,6 +1,13 @@
 app.controller("AcceuilleController",["$scope","$location","$window","$http","authen",
 	function($scope,$location,$window,$http,authen){
 
+
+	$scope.navBarHide = true
+	$scope.navBarToggle = function(){
+		$scope.navBarHide = !$scope.navBarHide 
+	}
+
+	$scope.imgAlt = "Image de l'article en charge. Si ce message persiste, veuillez rafraichir la page ou vérifier que votre connection à internet fonctionne correctement."
 //***************  Panier********************************************
 
 //Content to the child controller: panier.js
@@ -28,7 +35,6 @@ authen.getUserInfo($scope)
 
 //To logout of user session
 $scope.logout = authen.logout //dont put () or else it will execute function
-
 
 
 //**********************Shared functionality*************************

@@ -45,7 +45,7 @@ var mongoose = require("mongoose")
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
             passport.authenticate('google', {
-                    successRedirect : '/profile',
+                    successRedirect : '/',
                     failureRedirect : '/'
             }));
 

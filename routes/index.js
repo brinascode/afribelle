@@ -522,6 +522,29 @@ app.get("/serv_sellerVentes",function(req,res){
 
 })
 
+app.post("/deliveryConfirmed",function(req,res){
+
+	Commande.find({_id:req.body._id},function(err,data){
+		if(err) throw err
+		if(data[0] === undefined){
+
+			var ans = {'ok':"nope"}
+			
+		}
+		else{
+
+			data[0].deliveryConfirmed = true
+			data[0].save(function(err){
+				if(err) throw err
+				res.json(ans)
+			})
+
+
+		}
+		
+	})
+})
+
 
 
 /*/Fix
@@ -567,7 +590,7 @@ app.get("/quickfix",function(req,res){
 			
 		})
 
-				
+			
 
 
 

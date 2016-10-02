@@ -44,22 +44,23 @@ for(var i=0;i<db.produits.find({boutique:"KASSA & MADIYA beauty shop"}).length;i
  db.produits.find({boutique:"KASSA & MADIYA beauty shop"})[i].livraison = db.boutiques.find({nom:"KASSA & MADIYA beauty shop"})
 }
 
-db.produits.find({boutique:"KASSA & MADIYA beauty shop"})
+db.boutiques.find({})
 "google.email":"Armanda.Ahoua@gmail.com"
-db.boutiques.remove({nom:"Boutique Exemple :)"})
-db.users.update(
-    {},
+db.commandes.remove({})
+
+db.produits.update(
+    {"nom":"VERNIS A ONGLE"},
     {
-      $set: { "moreInfo.vendeur": "true" },
+      $set: { "type": "accessoires"},
      
    
-    },
-     { multi: true}
+    }
+
+ 
 )
 
-{ multi: true}
-
-db.users.find()
+ { multi: true}
+db.users.find({"google.email":"armandeafribelle@gmail.com"})
 
 *plain theme
 

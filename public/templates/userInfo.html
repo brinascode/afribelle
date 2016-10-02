@@ -4,6 +4,9 @@
 	
 
 	<h1> <img src="images/userIcon.png" width="5%" /> Mes informations </h1>
+
+	<strong>Avant de passer vos commandes sur AfriBelle, vous devez écrire votre nom complet et ajouter un numéro de téléphone ci dessous.</strong>
+
 	<div style="border:solid;padding:10px" class="well">
 
 		<h3> Nom complet:{{user.moreInfo.nomComplet}}</h3>
@@ -17,25 +20,7 @@
 
 	</div></br>
 
-   <div style="border:solid;padding:10px" class="well">
-   	<h3>Images de profil (avatars)</h3>
-   Votre avatar:<img ng-src="images/{{user.moreInfo.profilePic}}" alt="Pas d'image de profile" width="20%"
-   /></br>Clique sur une image pour la mettre en profile</br>
-	
-	<img src="images/profiles/1.png" alt="Pas d'image de profile" 
-	ng-click="changeAvatar('profiles/1.png')" width="20%">
-
-	<img src="images/profiles/2.png" alt="Pas d'image de profile" 
-	ng-click="changeAvatar('profiles/2.png')" width="20%">
-
-	<img src="images/profiles/3.png" alt="Pas d'image de profile" 
-	ng-click="changeAvatar('profiles/3.png')" width="20%">
-
-	
   
-   
-   </div></br>
-
 
 
    	<div style="border:solid;padding:10px" class="well"> 
@@ -54,6 +39,24 @@
  </div>
 
 
+<div style="border:solid;padding:10px" class="well">
+   	<h3>Images de profil (avatars)</h3>
+   Votre avatar:<img ng-src="images/{{user.moreInfo.profilePic}}" alt="Pas d'image de profile" width="20%"
+   /></br>Clique sur une image pour la mettre en profile</br>
+	
+	<img src="images/profiles/1.png" alt="Pas d'image de profile" 
+	ng-click="changeAvatar('profiles/1.png')" width="20%">
+
+	<img src="images/profiles/2.png" alt="Pas d'image de profile" 
+	ng-click="changeAvatar('profiles/2.png')" width="20%">
+
+	<img src="images/profiles/3.png" alt="Pas d'image de profile" 
+	ng-click="changeAvatar('profiles/3.png')" width="20%">
+
+	
+  
+   
+   </div></br>
 
 
 

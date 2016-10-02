@@ -1,4 +1,4 @@
-app.factory("sellerFunctions",["$http",function($http){
+app.factory("sellerFunctions",["$http","$window","$location",function($http,$window,$location){
 
 return {
 
@@ -14,6 +14,7 @@ return {
 		},
         
         getMesBoutiques :function($scope){
+
 
         		$http.get("/mesBoutiques").success(function(data){
         			$scope.mesBoutiques = data
@@ -64,9 +65,16 @@ return {
 
 
 		getMesProduits : function($scope){
+					$scope.loadingMessage = "En charge ..."
+		        	$scope.isLoading = true
+				
 					$http.get("/mesproduits").success(function(data){
 					$scope.mesProduits = data
+					
 					$scope.mesProduits.reverse()
+
+					$scope.loadingMessage = ""
+        			$scope.isLoading = false
 					
 				
 					
@@ -207,8 +215,19 @@ return {
 						})
 
 
+		},
+
+		
+		deliveryConfirmed: function($scope,commandeId){
+			 	var postObject = {_id:commandeId}
+			 	console.log(postObject)
+				$http.post("/deliveryConfirmed",postObject).success(function(data){
+							$window.location.href= "/sellerVentes"
+						})
+
 		}
 
+		
 }
 
 
