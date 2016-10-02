@@ -27,16 +27,16 @@ Payante à {{boutique[0].livraison.payantePrix}} FCFA pour {{boutique[0].livrais
 
   <div class="row" style="background-image:url('images/.png');background-size:100%;">        
       
-      <div ng-repeat="produit in produits track by $index" class="col-md-4 col-xs-6" >
+      <div ng-repeat="produit in produits track by $index" class="col-md-4 col-xs-12" >
 
                        
                        </br></br></br>
                        <div class="well"> 
                           <center>
                           <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
-                              <span style="font-size:30px">
+                              <h3 style="font-family:serif">
                                   {{produit.nom}}
-                              </span>
+                              </h3>
                                 <sub><strong>{{produit.prix}} FCFA </strong></sub></br>
                       
                               </br>

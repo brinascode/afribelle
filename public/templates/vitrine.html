@@ -2,8 +2,8 @@
     
     <div class="row">
         <h3 style="font-size:30px;font-family:trench">
-            {{pageTitle}}
-        </h3>
+            {{pageTitle}} 
+        </h3>  <strong>Pour plus de détails, cliquez sur l'article </strong>
     </div>
 
 
@@ -43,13 +43,15 @@
 
                     
                           
-                                <span style="font-size:30px">
-                                    {{produit.nom}}
+                                <span style="">
+                                   <strong> 
+                                    <h4 style="font-family:serif">{{produit.nom}}</h4>
+                                    </strong>
                                 </span>
                                 <sub><strong>{{produit.prix}} FCFA</strong></sub></br>
                              </a>
 
-                             <div style="overflow:hidden">{{produit.details}}</div>
+                             <div style="overflow:hidden" ng-hide="true">{{produit.details}}</div>
                                     
 
                                 
