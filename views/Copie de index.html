@@ -18,7 +18,6 @@
     <!-- Custom CSS -->
     <link href="stylesheets/shop-homepage.css" rel="stylesheet">
     <link href="stylesheets/font-awesome.min.css" rel="stylesheet">
-    <link href="stylesheets/simple-sidebar.css" rel="stylesheet">
 
      <!-- Bootflat!! -->
      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css" rel="stylesheet">
@@ -173,65 +172,14 @@ border-radius:100px;
     min-width:100%;
 }
 
-.ulY {
-    list-style-type: none;
-    margin: 0;
-    margin-left:-8%;
-    padding: 0;
-    width: 25%;
-    background-color: #f1f1f1;
-    height: 100%; /* Full height */
-    position: fixed; /* Make it stick, even on scroll */
-    overflow: auto; /* Enable scrolling if the sidenav has too much content */
-    background-color:black;
-}
-
-.mine li{
-  height:50px;
-  margin-left:-20%;
-  margin-top:0%;
-
-
-}
-
-.mine h2{
-  color:white;
-  font-family: trench;
- margin-top:;
- font-weight: 200;
-
-}
-
-
-.mine a{
-  margin-top:5%;
-
-}
-.mine{
-  list-style-type: none;
-}
-
-.mine :hover {
-  opacity:0.7;
-  color:black;
-}
-
-.itemHover :hover{
-  opacity:0.7;
-
-}
-
 </style>
-
-
-   
 </head>
 
-<body ng-app="AfriBelle" ng-controller="AcceuilleController"
+<body class="" ng-app="AfriBelle" ng-controller="AcceuilleController"
  >
 
-
- <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation" style="background-color:black" > 
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation" style="background-color:black " > 
         <div class="container">
             
             <a class="navbar-brand" href="/" 
@@ -239,11 +187,11 @@ border-radius:100px;
                 AfriBelle
             </a>
             
-            <!-- Brand and toggle get grouped for better mobile display
-            This is the toggle stuff 1)Get toggle 2)Do real 3)Link them -->
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 
-              
+               
+                             
              
                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -251,8 +199,6 @@ border-radius:100px;
                     <span class="icon-bar" style="background-color:#ff1844"></span>
                     <span class="icon-bar" style="background-color:#ff1844"></span>
                   </button>
-
-
 
                   <button ng-show="isAuthen"  class="navbar-toggle" data-toggle="collapse">
                         <a href="/profile"><span class="glyphicon glyphicon-user" style="color:white;font-size:17px"></a>
@@ -272,18 +218,9 @@ border-radius:100px;
                 
             </div>
 
-
-
-
-
-            <!-- Collect these nav links, forms, and other content for toggling (Real)-->
+            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-                <ul class="nav navbar-nav" >
-                
-
-
+                <ul class="nav navbar-nav">
                     <li class="getBlack">
                        <a  href="/">Acceuil</a>
                     </li>
@@ -321,218 +258,140 @@ border-radius:100px;
         <!-- /.container -->
     </nav>
 
- 
-
-
-   <div id="wrapper">
-
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper" style="margin-top:-2%;overflow:">
-              <nav id="colorNav">  
-                <ul class="mine" style="background-color:white;overflow:hidden;color:white" >
-
-
-              
-
-                    <li class="" style="background-color:#ff1844">
-                        <h2 style="color:white">
-                          <a href="/boutiques" >
-                        
-                          <center> Boutiques </br> </center>
-
-                        </a></h2>
-                    </li>
-                    <li style="background-color:#F87117;color:black">
-                        <h2 style="color:black">
-                          <a href="/soinsducorps" >
+   
+   </br>
+   <div class="container">
+        <nav class="navbar navbar-inverse" 
+        style="background-color:white;border:none;color:black;">
+          
+          <div class="container">
+                
+                <div class="navbar-header">
+                      
+                    <center style="margin-left:30px">
                        
-                            <center>
-                            Corps
-                        </br> 
+                        <div type="button" class="navbar-toggle btn btn-block btn-default grad2" data-toggle="collapse" data-target="#myNav" style="background-color:white;border:;color:black;font-family" ng-click="navBarToggle()">
+                          <h3>
+                          Découvre ici !
+                           </h3>
 
-                        </center></a></h2>
-                    </li>
-                    <li style="background-color:#ADC607">
-                        <h2 >
-                          <a href="/soinsdescheuveux" style="background-color:">
-                           
-                            <center style="">Cheveux</br>               
-                          </center>  
-                          </a>
-
-                        </h2>
-                    </li>
-                    <li style="background-color:#333136">
-                        <h2 style="color:">
-                          <a href="/visageetmaquillage" style="background-color:">
-                            
-                            <center>Visage</center>
-                          </a></h2>
-                    </li>  
-                    <li style="background-color:#ED4938">
-                        <h2 style="color:black">
-                          <a href="/parfums" style="background-color:">
-                       
-                            <center>
-                            Parfums</center></a></h2>
-                    </li>
-                     <li style="background-color:#FCC9B9">
-                        <h2 style="color:black">
-
-                          <a href="/accessoires" style="background-color:">
-
-                            <center>Accéssoires
-                          </center></a></h2>
-                    </li>
-                    <li style="background-color:black">
-                        <h3 >
-
-                          <a href="/panier" style="background-color:">
-
-                            <center style="color:white">Panier
-                           <span class="glyphicon glyphicon-shopping-cart" style="30vw" >
-                          </center></a></h3>
-                    </li>
-
-                </ul>
-              </nav> 
-            </div>
-            <!-- /#sidebar-wrapper -->
-
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
-                <div class="container-fluid">
-
-                  <!-- Phone nav -->
-                  <nav  class="navbar navbar-inverse" 
-                        style="background-color:white;border:none;color:black;">
-              
-                      <div class="container">
-                    
-                          <div class="navbar-header">
-                                
-                              <center style="margin-left:30px">
-                                 
-                                  <div type="button" class="navbar-toggle btn btn-block btn-default grad2" data-toggle="collapse" 
-                                  data-target="#phoneBar" style="background-color:white;border:;color:black;font-family" ng-click="navBarToggle()">
-                                    <h3>
-                                    Découvre ici !
-                                    </h3>
-
-                                  </div>
-
-                                
-
-                                     <!--- Collapsed navbar -->
-                                    <div  data-toggle="collapse" ng-hide="navBarHide" class=" navbar-toggle btn btn-block row" style="background-color:white;border:none;margin-left:30px" id="#phoneBar" >
-                                  
-                                         <button class="btn btn-default col-xs-6"  style="background-color:#ff1844;color:white;border:none">
-                                          
-                                          <a href="/" class="frontLinks" >Acceuil</a>
-                                        </button>
-                                       
-                                       <button class="btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                          
-                                          <a href="/boutiques" class="frontLinks" > Boutiques</a>
-                                        </button>
-                                       
-                                       <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                          <a href="soinsducorps" class="frontLinks" >Corps</a>
-                                       </button>
-
-                                        <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                           <a href="soinsdescheuveux" class="frontLinks" >Cheveux</a>
-                                        </button>
-
-                                        <button class="frontLinks btn btn-default col-xs-6" style="color:white;background-color:#ff1844;border:none">
-                                          <a href="visageetmaquillage" class="frontLinks" >Visage
-                                          </a>
-                                        </button>
-
-                                        <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                          <a href="parfums" class="frontLinks" >Parfums</a>
-                                        </button>
-
-                                        <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                         <a href="accessoires" class="frontLinks" >Accéssoires</a>
-                                        </button>
-
-                                        <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                          <a href="/panier" class="frontLinks" >
-                                            <span style="font-size:17px" class="glyphicon glyphicon-shopping-cart"></span>
-                                            <sup class="">{{panier.length}}</sup>
-                                          </a>
-                                        </button>
-                                          </center>
-                                 
-                              </div>
-
-
-
-                    
-
-                        
                         </div>
-                   </div>
-            </nav>
-                  <!-- Close nav -->
-                   <!-- Actual page -->
-             <div class="row" style="margin-top:-10%;margin-left:-3%">
 
-                     <div class="col-lg-12"> 
-                         
-                          <div ng-view> </div>
-                          
-                               
-                      </div>
-                </div>
+                      
 
-            </div>
+                           <!--- Collapsed navbar -->
+                          <div data-toggle="collapse" ng-hide="navBarHide" class=" navbar-toggle btn btn-block row" style="background-color:white;border:none;margin-left:30px" id="myNav" >
+                        
+                               <button class="btn btn-default col-xs-6"  style="background-color:#ff1844;color:white;border:none">
+                                
+                                <a href="/" class="frontLinks" >Acceuil</a>
+                              </button>
+                             
+                             <button class="btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
+                                
+                                <a href="/boutiques" class="frontLinks" > Boutiques</a>
+                              </button>
+                             
+                             <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
+                                <a href="soinsducorps" class="frontLinks" >Corps</a>
+                             </button>
 
-         </div>
-            <!-- /#page-content-wrapper -->
-   </div>
+                              <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
+                                 <a href="soinsdescheuveux" class="frontLinks" >Cheveux</a>
+                              </button>
+
+                              <button class="frontLinks btn btn-default col-xs-6" style="color:white;background-color:#ff1844;border:none">
+                                <a href="visageetmaquillage" class="frontLinks" >Visage
+                                </a>
+                              </button>
+
+                              <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
+                                <a href="parfums" class="frontLinks" >Parfums</a>
+                              </button>
+
+                              <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
+                               <a href="accessoires" class="frontLinks" >Accéssoires</a>
+                              </button>
+
+                              <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
+                                <a href="/panier" class="frontLinks" >
+                                  <span style="font-size:17px" class="glyphicon glyphicon-shopping-cart"></span>
+                                  <sup class="">{{panier.length}}</sup>
+                                </a>
+                              </button>
+                                </center>
+                       
+                    </div>
 
 
 
+                    <!--- Actual navbar -->
+                    <div class="collapse navbar-collapse"  style="background-color:#ff1844" id="myNavbar">
+                         <ol class="nav navbar-nav"   style="background-color:white;">
+                             
+                             <li class="frontLinks">
+                                <a href="/boutiques" class="frontLinks" style="background-color:#ff1844;color:black"> <strong>Les boutiques</strong></a>
+                             </li>
+                             <li class="frontLinks">
+                                <a href="soinsducorps" class="frontLinks" style="background-color:#ff1844;color:black"><strong>Soins du corps</strong></a>
+                             </li>
+                              <li class="frontLinks">
+                                 <a href="soinsdescheuveux" class="frontLinks" style="background-color:#ff1844;color:black"><strong>Soins des Cheveux</strong></a>
+                              </li>
+                              <li class="frontLinks">
+                                <a href="visageetmaquillage" class="frontLinks" style="color:black;background-color:#ff1844;"><strong>Visage et Maquillage</strong>
+                                </a>
+                              </li>
+                              <li class="frontLinks">
+                                <a href="parfums" class="frontLinks" style="background-color:#ff1844;color:black"><strong>Parfums</strong></a>
+                              </li>
+                              <li class="frontLinks">
+                               <a href="accessoires" class="frontLinks" style="background-color:#ff1844;color:black"><strong>Accéssoires</strong></a>
+                              </li>
+                              <li class="frontLinks">
+                                <a href="/panier" class="frontLinks" style="background-color:#ff1844;color:black">
+                                 <strong> <span style="font-size:17px" class="glyphicon glyphicon-shopping-cart"></span></strong>
+                                  <sup class="">{{panier.length}}</sup>
+                                </a>
+                              </li>
+                        </ol>
+
+                    </div>
+          </div>
+        </nav>
+        
+
+        <!-- Page content -->
+        <div ng-view> </div>
+
+    </div>
 
 
 
-
-
-
-
-
-
-
-
+    
 
     <!-- /.container -->
-      <!-- Footer Space-->
-    <nav class="container" style="width:100%;position:">
+    <div class="container">
 
-      
-            </br></br></br></br>   </br></br></br></br>   </br></br></br></br>   </br></br></br></br>   </br></br></br></br> 
+        <hr>
+
         <!-- Footer -->
-        <footer style="background-color:black;">
+        <footer style="background-color:black">
             <br>
             <div class="row">
                 <div class="col-lg-12">
-                    <center>
                     <a href="http://afribelle-promo.herokuapp.com" style="color:white">A propos</a>
                 
                     <p style="color:white">  Copyright &copy; AfriBelle 2016</br>Tout droits réservés</p>
-                    </center>
                 </div>
 
                       
             </div>
         </footer>
 
-    </nav>
+    </div>
     <!-- /.container -->
-
-
+ 
 
 
     <!-- jQuery and bootflat-->
@@ -590,15 +449,8 @@ addToHomescreen();
 //http://hammerjs.github.io/dist/hammer-time.min.js
 
 
-
 </script>
- <!-- Menu Toggle Script -->
-        <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-        </script>
+
 
 </body>
 

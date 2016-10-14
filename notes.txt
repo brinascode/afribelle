@@ -1,3 +1,6 @@
+ <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+
+
 //Go through every produit
     for(var i=0;i<=data.length;i++){
       
@@ -34,24 +37,26 @@
       }
 
 
-
+db.boutiques.update({nom:"KASSA & MADIYA beauty shop"},{$set:{"nom":"KASSA.MARKEL & beauté"}})
 
 mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
-db.users.find({})
+db.commandes.find({})
 db.boutiques.find({nom:"KASSA & MADIYA beauty shop"}) shop1 , shop1p
 
 for(var i=0;i<db.produits.find({boutique:"KASSA & MADIYA beauty shop"}).length;i++){
  db.produits.find({boutique:"KASSA & MADIYA beauty shop"})[i].livraison = db.boutiques.find({nom:"KASSA & MADIYA beauty shop"})
 }
 
-db.boutiques.find({})
+db.commandes.find({})
 "google.email":"Armanda.Ahoua@gmail.com"
-db.commandes.remove({})
+db..remove({})
 
-db.produits.update(
-    {"nom":"VERNIS A ONGLE"},
+db.commandes.find({})
+
+db.users.update(
+    {"google.name":"oceane blue"},
     {
-      $set: { "type": "accessoires"},
+      $set: { "moreInfo.vendeur": "true"},
      
    
     }

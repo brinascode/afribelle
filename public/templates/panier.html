@@ -5,7 +5,6 @@
 	</br>
 
 
-	<strong>{{message}}</strong>
 	</br>
 
 
@@ -41,10 +40,11 @@
 	</br></br></br>
 		<div class="well">
 			<span >*Sur AfriBelle, vous pouvez commander des articles dans plusieurs boutiques en meme temps et payer à la livraison! Cépendant, chaque boutique vous livrera vos articles individuellement. Après avoir passé votre commande, vous obtiendrez un reçu et la boutique vous contactera pour la livraison.</span></br>
-		</div>
+		</div></br>
 
 		
 
+		<h2><strong>{{message}}</strong></h2>
 
 	
 		</br>
@@ -86,7 +86,8 @@
 				<option>La boutique me contactera</option>
 			</select>
 
-			
+			<strong ng-hide="true">Total:</strong></br>
+
 
 			</br></br>
 			<button class="btn btn-danger" ng-click="retirerDuPanier($index)">Retirer</button>

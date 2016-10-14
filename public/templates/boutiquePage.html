@@ -2,14 +2,17 @@
   <center> <h2> {{loadingScreen}} </h2>  </center> 
 
 <div ng-hide="isLoading" class="container" style="margin:5px">
-  <h3> <a ng-href="/boutiques"><span class="glyphicon glyphicon-arrow-left"></span> Retour</a></h3>
-  <div class="row" ng-repeat="boutique in boutique" style="background-color:black"> 
-  	    
-                </br>
+  
+  <div class="row" ng-repeat="boutique in boutique" style="background-color:"> 
+  	<h3> <a ng-href="/boutiques">
+           <span class="glyphicon glyphicon-arrow-left"></span> Retour
+        </a>
+    </h3>    
+                <h3> <strong>Boutique:</strong> </h3> 
                 <center>
-                <h1 class="shopBanner"><a ng-href="/boutique/{{boutique._id}}" style="color:white">{{boutique.nom}}</a>
+                <h1 class="shopBanner"><a ng-href="/boutique/{{boutique._id}}" style="color:black">{{boutique.nom}}</a>
                 </h1>
-                </center></br>
+                </center>
                       
   	            
   </div> </br>
@@ -27,10 +30,10 @@ Payante à {{boutique[0].livraison.payantePrix}} FCFA pour {{boutique[0].livrais
 
   <div class="row" style="background-image:url('images/.png');background-size:100%;">        
       
-      <div ng-repeat="produit in produits track by $index" class="col-md-4 col-xs-12" >
+      <div ng-repeat="produit in produits track by $index" class="col-md-4 col-xs-12 itemHover" >
 
                        
-                       </br></br></br>
+                       
                        <div class="well"> 
                           <center>
                           <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
@@ -40,7 +43,7 @@ Payante à {{boutique[0].livraison.payantePrix}} FCFA pour {{boutique[0].livrais
                                 <sub><strong>{{produit.prix}} FCFA </strong></sub></br>
                       
                               </br>
-                              <img ng-src="{{produit.mainImageUrl}}" alt="Image de l'article en charge. Si ce message persiste, veuillez rafraichir la page ou vérifier que votre connection à internet fonctionne correctement." width="50%" /></br>
+                              <img ng-src="{{produit.mainImageUrl}}" alt="Image de l'article en charge. Si ce message persiste, veuillez rafraichir la page ou vérifier que votre connection à internet fonctionne correctement." width="50%"  /></br>
 
                            </a>
 

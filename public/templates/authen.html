@@ -1,8 +1,40 @@
-</br>
+<div class="row container" style="margin:5px">
+		<div class="well col-md-12" >
+			<h3> <a href="/authen"><span class="glyphicon glyphicon-arrow-left"></span> Retour</a></h3>	</br>
+			<h1 style="text-align:center"><span class="glyphicon glyphicon-log-in"></span>S'inscire / Se connecter</h1></br>
+				<strong>{{message}}	</strong>
+			
+			<center>
+				<label>Nom d'utilisateur
+				<input type="text" class="form-control" ng-model="sign.username" name="username"/>
+				</label></br>
+
+				
+				<label>Mot de passe
+					<input type="password" class="form-control" ng-model="sign.password" name="password"/>
+				</label></br></br>
+
+
+					<button ng-click="signup()" class="btn btn-danger btn-lg  pinkButton"> S'inscrire
+				</button>
+
+				<button ng-click="login()" class="btn btn-danger btn-lg  pinkButton"> Se connecter
+				</button>
+
+				  <a ng-click="googleAuthen()"  class="btn btn-danger btn-lg"><span class="fa fa-google-plus"></span> <span class="glyphicon glyphicon-user"></span>  Gmail</a>
+			</center>
+
+
+			
+		</div>
+</div>
+
+
+
 
 <center>
 
-<div class="container well" class="row">
+<div class="container well" class="row" ng-hide="true">
 	<div class="col-sm-6">
 		<h3><span class="glyphicon glyphicon-log-in"></span> S'inscire/Se connecter</h3></br>
 		<strong> Connecte toi avec un compte Gmail pour faire tes achats sur AfriBelle! </strong>
@@ -13,6 +45,14 @@
 		<a ng-hide="true" href="/login"><button class="btn btn-default btn-block btn-lg" >
 		<span class="glyphicon glyphicon-user"></span> Se connecter</button>
 	    </a>
+
+
+
+
+
+
+
+
 
 
 	     <a ng-click="googleAuthen()"  class="btn btn-danger btn-block btn-lg"><span class="fa fa-google-plus"></span> <span class="glyphicon glyphicon-user"></span>  Gmail</a>

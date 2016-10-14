@@ -18,13 +18,13 @@ $scope.vitrinePic={}
 if($location.path() == "/soinsducorps"){
 	$scope.pageTitle = "Soins du Corps"
 		$scope.vitrinePic.img = "images/vitrinePage/corps.jpg"
-	$scope.vitrinePic.width = "30%"
+	$scope.vitrinePic.width = "10%"
 	$scope.vitrinePic.height ="50%" 
 	$scope.backColor="#ff1844"
 	
 }
 if($location.path() == "/soinsdescheuveux"){
-	$scope.pageTitle = "Soins des Cheuveux"
+	$scope.pageTitle = "Soins des Cheveux"
 
 	$scope.vitrinePic.img = "images/vitrinePage/hair.jpg"
 	$scope.vitrinePic.width = "30%"

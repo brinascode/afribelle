@@ -9,14 +9,14 @@ var mongoose = require("mongoose")
 // Local Signup
    app.post("/signup", passport.authenticate('local-signup'),function(req,res){
 
-                res.json({hi:"hi"})
-                console.log("working")
+                res.redirect("*");
+                
             }
     )
 
 // Local Signup
     app.post("/login", passport.authenticate('local-login'),function(req,res){
-            console.log("did")
+            
             res.redirect("*");
     }
 )

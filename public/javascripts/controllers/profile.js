@@ -8,5 +8,4 @@ $scope.user = $scope.$parent.user
 
 
 
-
 }])
