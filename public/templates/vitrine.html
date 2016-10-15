@@ -15,13 +15,20 @@
          <div  class="col-lg-12 "  >
              </br>   
              <center> 
-                <img ng-hide="true" ng-src="{{vitrinePic.img}}" alt="carousel's Place" 
+                <img ng-hide="" ng-src="{{vitrinePic.img}}" alt="carousel's Place" 
                 ng-style="{'width':'{{vitrinePic.width}}','margin-top':'-20px'}"> 
-             </center>
+             
 
-               <center> <h1 style="font-size:px;font-family:trench;color:black">
-            {{pageTitle}} 
-                 </h1>  <strong>Pour plus de détails, cliquez sur l'article </strong>
+                <h1 style="font-size:px;font-family:trench;color:black">
+                {{pageTitle}} 
+                 </h1> </br>
+
+                   <strong>Pour plus de détails, cliquez sur l'article </strong> </br> 
+                <h3>
+                 <span class="glyphicon glyphicon-arrow-down"></span>
+                 </h3>
+               
+              
                 </center>
          </div>
 
@@ -52,7 +59,7 @@
                           
                                 <span style="">
                                    <strong> 
-                                    <h4 style="font-family:serif">{{produit.nom}}</h4>
+                                    <h3 style="font-family:serif">{{produit.nom}}</h3>
                                     </strong>
                                 </span>
                                 <sub><strong>{{produit.prix}} FCFA</strong></sub></br>

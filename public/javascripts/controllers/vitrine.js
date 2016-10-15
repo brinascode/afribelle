@@ -17,8 +17,8 @@ $scope.vitrinePic={}
 
 if($location.path() == "/soinsducorps"){
 	$scope.pageTitle = "Soins du Corps"
-		$scope.vitrinePic.img = "images/vitrinePage/corps.jpg"
-	$scope.vitrinePic.width = "10%"
+		$scope.vitrinePic.img = "images/models/wow.jpg"
+	$scope.vitrinePic.width = "20%"
 	$scope.vitrinePic.height ="50%" 
 	$scope.backColor="#ff1844"
 	
@@ -26,7 +26,7 @@ if($location.path() == "/soinsducorps"){
 if($location.path() == "/soinsdescheuveux"){
 	$scope.pageTitle = "Soins des Cheveux"
 
-	$scope.vitrinePic.img = "images/vitrinePage/hair.jpg"
+	$scope.vitrinePic.img = "images/models/hi.jpg"
 	$scope.vitrinePic.width = "30%"
 	$scope.vitrinePic.height ="50%" 
 	$scope.backColor="#ff5353"
@@ -34,7 +34,7 @@ if($location.path() == "/soinsdescheuveux"){
 }
 if($location.path() == "/visageetmaquillage"){
 	$scope.pageTitle = "Visage et Maquillage"
-	$scope.vitrinePic.img = "images/vitrinePage/visage.jpg"
+	$scope.vitrinePic.img = "images/models/visage.jpg"
 	$scope.vitrinePic.width = "25%"
 	$scope.vitrinePic.height ="30%" 
 	$scope.backColor="#4D8FAC"
