@@ -61,6 +61,7 @@
 
 h3,h1,h2 {
   font-family:trench;
+  color:black;
 }
 
 .grad {
@@ -189,7 +190,14 @@ border-radius:100px;
 .mine li{
   height:50px;
   margin-left:-20%;
-  margin-top:0%;
+  margin-top:5%;
+
+
+}
+
+.mine ul{
+  
+  margin-top:5%;
 
 
 }
@@ -231,11 +239,11 @@ border-radius:100px;
  >
 
 
- <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation" style="background-color:black" > 
+ <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation" style="background-color:white" > 
         <div class="container">
             
             <a class="navbar-brand" href="/" 
-            style="font-family:trench;font-size:4.8vw;color:white;background-color:;margin-top:px;" >
+            style="font-family:trench;font-size:4.8vw;color:black;background-color:;margin-top:px;" >
                 AfriBelle
             </a>
             
@@ -285,28 +293,28 @@ border-radius:100px;
 
 
                     <li class="getBlack">
-                       <a  href="/">Acceuil</a>
+                       <a  href="/" style="color:black">Acceuil</a>
                     </li>
                    
                   
                     
                      <li ng-hide="isAuthen">
-                       <a  href="/authen">S'inscrire /Se connecter</a>
+                       <a  href="/authen" style="color:black">S'inscrire /Se connecter</a>
                     </li>
                     <li ng-show="isAuthen">
-                        <a ng-click="logout()">Se déconnecter</a>
+                        <a ng-click="logout()" style="color:black">Se déconnecter</a>
                     </li>
                     <li ng-show="isAuthen">
-                        <a style="font-size:20px">Bienvenue {{user.local.username}} {{user.facebook.name}}</a> 
+                        <a style="font-size:20px" style="color:black">Bienvenue {{user.local.username}} {{user.facebook.name}}</a> 
 
                     </li>
 
                      <li ng-show="isAuthen">
-                        <a href="/profile"><span class="glyphicon glyphicon-user" style="color:white;font-size:17px"> Profile</a>
+                        <a href="/profile" style="color:black"><span class="glyphicon glyphicon-user" style="font-size:17px"> Profile</a>
                     </li>
 
                      <li class="">
-                                <a href="/panier" class="frontLinks" style="background-color:;color:white">
+                                <a href="/panier" class="frontLinks" style="background-color:;color:black">
                                   <span style="font-size:17px" class="glyphicon glyphicon-shopping-cart"></span>
                                   <sup class="">{{panier.length}}</sup>
                                 </a>
@@ -334,15 +342,15 @@ border-radius:100px;
 
               
 
-                    <li class="" style="background-color:#ff1844">
-                        <h2 style="color:white">
+                    <li class="" style="background-color:black">
+                        <h2 >
                           <a href="/boutiques" >
                         
-                          <center> Boutiques </br> </center>
+                          <center style="color:white"> Boutiques </br> </center>
 
                         </a></h2>
                     </li>
-                    <li style="background-color:#F87117;color:black">
+                    <li style="background-color:#ff1844;color:black">
                         <h2 style="color:black">
                           <a href="/soinsducorps" >
                        
@@ -352,31 +360,31 @@ border-radius:100px;
 
                         </center></a></h2>
                     </li>
-                    <li style="background-color:#ADC607">
+                    <li style="background-color:#F87117">
                         <h2 >
                           <a href="/soinsdescheuveux" style="background-color:">
                            
-                            <center style="">Cheveux</br>               
+                            <center style="">Cheveux </br>               
                           </center>  
                           </a>
 
                         </h2>
                     </li>
-                    <li style="background-color:#757D75">
+                    <li style="background-color:#ADC607">
                         <h2 style="color:">
                           <a href="/visageetmaquillage" style="background-color:">
                             
-                            <center>Maquillage</center>
+                            <center>Maquillage </center>
                           </a></h2>
                     </li>  
-                    <li style="background-color:#ED4938">
+                    <li style="background-color:#757D75">
                         <h2 style="color:black">
                           <a href="/parfums" style="background-color:">
                        
                             <center>
-                            Parfums</center></a></h2>
+                            Parfums </center></a></h2>
                     </li>
-                     <li style="background-color:#ff1844">
+                     <li style="background-color:#ED4938">
                         <h2 style="color:black">
 
                           <a href="/accessoires" style="background-color:">
@@ -384,14 +392,14 @@ border-radius:100px;
                             <center>Accéssoires
                           </center></a></h2>
                     </li>
-                    <li style="background-color:">
-                        <h3 >
+                    <li style="background-color:white">
+                        <h2 >
 
                           <a href="/panier" style="background-color:">
 
                             <center style="color:black">Panier
                            <span class="glyphicon glyphicon-shopping-cart" style="30vw" >
-                          </center></a></h3>
+                          </center></a></h2>
                     </li>
 
                 </ul>
@@ -598,6 +606,7 @@ addToHomescreen();
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
+        //#ADC607#ED4938#F87117#757D75
         </script>
 
 </body>
