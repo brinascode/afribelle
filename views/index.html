@@ -136,9 +136,6 @@ a:hover {
     color:black;
 }
 
-
-
-
 .roundBlocks{
 
 border-right: 5px solid #000;
@@ -434,39 +431,39 @@ border-radius:100px;
                                      <!--- Collapsed navbar -->
                                     <div  data-toggle="collapse" ng-hide="navBarHide" class=" navbar-toggle btn btn-block row" style="background-color:white;border:none;margin-left:30px" id="#phoneBar" >
                                   
-                                         <button class="btn btn-default col-xs-6"  style="background-color:#ff1844;color:white;border:none">
+                                         <button class="btn btn-default col-xs-6"  style="background-color:#ff1844;color:white;border:none" >
                                           
-                                          <a href="/" class="frontLinks" >Acceuil</a>
+                                          <a href="/" class="frontLinks" ng-click="navBarToggle()">Acceuil</a>
                                         </button>
                                        
                                        <button class="btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
                                           
-                                          <a href="/boutiques" class="frontLinks" > Boutiques</a>
+                                          <a href="/boutiques" class="frontLinks" ng-click="navBarToggle()"> Boutiques</a>
                                         </button>
                                        
                                        <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                          <a href="soinsducorps" class="frontLinks" >Corps</a>
+                                          <a href="soinsducorps" class="frontLinks" ng-click="navBarToggle()">Corps</a>
                                        </button>
 
                                         <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                           <a href="soinsdescheuveux" class="frontLinks" >Cheveux</a>
+                                           <a href="soinsdescheuveux" class="frontLinks" ng-click="navBarToggle()">Cheveux</a>
                                         </button>
 
                                         <button class="frontLinks btn btn-default col-xs-6" style="color:white;background-color:#ff1844;border:none">
-                                          <a href="visageetmaquillage" class="frontLinks" >Visage
+                                          <a href="visageetmaquillage" class="frontLinks" ng-click="navBarToggle()">Visage
                                           </a>
                                         </button>
 
                                         <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                          <a href="parfums" class="frontLinks" >Parfums</a>
+                                          <a href="parfums" class="frontLinks" ng-click="navBarToggle()">Parfums</a>
                                         </button>
 
                                         <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                         <a href="accessoires" class="frontLinks" >Accéssoires</a>
+                                         <a href="accessoires" class="frontLinks" ng-click="navBarToggle()">Accéssoires</a>
                                         </button>
 
                                         <button class="frontLinks btn btn-default col-xs-6" style="background-color:#ff1844;color:white;border:none">
-                                          <a href="/panier" class="frontLinks" >
+                                          <a href="/panier" class="frontLinks" ng-click="navBarToggle()">
                                             <span style="font-size:17px" class="glyphicon glyphicon-shopping-cart"></span>
                                             <sup class="">{{panier.length}}</sup>
                                           </a>

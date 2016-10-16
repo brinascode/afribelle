@@ -19,13 +19,13 @@
                 ng-style="{'width':'{{vitrinePic.width}}','margin-top':'-20px'}"> 
              
 
-                <h1 style="font-size:px;font-family:trench;color:black">
-                {{pageTitle}} 
+                <h1 style="font-size:px;font-family:trench;color:black;margin-top:-0%">
+                {{pageTitle}} <span class="glyphicon glyphicon-arrow-down"></span>
                  </h1> </br>
 
-                   <strong>Pour plus de détails, cliquez sur l'article </strong> </br> 
+                   
                 <h3>
-                 <span class="glyphicon glyphicon-arrow-down"></span>
+              
                  </h3>
                
               
@@ -41,9 +41,14 @@
 
     <div class="row" ng-show="produitFilter">
            <center> <H1>  {{noProduits}}  </H1>    </center> 
-           <center> <H2>  {{loadingScreen}}      </H2>  </center> 
-                </br>     
-                <div ng-repeat="produit in produits track by $index" >
+           <center> <H2>  {{loadingScreen}}</H2>  </br> 
+                <strong>Pour plus de détails, cliquez sur l'article </strong> </br> 
+            </center> 
+
+           </br>     
+                
+
+                <div ng-repeat="produit in produits track by $index" style="margin-top:-10%">
                      
 
                      <div class="col-md-6 col-xs-6 well "  > 
