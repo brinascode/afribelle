@@ -48,10 +48,31 @@
                                     <strong> Quantité Disponible: </strong> 
                                     {{produit.quantiteDisponible}}</br></br></br>
 
+                                    <strong>Teintes/Couleurs disponibles: </strong>
+                                    <ul style="list-style-type:none;" class="row">
+
+                                         <div class="col-xs-2" 
+                                        ng-repeat="color in produit.colorCodes track by $index">
+                                        
+                                            <li  
+                                            ng-style=
+                                            "{'background-color':produit.colorCodes[$index],
+                                            'border-radius':'100px', 'width':'30px', 'height':'30px'}" 
+                                            ng-click="removeColor($index)">
+                                                <h3>
+                                                    <center style="margin-top:10px;color:black">{{$index + 1}} 
+                                                    </center>
+                                                </h3>
+                                            </li>
+                                        </div>
+                                    </ul>
+
                                   <strong>Livraison:</strong></br>
                                    La livraison est gratuite pour: {{produit.livraison.gratuite}}</br>
                                    La livraison est payante à {{produit.livraison.payantePrix}}F pour :
                                     {{produit.livraison.payanteLieux}}
+
+
                                    
 
                                     

@@ -1,0 +1,225 @@
+
+<div class="container">
+
+	<h3> <a href="/profile"><span class="glyphicon glyphicon-arrow-left"></span> 
+		Profile</a></h3>
+	<div class="row">
+		<center><h2>Admin Page!</h2></center></br>
+
+		{{allBoutiques}}</br>
+
+
+
+
+
+
+		<input type="text" ng-model="boutiqueId"></input>
+		<button class="btn btn-default" ng-click="getMesProduits2()">Find products</button>
+
+
+			<!--- Modifier le produit (sans images)-->
+		    <div class="row">
+		    	
+		    		<div class="well col-lg-6" ng-show="modifSection">
+		    		<h2>Modifier</h2>
+			    			<center>
+						    	<button class="btn btn-sm btn-danger" 
+								ng-click="hideModifSection()">
+								Fermer</button>
+							</center>
+							
+							<h3>
+							<strong>Nom:</strong>
+							<input type="text" class="form-control" ng-model="modifying.nom"/>
+							</h3>
+
+							<h3>
+							<strong>Catégorie</strong>
+							
+										<select class="form-control" ng-model="modifying.type" placeholder='Type' required>
+											<option>soinsducorps</option>
+											<option>soinsdescheuveux</option>
+											<option>visageetmaquillage</option>
+											<option>parfums</option>
+											<option>accessoires</option>
+										</select>
+									
+							
+							
+							<h3>
+							<strong>Prix</strong>
+							<input type="number" class="form-control" ng-model="modifying.prix"/>
+							</br>
+							</h3>
+							
+
+
+							<h3>
+							<strong>Déscription</strong>
+							<textarea type="text" class="form-control" ng-model="modifying.details"></textarea>
+						    </br>
+							</h3>
+
+							<h3>
+								<strong>Couleurs/Teintes Disponibles</strong></br>
+								<p>Cliquez sur une couleur pour l'éffacer</p>
+								
+								<!-- Color list-->
+								<div>
+									
+									<ul style="list-style-type:none;">
+										<li ng-repeat="color in modifying.colorCodes 
+										track by $index" 
+										ng-style=
+										"{'background-color':modifying.colorCodes[$index],
+										'border-radius':'100px', 'width':'30px', 'height':'30px'}" 
+										ng-click="removeColor($index)">
+											 <center style="margin-top:10px;color:black">{{$index + 1}} </center>
+										</li>
+									</ul>
+									
+								</div> 
+								
+								<!-- Add color here-->
+								<input type="color" class="form-control" 
+									ng-model="colorPicked" />
+								<button class="btn" ng-click="addColor($index)">
+										Ajouter!
+								</button>
+									
+								
+							</h3>
+
+							<h3>
+							<label>Quantité Disponible
+										<input type="number" placeholder="Quantité disponible" class="form-control" ng-model="nouveauProduit.quantiteDisponible" required />
+									</label>
+									</h3>
+									
+							
+							
+							<p class="alert alert-warning">{{modifMessage}}</p>
+
+							<button class="btn btn-danger btn-block pinkButton" 
+							ng-click="modifyProduitPost()">
+							Enregistrer</button></br>
+							
+
+							 <!--- Les images mtn-->	
+							 <h3 class="">
+								 <center>
+								 <span class="glyphicon glyphicon-camera"></span>
+								 Les images
+								</center>
+							</h3>
+							</br>
+
+							 <strong>Les images de cet article </strong> </br>
+							(Cliquez sur une image pour la mettre en photo principale):</br>
+							</br>
+							 <span ng-repeat="imgUrl in modifying.imageUrls">
+								 <img ng-src="{{imgUrl}}" width="20%" 
+								  ng-click="newMainImage($index)" />
+								
+								</br>
+								<button class="btn btn-xs btn-danger" 
+								ng-click="effacerImage($index)"> Effacer </button>
+								</br></br>
+							</span> </br></br>
+						
+							<strong>La photo principale est </strong></br> 
+							(Cliquez sur une image ci dessus pour la mettre en photo principale): </br>
+							 <img ng-src="{{modifying.mainImageUrl}}" width="20%" /></br></br>
+							  
+							 Ajouter une image</br>
+							 <form id="ajouterImage">
+					  			<input type="file"  class="form-control"/></br>
+					  			<button type="submit" class="btn pinkButton"
+					  			 ng-click="ajouterImage()" ng-hide="imageDone">Ajouter! 
+					  			</button>
+							</form>  
+							{{imageMessage}}
+
+
+    					</div>
+
+		        </div>
+					
+
+
+
+
+
+
+
+
+
+
+
+
+		 <!--- Deja en ligne -->
+			<div class="container">
+				<h3>Mes articles déja en ligne ({{mesProduits.length}}) </h3>
+				
+
+				<div class="row">
+					<div id="MesProduits" class="well col-xs-6" ng-repeat="produit in mesProduits"
+					style="width:">
+						
+						
+						
+
+						
+						
+						<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+							<img ng-src="{{produit.mainImageUrl}}" width="50%">
+					    </a>
+						<button class="jaime btn"> 
+		                    <span class="glyphicon glyphicon-heart" style="color:#ff1844;30vw"></span>
+		                    {{produit.votes.length}}
+		                </button> </br>
+						<a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+							<strong>
+							{{produit.nom}}
+							</strong>
+						</a>
+						</br> 
+						<strong>Ajouté le:</strong> {{ date|| produit.date }}</br>
+						<strong>Type: </strong> {{produit.type}}</br>
+						<strong>Prix: </strong>{{produit.prix}} FCFA</br>
+						<strong>Quantite Disponible:</strong> {{produit.quantiteDisponible}}</br>
+						<strong>Déscription: </strong>
+						<p style="overflow-x:scroll;overflow-y:scroll">
+						{{produit.details}}</p></br>
+
+						<strong>Teintes/Couleurs disponibles: </strong>
+						<ul style="list-style-type:none;">
+										<li ng-repeat="color in produit.colorCodes 
+										track by $index" 
+										ng-style=
+										"{'background-color':produit.colorCodes[$index],
+										'border-radius':'100px', 'width':'30px', 'height':'30px'}" 
+										ng-click="removeColor($index)">
+											<h3>
+												<center style="margin-top:10px;color:black">{{$index + 1}} 
+												</center>
+											</h3>
+										</li>
+						</ul>
+						
+
+						
+		                <button class="btn btn-default" ng-click="modifyProduit($index)"> Modifier </button> 
+						<button class="btn btn-danger btn-sm" ng-click="effacerProduit($index)">Supprimer ce produit
+						</button>
+
+						 
+					</div>
+				</div>
+			</div>
+			<!---End of produits--></br>
+
+
+			   
+
+	</div>

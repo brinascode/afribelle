@@ -58,6 +58,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Site icon
+app.use(favicon(path.join(__dirname, 'public', "images","icons",'siteIcon.ico')));
 
 
 // required for passport

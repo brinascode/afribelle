@@ -26,7 +26,8 @@ var userSchema = new Schema({
         name         : String
     },
     moreInfo         : { 
-        vendeur     : Boolean, //Everybody is false by default. I change the vendeurs to true.
+        vendeur     : Boolean,//Everybody is false by default. I change the vendeurs to true.
+        admin: Boolean,  
         numerosDeTelephone:Array,
         nomComplet :String,
         profilePic:String

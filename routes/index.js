@@ -7,6 +7,7 @@ var User = require("../models/user")
 var Commande = require("../models/commande")
 var Comment = require("../models/comment")
 var Boutique = require("../models/boutique")
+var errorHelper = require('mongoose-error-helper').errorHelper;
 
 //************************************Seller interactions*************
 
@@ -142,9 +143,6 @@ app.post("/ajouterProduit",function(req,res){
 
 
 
-
-
-
 //Les produits************
 
 //Modifying Produit
@@ -153,7 +151,7 @@ app.post("/modifyProduit",function(req,res){
 	Produit.find({_id:req.body._id},function(err,data){
 
 		if (err) throw err
-			console.log(req.body)
+			
 	  		//it cant save because the new object req.body doesnt have tht function?
 	  		var produit = data[0]
 	  		//Modification fields
@@ -162,6 +160,7 @@ app.post("/modifyProduit",function(req,res){
 	  		produit.prix = req.body.prix
 	  		produit.details = req.body.details
 	  	
+	  		
 	  	
 	  		produit.save(function(err,data){
 	  			if(err) throw err
@@ -176,6 +175,7 @@ app.post("/modifyProduit",function(req,res){
 	});
 
 })
+
 
 
 
@@ -222,6 +222,64 @@ app.post("/effacerProduit",function(req,res){
 	
 })
 
+
+//Adding colors:
+app.post("/addColor",function(req,res){
+	
+	Produit.find({_id:req.body.id},function(err,data){
+		if(err) throw err
+		var ans
+			
+		 var produit = data[0]
+		if(!produit.colorCodes){
+			produit.colorCodes = []
+			
+			produit.colorCodes.push(req.body.color) 
+			produit.save(function(err){
+			if (err) throw err
+				Produit.find({_id:req.body.id},function(err,data){
+					if(err) throw err
+					ans = data
+				})
+			})
+		}
+		else{
+			produit.colorCodes.push(req.body.color) 
+			produit.save(function(err){
+			if (err) throw err
+				Produit.find({_id:req.body.id},function(err,data){
+					if(err) throw err
+					ans = data
+				})
+			})
+
+		}
+
+		res.json(ans)
+		
+
+	})
+})
+
+app.post("/removeColor",function(req,res){
+	
+	Produit.find({_id:req.body.id},function(err,data){
+	 	var produit = data[0]
+	 	produit.colorCodes.splice(req.body.colorIndex,1)
+	 	produit.save(function(err){
+
+	 		if(err) throw err
+	 		Produit.find({_id:req.body.id},function(err,data){
+	 			if (err) throw err
+	 			res.json(data)
+	 		})
+	 	})
+
+		
+		
+
+	})
+})
 
 //Add image to product:
 app.post("/addImage",function(req,res){
@@ -476,7 +534,8 @@ app.post("/postComment",function(req,res){
 app.post("/nouvelleCommande",function(req,res){
 
 var commande = new Commande(req.body)
-
+//commande.set('validateBeforeSave', false);
+	//Since its complex to add arrays
 	//Adding livraison of item ordered
 	Boutique.find({_id:req.body.boutiqueId},function(err,data){
 		if(err) throw err
@@ -490,8 +549,7 @@ var commande = new Commande(req.body)
 			commande.vendeurContacts = data[0].moreInfo.numerosDeTelephone
 		
 			commande.save(function(err){
-				if(err) throw err
-
+				if(err) console.log(err)
 				res.json({ans:"Good"})
 
 			})
@@ -546,59 +604,47 @@ app.post("/deliveryConfirmed",function(req,res){
 })
 
 
+//Admin stuff
 
-/*/Fix
-app.get("/quickfix",function(req,res){
+app.get("/getAllProduits",function(req,res){
 
 	Produit.find({},function(err,data){
-		if (err) throw err
-		var end = 0
-		var stuff=[]
-	  
-
-	    for(var i=0;i<data.length;i++){
-	    	var produit = data[i]
-
-	    	if(!produit.livraison){
-	    	 	//var id = parseInt(produit.boutiqueId)
-	    	 	//Couldnt parse int cause it wasnt fully numbers! 
-	    	 	//cant use the boutique id cause its a string and boutique will need the REAL id
-	    		//I cant do this dataB[i] cause im already in the loop! and the search will happen once!
-	    		Boutique.find({vendeurId:produit.vendeurId},function(err,dataB){
-	    			
-	    			if(!dataB[0]){
-		    				
-
-	    			}
-	    			else{
-	    				produit.livraison = dataB[0].livraison
-	    				console.log(dataB[0].livraison)
-	    				console.log(produit.livraison)
-		    			produit.save(function(err){
-		    				if(err) throw err
-		    			})
-		    			stuff.push(produit)
-	    			}
-	    			
-	    		})
-	    	}
-	    }
-		
-		res.json(stuff)
-			
-				
-			
-		})
-
-			
-
-
-
-
-	
+		if(err) throw err
+		res.json(data)
+	})
 })
 
-*/
+
+
+app.get("/getAllBoutiques",function(req,res){
+
+	Boutique.find({},function(err,data){
+		if(err) throw err
+		res.json(data)
+	})
+})
+
+app.post("/mesProduits2",function(req,res){
+	Produit.find({boutiqueId:req.body.id},function(err,data){
+		if (err) throw err
+		res.json(data)
+	})
+})
+
+
+
+
+/* var errorHelper = require('mongoose-error-helper').errorHelper;
+
+
+function (req, res, next) {
+    //generate `user` here
+    user.save(function (err) {
+        //If we have an error, call the helper, return, and pass it `next`
+        //to pass the "user-friendly" errors to
+        if (err) return errorHelper(err, next);
+    }
+}*/
 
 
 

@@ -7,19 +7,11 @@ var mongoose = require("mongoose")
 
 //***************************Authentication*******************
 // Local Signup
-   app.post("/signup", passport.authenticate('local-signup'),function(req,res){
+   app.post("/signup", passport.authenticate('local-signup'))
+// Local Login
 
-                res.redirect("*");
-                
-            }
-    )
+    app.post("/login",passport.authenticate('local-login'))
 
-// Local Signup
-    app.post("/login", passport.authenticate('local-login'),function(req,res){
-            
-            res.redirect("*");
-    }
-)
 // FACEBOOK ROUTES
     
     //facebook authentication and login
@@ -49,25 +41,11 @@ var mongoose = require("mongoose")
                     failureRedirect : '/'
             }));
 
-
-
-
-
-
-
-
-
-
-
-
-
 // LOGOUT
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });
-
-
 
 //*******************************Sending to services***********
 // PROFILE SECTION
@@ -175,9 +153,6 @@ app.post("/changeAvatar",function(req,res){
     })
 
 })
-
-
-
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {

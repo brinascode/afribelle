@@ -57,6 +57,9 @@ templateUrl:"templates/acceuille.html"
 .when("/panier",{
 	controller:"Panier",
 	templateUrl:"templates/panier.html"
+}).when("/aide",{
+  controller:"Aide",
+  templateUrl:"templates/aide.html"
 }).
 when("/produit/:id",{  //Fix this later!!
 	controller:"produit",
@@ -127,6 +130,12 @@ when("/boutique/:id",{  //Fix naming later!!
 	controller:"userCommandes",
 	templateUrl:"templates/userCommandes.html"
 })
+
+.when("/adminPage",{
+  controller:"adminPage",
+  templateUrl:"templates/adminPage.html"
+})
+
 
 
 

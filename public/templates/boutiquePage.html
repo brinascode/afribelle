@@ -37,7 +37,7 @@ Payante à {{boutique[0].livraison.payantePrix}} FCFA pour {{boutique[0].livrais
                        <div class="well"> 
                           <center>
                           <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
-                              <h3 style="font-family:serif">
+                              <h3 >
                                   {{produit.nom}}
                               </h3>
                                 <sub><strong>{{produit.prix}} FCFA </strong></sub></br>
@@ -45,13 +45,34 @@ Payante à {{boutique[0].livraison.payantePrix}} FCFA pour {{boutique[0].livrais
                               </br>
                               <img ng-src="{{produit.mainImageUrl}}" alt="Image de l'article en charge. Si ce message persiste, veuillez rafraichir la page ou vérifier que votre connection à internet fonctionne correctement." width="50%"  /></br>
 
-                           </a>
+                           </a> </br>
+
+                           <strong>Teintes/Couleurs disponibles: </strong>
+                                    <ul style="list-style-type:none;" class="row">
+
+                                         <div class="col-xs-2" 
+                                        ng-repeat="color in produit.colorCodes track by $index">
+                                        
+                                            <li  
+                                            ng-style=
+                                            "{'background-color':produit.colorCodes[$index],
+                                            'border-radius':'100px', 'width':'30px', 'height':'30px'}" 
+                                            ng-click="removeColor($index)">
+                                                <h3>
+                                                    <center style="margin-top:10px;color:black">{{$index + 1}} 
+                                                    </center>
+                                                </h3>
+                                            </li>
+                                        </div>
+                                    </ul>
 
                        
                           
                            <strong>Déscription: </strong>
                               <p style='overflow-y:scroll'>{{produit.details}}</p> </br>
                                <strong> Quantité Disponible: </strong> {{produit.quantiteDisponible}}</br>
+
+
                            <strong>Livraison:</strong></br>
 
                               Gratuite pour : {{produit.livraison.gratuite}}</br>

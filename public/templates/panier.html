@@ -7,34 +7,29 @@
 
 	</br>
 
-
-
-
-
 	<div class="row"> 
+		<div class="row">
 
-		<div class="col-xs-12 col-md-4">
-			<strong>1. Ajoutez des articles à votre panier</strong>
-			
-		</div></br>
 
-		<div class="col-xs-12 col-md-4">
-			<strong>2. Pour chaque article, sélectionnez votre type de 
-			livraison en fonction de l'endroit ou votre article sera livré.</strong>
-		</div></br>
+			<div class="col-xs-12 col-md-3" >
+				
+				<center></br></br>
+					<strong >1.Sélectionnez votre type de 
+					livraison pour chaque article. Si l'article propose différentes couleurs faites également votre choix.
+					</strong>
+				</center>
+			</div></br>
 
-		<div class="col-xs-12 col-md-4">
-			<strong>4. Inscrivez/Connectez vous</br></strong>
-		</div></br>
+			<div class="col-xs-12 col-md-3" >
+				<center><strong>2. Inscrivez/Connectez vous et mettez à jour vos informations personnelles en cliquant 
+				<a href="/userInfo" style="color:red">ICI</a></br></strong>
+				</center>
+			</div></br>
 
-		<div class="col-xs-12 col-md-4">
-			<strong>5. Mettez à jour vos informations personnelles en cliquant <a href="/userInfo" style="color:red">ICI</a> </br></strong>
-		</div></br>
-
-		<div class="col-xs-12 col-md-4">
-			<strong>6. Confirmez votre commande! </br></strong>
-		</div></br>
-
+			<div class="col-xs-12 col-md-3" >
+				<center><strong>3. Confirmez votre commande! </br></strong></center>
+			</div></br>
+		</div>
 
 
 	</br></br></br>
@@ -69,7 +64,30 @@
 			<strong>Quantité: </strong>
 			<input type="number" class="form-control" ng-model="produit.quantite"/>
 			<strong>Prix de l'article :</strong> {{produit.prix * produit.quantite}} </br>
+
+			<strong>Couleurs disponibles: </strong>
+			<p>Clique sur une couleur pour la commander/ décommander </p>
 			
+			<ul style="list-style-type:none;" class="row">
+                                    <div ng-repeat="color in produit.colorCodes 
+                                        track by $index" class="col-xs-2">    
+                                        <li 
+                                        ng-style=
+                                        "{'background-color':produit.colorCodes[$index],
+                                        'border-radius':'100%', 'width':'30px', 'height':'30px','position':'inline'}" 
+                                         ng-click="chooseColor($parent.$index,$index)">
+                                           <h3>
+                                                <center style="margin-top:10px;color:black">{{$index + 1}} 
+                                                </center>
+                                            </h3> 
+                                      	
+
+                                            
+                                        </li>
+                                    </div>
+       
+            </ul>
+            <strong> Couleur(s) choisie(s):</strong> {{produit.colorChoice}}</br> 
 
 			<strong>La livraison est:</strong></br>
 

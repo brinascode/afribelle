@@ -19,18 +19,27 @@ return {
 						//Logged in== proceed
 							if($scope.user.moreInfo.numerosDeTelephone.length != 0 && $scope.user.moreInfo.nomComplet != undefined)
 							{ //Goes through all items in cart to make a commande
-								var date = new Date().toLocaleDateString()
+								var date = [new Date()]
+								date = date.toString() //So it makes it easy to save and later we can
+												//unstringify for analytics purposes! But it comes out clean -- how??
 								for(var i=0;i<$scope.panier.length;i++){
 										
-										if($scope.panier[i].livraisonType != null)
+										if($scope.panier[i].livraisonType != null )
 										{
-									
-										
+											if(!$scope.panier[i].colorChoice || $scope.panier[i].colorChoice.length==0){
+													$scope.panier[i].colorChoice = ["Aucune couleur spécifiée"].toString()
+
+											}else{
+												//We make the color choice into a string rather than array
+											$scope.panier[i].colorChoice = $scope.panier[i].colorChoice.toString()
+											}
+											
+											
 											var commande = 	{  
 							 					
 												acheteurId:$scope.user._id,
 												acheteur:$scope.user.moreInfo.nomComplet,
-												acheteurContacts:$scope.user.moreInfo.numerosDeTelephone[0],
+												acheteurContacts:$scope.user.moreInfo.numerosDeTelephone[0], //fix
 												date:date,
 												vendeur:$scope.panier[i].vendeur,
 												vendeurId:$scope.panier[i].vendeurId,
@@ -39,7 +48,11 @@ return {
 												produitNom:$scope.panier[i].nom,
 												quantite:$scope.panier[i].quantite,
 												prix:$scope.panier[i].prix,
-												thisLivraison:$scope.panier[i].livraisonType
+												thisLivraison:$scope.panier[i].livraisonType,
+								                //Should i put color codes as well?
+												colorChoice:$scope.panier[i].colorChoice
+
+
 												//livraison is the entire livraison policy of boutique
 										       
 												}
@@ -52,7 +65,7 @@ return {
 
 										}
 										else{
-											alert("Chère cliente, avant de passer votre commande, vous devez choisir un type de livraion pour tout vos articles.")
+											alert("Chère cliente, avant de passer votre commande, vous devez choisir un type de livraison pour tout vos articles.")
 										}
 								}
 							}
@@ -65,7 +78,7 @@ return {
 					else
 					{
 						//Not logged in
-						alert("Chère cliente, avant de passer votre commande, vous devez vous inscrire ou vous connecter. Vous devez également choisir un type de livraion pour tout vos articles. Tout vos articles "+
+						alert("Chère cliente, avant de passer votre commande, vous devez vous inscrire ou vous connecter. Vous devez également choisir un type de livrasion pour tout vos articles. Tout vos articles "+
 							"resteront dans le panier!")
 						$location.url("/authen")
 					}

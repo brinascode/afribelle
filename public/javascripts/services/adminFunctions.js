@@ -1,11 +1,39 @@
-app.factory("sellerFunctions",["$http","$window","$location",function($http,$window,$location){
+app.factory("adminFunctions",["$http","$window","$location",function($http,$window,$location){
 
 return {
+
+
+
+		getAllProduits : function($scope){
+				$http.get("/getAllProduits").success(function(data){
+					
+					$scope.allProduits= data//Data is array now
+					
+				})
+				
+
+
+
+
+		},
+
+		getAllBoutiques : function($scope){
+				$http.get("/getAllBoutiques").success(function(data){
+					
+					$scope.allBoutiques= data//Data is array now
+					
+				})
+				
+
+		},
+
+
+
 
 		createBoutique: function($scope,boutique){
 				$http.post("/createBoutique",boutique).success(function(data){
 					console.log(data)
-					$scope.mesBoutiques= data //Data is array now
+					$scope.mesBoutiques= data//Data is array now
 					$scope.showBoutiqueSection = false
 				})
 				
@@ -64,17 +92,20 @@ return {
         },
 
 
-		getMesProduits : function($scope){
+		getMesProduits2 : function($scope,id){
 					$scope.loadingMessage = "En charge ..."
 		        	$scope.isLoading = true
+		        	//My Id will be the boutique's id
 				
-					$http.get("/mesproduits").success(function(data){
-					$scope.mesProduits = data
-					
-					$scope.mesProduits.reverse()
+					$http.post("/mesproduits2",{id:id}).success(function(data){
+						$scope.mesProduits = data
+						
+						$scope.mesProduits.reverse()
 
-					$scope.loadingMessage = ""
-        			$scope.isLoading = false
+						$scope.loadingMessage = ""
+	        			$scope.isLoading = false
+
+	        			console.log($scope.mesProduits)
 					
 				
 					
@@ -137,6 +168,26 @@ return {
 			}
 
 			
+		},
+		addColor: function($scope,postObject,$index){
+
+				$http.post("/addColor",postObject)
+					.success(function(data){
+
+								$scope.mesProduits[$index] = data[0]
+								
+			    	})
+
+		},
+		removeColor: function($scope,postObject,$index){
+
+				$http.post("/removeColor",postObject)
+					.success(function(data){
+
+								$scope.mesProduits[$index] = data[0]
+								
+			    	})
+
 		},
 
 		ajouterImage: function($scope){

@@ -1,40 +1,7 @@
  <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
 
 
-//Go through every produit
-    for(var i=0;i<=data.length;i++){
-      
-      //the loop will run b4 res is given!!!!
-      //your real id is a num, not a string!
 
-      //look for boutique
-      var produit = data[i] 
-
-      if(produit) {
-
-          Boutique.find({_id:produit.boutiqueId},function(err,dataB){
-            if (err) throw err
-              
-              if(dataB.length != 0) {
-                produit.livraison = dataB[0].livraison
-
-                produit.save(function(err){
-                if(err) throw err
-
-                  
-
-                })
-              }
-                else{
-                res.json({hey:"hi"})
-                }
-
-              
-          })
-
-      }else{
-        res.json({hi:"j"})
-      }
 
 
 db.boutiques.update({nom:"KASSA & MADIYA beauty shop"},{$set:{"nom":"KASSA.MARKEL & beauté"}})
@@ -47,27 +14,84 @@ for(var i=0;i<db.produits.find({boutique:"KASSA & MADIYA beauty shop"}).length;i
  db.produits.find({boutique:"KASSA & MADIYA beauty shop"})[i].livraison = db.boutiques.find({nom:"KASSA & MADIYA beauty shop"})
 }
 
-db.commandes.find({})
+For mongo console
+mongo ,,then
+use mymgis
+
+make em order with couleurs
+//colors validation
+//do first then validate!
+is there a problem with ordering with local 
+
+Mongoose Validation error on commande resolved!!
+It was with the dates
+I did new Date().toLocaleDateString(), but in the Schema put date:Date
+What I was really saving was a String() and not a date!!!!!!
+
+
+
+
+splice is gonna return the removed items! 
+like var hey = bbbb.splice()
+
+you can only track by this $index, and not make up your own tracker $index2
+So if you're dealing with a nested ng-repeat
+ng-click="chooseColor($parent.$index,$index)">
+
+<div ng-style=
+                  "{'background-color':modifying.colorCodes[$index],'margin-top':'px'}">
+                   HEEY
+                  </div>
+The modifying.colorCodes[$index] etc is not in '' cause its already a string and has quotes attached already
+
+
+
+
+db.users.find().pretty()
 "google.email":"Armanda.Ahoua@gmail.com"
-db..remove({})
 
-db.commandes.find({})
+db.produits.remove({
+  nom:"Gloss kylie jenner"
+})
 
-db.users.update(
-    {"google.name":"oceane blue"},
+db.usercollection.find()
+
+db.produits.update(
+    {"boutiqueId":"57bc0f4e69a51711008aecc2"},
     {
-      $set: { "moreInfo.vendeur": "true"},
-     
-   
-    }
+      $set: { "type": "random"
+              }
 
- 
+   
+    },
+    {multi: true}
+     
 )
+
+<div ng-repeat="color in modifying.colorCodes">
+                  Couleur:
+                  <input type="color" class="form-control" 
+                  ng-model="colorPicked" />
+                  <button class="btn" ng-click="addColor($index)">Ajouter!</button>
+                    </br>
+                 
+                  </div>
+//make myself local admin
+//when done, immediately erase!!!
+
+
+//mongo cant save arrays?? Stringify!!!
+//Colors are saved as strings!!
 
  { multi: true}
 db.users.find({"google.email":"armandeafribelle@gmail.com"})
 
 *plain theme
+//Error screens for real app
+//stop unauthorized access to admin page
+
+//the k=local credentials to sign up as them is only a temporary fix
+//later develop clean admin interface
 
 
 **type modification = not text

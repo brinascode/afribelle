@@ -99,6 +99,7 @@ return {
 		if($scope.produit){ 
 			
 			 $scope.produits = $scope.produit
+			 //$scope.produits[$index].colorChoice = []  //For color choice On hold
 		}
 
 
@@ -114,15 +115,16 @@ return {
 			
 		}
 		
-		//If proceed is not 1, meaning product is not in basket:
+		//If proceed is not 1, meaning product is not in basket, then we can add it:
 		if(proceed < 1){
 			$scope.produits[$index].quantite = 1  //Setting generic quantity value
+			//$scope.produits[$index].colorChoice = []  //For color choice
 			$scope.panier.push($scope.produits[$index])
 
 
-			//Le total de la commande: (takes from diff scopes, all are fed from acceuille controller)
+			/*Le total de la commande not working: (takes from diff scopes, all are fed from acceuille controller)
 			$scope.$parent.panierDetails.totalCommande += parseInt($scope.produits[$index].prix)
-			console.log($scope.$parent.panierDetails.totalCommande)
+			console.log($scope.$parent.panierDetails.totalCommande) */
 
 			//Add to session storage: (sessionStorage can only hold Strings remember?)
 			sessionStorage.panier = JSON.stringify($scope.panier)
