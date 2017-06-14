@@ -19,7 +19,7 @@ var uriG = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribe
 var uri4 = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribelle?connectWithNoPrimary=true"
 //4 is real
 //for mongo shell: mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
-mongoose.connect(uri4, {
+mongoose.connect(uri3, {
     replset: {
       connectWithNoPrimary:true,
       auto_reconnect: true,

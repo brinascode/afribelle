@@ -43,15 +43,15 @@ ng-click="chooseColor($parent.$index,$index)">
                    HEEY
                   </div>
 The modifying.colorCodes[$index] etc is not in '' cause its already a string and has quotes attached already
-
+mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
 
 
 
 db.users.find().pretty()
 "google.email":"Armanda.Ahoua@gmail.com"
 
-db.produits.remove({
-  nom:"Gloss kylie jenner"
+db.commandes.remove({
+  "deliveryConfirmed":true
 })
 
 db.usercollection.find()
