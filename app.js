@@ -12,30 +12,34 @@ var mongoose = require("mongoose")
 
 
 var MongoClient = require('mongodb').MongoClient;
-var uri  = "mongodb://sabrinakoumoin:abidjan54@cluster0-shard-00-00-z9s7w.mongodb.net:27017,cluster0-shard-00-01-z9s7w.mongodb.net:27017,cluster0-shard-00-02-z9s7w.mongodb.net:27017/authSource=Admin&ssl=true&replicaSet=Cluster0-shard-0"
+var uri = "mongodb://sabrinakoumoin:abidjan54@cluster0-shard-00-00-z9s7w.mongodb.net:27017,cluster0-shard-00-01-z9s7w.mongodb.net:27017,cluster0-shard-00-02-z9s7w.mongodb.net:27017/authSource=Admin&ssl=true&replicaSet=Cluster0-shard-0"
 var uri2 = "mongodb://sabrinakoumoin:abidjan54@ds051960.mlab.com:51960/bintoudb"
 var uri3 = "mongodb://127.0.0.1/27017/mymgis"
 var uriG = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribelle?replicaSet=rs-ds155405&connectWithNoPrimary=true"
 var uri4 = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribelle?connectWithNoPrimary=true"
-//4 is real
-//for mongo shell: mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
-mongoose.connect(uri3, {
-    replset: {
-      connectWithNoPrimary:true,
-      auto_reconnect: true,
-      ssl: true,
-      sslValidate: false
-   
-    }
-  }, function(err) {
+var uriHeroku = "mongodb://sabrinakoumoinheroku:abidjan54@ds115045.mlab.com:15045/heroku_4qzjpfcx"
+var afribelle = "mongodb://sabrinakoumoin:abidjan54@ds127132.mlab.com:27132/afribelle2"
+    //mongodb://user:password@host:port/dbname?authSource=dbWithUserCredentials'
+    //4 is real
+    //for mongo shell: mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
+
+
+
+mongoose.connect(afribelle, {
+    socketTimeoutMS: 0,
+    keepAlive: true,
+    reconnectTries: 30,
+    useMongoClient: true
+
+
+}, function(err) {
     if (err) {
-      console.log(err);
-      process.exit();
+        console.log(err);
+        process.exit();
+    } else {
+        console.log("Everything is ok :D");
     }
-    else {
-      console.log("Everything is ok :D");
-    }
-  });
+});
 
 
 
@@ -59,12 +63,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Site icon
-app.use(favicon(path.join(__dirname, 'public', "images","icons",'siteIcon.ico')));
+app.use(favicon(path.join(__dirname, 'public', "images", "icons", 'siteIcon.ico')));
 
 
 // required for passport
-app.use(session({ secret: 'sabrinayes', resave: true,
-    saveUninitialized: true })); // session secret
+app.use(session({
+    secret: 'sabrinayes',
+    resave: true,
+    saveUninitialized: true
+})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
@@ -72,15 +79,15 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 
 //Routing
-var users = require('./routes/users')(app,passport);
+var users = require('./routes/users')(app, passport);
 var routes = require('./routes/index')(app)
 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handlers
@@ -88,23 +95,23 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
     });
-  });
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
 
 
