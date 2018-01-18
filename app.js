@@ -20,7 +20,7 @@ var uri4 = "mongodb://sabrinakoumoin:abidjan54@ds155405-a0.mlab.com:55405/afribe
 var uriHeroku = "mongodb://sabrinakoumoinheroku:abidjan54@ds115045.mlab.com:15045/heroku_4qzjpfcx"
 var afribelle = "mongodb://sabrinakoumoin:abidjan54@ds127132.mlab.com:27132/afribelle2"
     //mongodb://user:password@host:port/dbname?authSource=dbWithUserCredentials'
-    //4 is real
+    //4 is reall
     //for mongo shell: mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
 
 
