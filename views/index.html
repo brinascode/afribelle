@@ -226,6 +226,10 @@ border-radius:100px;
 
 }
 
+
+.goog-te-banner-frame{visibility:hidden !important;}
+#body-main{top:0px !important;}
+
 </style>
 
 
@@ -279,6 +283,15 @@ border-radius:100px;
                   </button>
                   </a>
 
+                  
+                      <!-->Google translate <-->
+                  <div id="google_translate_element"></div>
+                  <script type="text/javascript">
+                  function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+                  }
+                  </script>
+                  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
                   
 
@@ -500,14 +513,6 @@ border-radius:100px;
 
                      <div class="col-lg-12"> 
 
-                      <!-->Google translate <-->
-                  <div id="google_translate_element"></div>
-                  <script type="text/javascript">
-                  function googleTranslateElementInit() {
-                    new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
-                  }
-                  </script>
-                  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                          
                           <div ng-view> </div></br> 
                           
