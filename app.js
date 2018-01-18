@@ -22,11 +22,15 @@ var afribelle = "mongodb://sabrinakoumoin:abidjan54@ds127132.mlab.com:27132/afri
     //mongodb://user:password@host:port/dbname?authSource=dbWithUserCredentials'
     //4 is reall
     //for mongo shell: mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
+    //var db = mongoose.connect("mongodb://sabrinakoumoin:abidjan54@ds127132.mlab.com:27132/afribelle2")
 
-
-var db = mongoose.connect("mongodb://sabrinakoumoin:abidjan54@ds127132.mlab.com:27132/afribelle2")
-
-
+//Code solver right here  :)
+mongoose.Promise = global.Promise;
+mongoose.connect(uri2, {
+  keepAlive: true,
+  reconnectTries: Number.MAX_VALUE,
+  useMongoClient: true
+});
 
 
 //what to do if callbacks take too long?
