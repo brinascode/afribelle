@@ -24,7 +24,7 @@ var afribelle = "mongodb://sabrinakoumoin:abidjan54@ds127132.mlab.com:27132/afri
     //for mongo shell: mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
     //var db = mongoose.connect("mongodb://sabrinakoumoin:abidjan54@ds127132.mlab.com:27132/afribelle2")
 
-//Code solver right here  :)
+//Code solver right here  ::)
 mongoose.Promise = global.Promise;
 mongoose.connect(uri2, {
   keepAlive: true,
