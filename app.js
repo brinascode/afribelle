@@ -24,22 +24,7 @@ var afribelle = "mongodb://sabrinakoumoin:abidjan54@ds127132.mlab.com:27132/afri
     //for mongo shell: mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
 
 
-
-mongoose.connect(afribelle, {
-    socketTimeoutMS: 0,
-    keepAlive: true,
-    reconnectTries: 30,
-    useMongoClient: true
-
-
-}, function(err) {
-    if (err) {
-        console.log(err);
-        process.exit();
-    } else {
-        console.log("Everything is ok :D");
-    }
-});
+var db = mongoose.connect("mongodb://sabrinakoumoin:abidjan54@ds127132.mlab.com:27132/afribelle2")
 
 
 
